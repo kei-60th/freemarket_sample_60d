@@ -1,0 +1,20 @@
+.header
+  = image_tag "logo.svg"
+  %input.form-contol.seach-input{name: "keyword", placeholder: "何かお探しですか？"}
+
+  .navigation
+    .__leftside-bar
+    =link_to category 'カテゴリーから探す'
+    =link_to brand 'ブランドから探す'
+    =link_to mypage/like/history 'いいね一覧'
+    .__rightside-bar
+    =link_to mypage/like/notification 'お知らせ'
+    =link_to mypage/like/todolist 'やることリスト'
+    =link_to mypage/like/mypage 'マイページ'
+
+.itemlists
+    商品リスト
+.advertisement
+  画像
+.footer
+  グローバルナビ
