@@ -71,4 +71,5 @@ gem 'capistrano-bundler'
 gem 'capistrano-rails'
 gem 'capistrano3-unicorn'
 
+gem 'haml-rails'
 gem "font-awesome-rails"
