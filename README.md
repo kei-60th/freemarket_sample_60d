@@ -131,12 +131,6 @@ Things you may want to cover:
 |first_category_id|references|null: false, foreign_key: true|
 |second_category_id|references|null: false, foreign_key: true|
 |third_category_id|references|null: false, foreign_key: true|
-|size_id|references|foreign_key: true|
-|brand_id|references|foreign_key: true|
-|condition_id|references|null: false, foreign_key: true|
-|delivery_fee_id|references|null: false, foreign_key: true|
-|delivery_ways_id|references|null: false, foreign_key: true|
-|delivery_day_id|references|null: false, foreign_key: true|
 |order_status_id|
 
 ### Association
