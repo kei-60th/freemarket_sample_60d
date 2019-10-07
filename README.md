@@ -139,7 +139,7 @@ Things you may want to cover:
 - has_many :item_images
 - has_many :likes
 <!-- - has_many :comments -->
-- has_many :warning
+- has_many :warnings
 - has_many :message_users,through::messages,source::user
 - has_many :like_users,through::likes,source::user
 - has_many :warning_users,through::warnings,source::user
@@ -183,7 +183,7 @@ Things you may want to cover:
 
 - belongs_to :first_category
 - has_many :third_categories
-- has_many :itemes
+- has_many :items
 
 ## third_categories
 
@@ -225,7 +225,7 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :item
+- has_many :items
 
 ## conditionsテーブル
 
@@ -247,7 +247,7 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :items
+- belongs_to :item
 
 ## delivery_dates
 
@@ -258,7 +258,7 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :items
+- belongs_to :item
 
 ## delivery_ways
 
@@ -269,7 +269,7 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :items
+- belongs_to :item
 
 ## ordersテーブル
 
@@ -284,7 +284,7 @@ Things you may want to cover:
 
 - belongs_to :buyer, class_name:"user"
 - belongs_to :seller, class_name:"user"
-- belongs_to :items
+- belongs_to :item
 
 ## likesテーブル
 
@@ -298,7 +298,7 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :item
 
-## warningテーブル
+## warningsテーブル
 
 |user_id|references|null false, foreign_key: true|
 |item_id|references|null false, foreign_key: true|
