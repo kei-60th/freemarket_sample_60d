@@ -211,6 +211,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |size|string|
+|item_id|references|null: false, foreign_key: true|
 
 ### Association
 
@@ -224,13 +225,14 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :item
+- has_many :item
 
 ## conditionsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |condition|string|
+|item_id|references|null: false, foreign_key: true|
 
 ### Association
 
