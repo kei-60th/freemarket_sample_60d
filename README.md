@@ -243,30 +243,33 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |charge|string|
+|item_id|references|null: false, foreign_key: true|
 
 ### Association
 
-- has_many :items
+- belongs_to :items
 
 ## delivery_dates
 
 |Column|Type|Options|
 |------|----|-------|
 |date|string|
+|item_id|references|null: false, foreign_key: true|
 
 ### Association
 
-- has_many :items
+- belongs_to :items
 
 ## delivery_ways
 
 |Column|Type|Options|
 |------|----|-------|
 |way|string|
+|item_id|references|null: false, foreign_key: true|
 
 ### Association
 
-- has_many :items
+- belongs_to :items
 
 ## ordersテーブル
 
@@ -281,7 +284,7 @@ Things you may want to cover:
 
 - belongs_to :buyer, class_name:"user"
 - belongs_to :seller, class_name:"user"
-- belongs_to :evaluations
+- belongs_to :items
 
 ## likesテーブル
 
