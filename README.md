@@ -35,15 +35,11 @@ Things you may want to cover:
 |e-mail|string|null: false, unique:true|
 |password|string|null: false|
 |phone_number|string|null: false, unique:true|
-|address_id|references|null: false, foreign_key: true|
-|payment_id|references|null: false,foreign_key: true|
-|creditcard_id|references|foreign_key: true|
 |icon_image|text|
 |introduction|text|
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
-|evaluation_id|references|null: false, foreign_key: true|
 <!-- |point_amount|integer|
 |profit_amount|integer| -->
 ### Association
