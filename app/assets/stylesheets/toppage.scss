@@ -1,9 +1,20 @@
+.wrapper {
+  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  color: #333333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+// ヘッダーメニュー、後々部分テンプレートにする
 .header {
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   height: 100px;
-  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   font-size:14px;
+  a{
+    color: #333333;
+    text-decoration: none;
+  }
   .topmenu {
     display: flex;
     -webkit-box-pack: justify;
@@ -57,7 +68,58 @@
   }
 }
 
-.slideshow{
+// トップページ上部、スライドイメージ
+.slideshow {
   width:100%;
+}
+// 商品リスト
+.populerlists {
+  padding: 56px 0px 30px;
+  &__title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  &__categolies {
+    justify-content:center;
+  }
+  a{
+    color: #333333;
+    text-decoration: none;
+  }
+}
 
+.list {
+  background-color: rgb(239, 239, 239);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 15px;
+  padding: 3px 16px;
+}
+
+.itemslist {
+  background-color: rgb(245, 245, 245);
+  .brandlists {
+    padding: 56px 0px 30px;
+    margin: 0 auto;
+    width: calc(100vw - 768px);
+    padding: 42px 190px 0px 190px;
+    .ladies_new {
+      font-size: 24px;
+      font-weight: 600;
+      float: left;
+    }
+    .ladies_nextpage {
+      font-size: 14px;
+      font-weight: 600;
+      color:rgb(0, 149, 238);
+      float: right;
+    }
+  .itemimages {
+    padding: 42px 190px 0px 190px;
+    }
+  }
 }

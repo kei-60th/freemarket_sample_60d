@@ -1,32 +1,50 @@
-.header
-  .topmenu
-    = image_tag "mercarilogo.svg", class: :img
-    %input.form-contol.seach-input{name: "keyword", class: "search_icon",placeholder: "何かお探しですか？"}
+.wrapper
+  .header
+    .topmenu
+      = image_tag "mercarilogo.svg", class: :img
+      %input.form-contol.seach-input{name: "keyword", class: "search_icon",placeholder: "何かお探しですか？"}
       %i.fa.fa-search
-  .navmenu
-    %ul.__leftside-bar
-      %li.fa.fa-list
-      =link_to  'カテゴリーから探す'
-      %li.fa.fa-tags
-      =link_to  'ブランドから探す'
-    %ul.__rightside-bar
-      %li.fa.fa-heart
-      =link_to  'いいね！一覧'
-      %li.fa.fa-bell
-      =link_to 'お知らせ'
-      %li.fa.fa-check
-      =link_to 'やることリスト'
-      %li.fa.smile
-      -# = image_tag "smileface.png", size: "32x32", alt: "icon"
-      =link_to 'マイページ'
 
-.slideshow
-  = image_tag "topmain.jpg", class: :slideshow
+    .navmenu
+      %ul.__leftside-bar
+        %li.fa.fa-list
+        =link_to  'カテゴリーから探す'
+        %li.fa.fa-tags
+        =link_to  'ブランドから探す'
+      %ul.__rightside-bar
+        %li.fa.fa-heart
+        =link_to  'いいね！一覧'
+        %li.fa.fa-bell
+        =link_to 'お知らせ'
+        %li.fa.fa-check
+        =link_to 'やることリスト'
+        %li.fa.smile
+        -# = image_tag "smileface.png", size: "32x32", alt: "icon"
+        =link_to 'マイページ'
 
+  .slideshow
+    = image_tag "topmain.jpg", class: :slideshow
 
--# .itemlists
--#   商品リスト
--# .advertisement
--#   画像
--# .footer
--#   グローバルナビ
+  .populerlists
+    .populerlists__title
+      人気のカテゴリー
+    %ul.populerlists__categolies
+      %li.list
+      =link_to  'レディース'
+      %li.list
+      =link_to  'メンズ'
+      %li.list
+      =link_to  '家電・スマホ・カメラ'
+      %li.list
+      =link_to  'おもちゃ・ホビー・グッズ'
+
+  .itemslist
+    .brandlists
+      .ladies_new
+        レディース新着アイテム
+      .ladies_nextpage
+        もっと見る
+        %i.fa.fa-angle-right
+    .itemimages
+      -(1..5).each do |i|
+        = image_tag "sampleitem.jpg"
