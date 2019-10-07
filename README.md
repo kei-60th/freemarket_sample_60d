@@ -60,7 +60,6 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |postcode|string|null: false|
-|prefecture_id|references|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |building_name|string|
