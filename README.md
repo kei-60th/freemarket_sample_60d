@@ -147,7 +147,7 @@ Things you may want to cover:
 - belongs_to :second_category
 - belongs_to :third_category
 - has_one :size
-- has_one :brand
+- belongs_to :brand
 - has_one :condition
 - has_one :delivery_fee
 - has_one :delivery_ways
