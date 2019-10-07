@@ -153,18 +153,6 @@ Things you may want to cover:
 - has_one :delivery_ways
 - has_one :delivery_day
 
-<!-- ## Commentsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|comment|text|
-|user_id|references|null false, foreign_key: true|
-|item_id|references|null false, foreign_key: true| -->
-
-<!-- ### Association -->
-
-
-
 ## firrt_categories
 
 |first_category|string|null:false|
