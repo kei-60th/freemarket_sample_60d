@@ -63,6 +63,7 @@ Things you may want to cover:
 |city|string|null: false|
 |address|string|null: false|
 |building_name|string|
+|user_id|references|null: false, foreign_key: true|
 
 ### Association
 
@@ -74,6 +75,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|addresses_id|references|null: false, foreign_key: true|
 
 ### Association
 
@@ -84,6 +86,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |method|string|
+|user_id|references|null: false, foreign_key: true|
 
 ### Association
 
