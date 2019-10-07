@@ -33,7 +33,7 @@ Things you may want to cover:
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 |e-mail|string|null: false, unique:true|
-|password|string|null: false, unique:true|
+|password|string|null: false|
 |phone_number|string|null: false, unique:true|
 |address_id|references|null: false, foreign_key: true|
 |payment_id|references|null: false,foreign_key: true|
