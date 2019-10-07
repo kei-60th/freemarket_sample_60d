@@ -152,7 +152,6 @@ Things you may want to cover:
 - has_one :delivery_fee
 - has_one :delivery_ways
 - has_one :delivery_day
-- belongs_to :order_status
 
 <!-- ## Commentsテーブル
 
@@ -281,17 +280,6 @@ Things you may want to cover:
 - belongs_to :buyer, class_name:"user"
 - belongs_to :seller, class_name:"user"
 - belongs_to :evaluations
-
-## order_statuses
-
-|Column|Type|Options|
-|------|----|-------|
-|order_status|string|
-
-### Association
-
-- has_many :items
-- has_many :commnets
 
 ## likesテーブル
 
