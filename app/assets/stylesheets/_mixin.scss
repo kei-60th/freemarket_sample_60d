@@ -1,0 +1,35 @@
+@mixin btn(){
+  display:block;
+  border-radius: 5px;
+  line-height: 48px;
+  width: 341px;
+  //margin-top: 16px;
+  margin: 16px auto;
+  text-decoration: none;
+  color: white;
+  .icon{
+    //background-color: white;
+    float: left;
+    position: relative;
+    left: 16px;
+    top: 16px;
+    width: 20px;
+  }
+}
+@mixin form-box(){
+  padding: 32px 60px;
+}
+@mixin user-input(){
+  display:block;
+  line-height: 50px;
+  text-decoration: none;
+  color: white;
+  .icon{
+    //background-color: white;
+    float: left;
+    position: relative;
+    left: 16px;
+    top: 16px;
+    width: 20px;
+  }
+}
