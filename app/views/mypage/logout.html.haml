@@ -1,0 +1,10 @@
+.default-container
+  .header
+  .main-content
+    .side-content
+    .right-content
+      %form.l-single-inner{:action => "https://www.mercari.com/jp/logout/", :method => "POST", :novalidate => "novalidate"}
+        .l-single-content
+          %button.btn-default.btn-red{:type => "submit"} ログアウト
+          %input{:name => "__csrf_value", :type => "hidden", :value => "459d9dde17c7d60b6a40dbf7581377f666fe862e32d291906cfa400be5a09caf0a5bf7be612c4eca1f553f5369ea6c432ece5486506a5b438cfb0b2d904b70e16"}/
+  .footer
