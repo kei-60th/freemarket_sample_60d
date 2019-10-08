@@ -1,0 +1,28 @@
+!!! 5
+%html
+%head
+  %title Recipe App
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+  = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  = csrf_meta_tags
+  = csp_meta_tag
+%body
+  .wrapper
+    .header
+      =link_to "/", class: 'mercarilogo' do
+        = image_tag 'mercarilogo.svg'
+    .contents
+      = yield
+    .footer
+      %ul.links
+        %li
+          =link_to "/", class: 'links__link-bottom' do
+            プライバシーポリシー
+        %li
+          =link_to "/", class: 'links__link-bottom' do
+            メルカリ利用規約
+        %li
+          =link_to "/", class: 'links__link-bottom' do
+            特定商取引に関する表記
+      =link_to "/" do
+        = image_tag 'mercarilogo-gray.svg'
