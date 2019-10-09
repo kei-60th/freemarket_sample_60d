@@ -1,19 +1,19 @@
 @import "mixin";
 .main-contents{
+  @include main-contents;
   width: 700px;
-  height: 310px;
-  background-color: white;
-  margin: auto;
+  height: 390px;
   .main-top{
-    line-height: 60px;
+    line-height: 97px;
     border-bottom: #f5f5f5 1px solid;
     font-weight: bold;
+    font-size: 22px;
   }
   .main-bottom{
+    margin-top: 40px;
     &__btn-mail{
       @include btn();
       background-color: #ea352d;
-      margin-top: 24px;
     }
     &__btn-facebook{
       @include btn();
