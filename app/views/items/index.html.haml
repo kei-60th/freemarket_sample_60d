@@ -5,20 +5,22 @@
       %input.form-contol.seach-input{name: "keyword", class: "search_icon",placeholder: "何かお探しですか？"}
       -# %i.fa.fa-search
     .navmenu
-      %ul.__leftside-bar
+      %ul.navmenu__leftside-bar
         %li.fa.fa-list
         =link_to  'カテゴリーから探す'
         %li.fa.fa-tags
         =link_to  'ブランドから探す'
-      %ul.__rightside-bar
-        %li.fa.fa-heart
-        =link_to  'いいね！一覧'
-        %li.fa.fa-bell
-        =link_to 'お知らせ'
-        %li.fa.fa-check
-        =link_to 'やることリスト'
-        %li.fa.smile
-        =link_to 'マイページ'
+      %ul.navmenu__rightside-bar
+        -# %li.fa.fa-heart
+        -# =link_to  'いいね！一覧'
+        -# %li.fa.fa-bell
+        -# =link_to 'お知らせ'
+        -# %li.fa.fa-check
+        -# =link_to 'やることリスト'
+        -# %li.fa.smile
+        -# =link_to 'マイページ'
+        %li.sign_up 新規会員登録
+        %li.log_in ログイン
 
   .slideshow
     = image_tag "topmain.jpg", class: "slideshow"

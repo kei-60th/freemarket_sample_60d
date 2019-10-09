@@ -46,19 +46,36 @@
   }
   .navmenu {
     display: flex;
-    -webkit-box-pack: justify;
+    font-weight: 600;
     justify-content: space-between;
-    padding: 13px 0px 0px;
     margin: 0px 210px;
-      &__leftside-bar {
-        float:left;
-        .fa {
-          color: red;
+    &__leftside-bar {
+      float:left;
+      padding-top: 13px;
+      .fa {
+        color: red;
+      }
+    }
+    &__rightside-bar {
+      display: flex;
+      padding-top: 5px;
+        .sign_up {
+          color:white;
+          background-color:red;
+          border-radius: 4px;
+          padding: 6px 10px;
+          margin-right: 10px;
         }
-      }
-      &__rightside-bar {
-        float:right;
-      }
+        .log_in {
+          color: rgb(0, 149, 238);
+          display: block;
+          border-width: 1px;
+          border-style: solid;
+          border-image: initial;
+          border-radius: 4px;
+          padding: 6px 10px;
+        }
+    }
   }
 }
 
@@ -149,7 +166,7 @@ a{
         margin-bottom: 20px;
       }
       .mercari_icon {
-        margin: -8px 0px 16px 4px;
+        margin: -8px 10px 16px 4px;
         width: 68px;
         float: left;
       }
@@ -161,7 +178,6 @@ a{
     }
   }
 }
-
 // フッター
 .kfooter {
   height: 389px;
