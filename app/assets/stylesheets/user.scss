@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+  text-align: center;
+}
+.wrapper{
+  background-color: #f5f5f5;
+  .header{
+    max-height: 128px;
+    background-color: #f5f5f5;
+    box-shadow: none;
+    display: flex;
+    .mercarilogo{
+      margin: auto;
+      img{
+        height: 50px;
+      }
+    }
+  }
+  .contents{
+    @import 'signup';
+    @import 'login';
+  }
+  .footer{
+    height: 250px;
+    padding: 40px;
+    .links{
+      line-height: 24px;
+      li{
+        display: inline-block;
+        margin-right: 10px;
+      }
+      &__link-bottom{
+        text-decoration: none;
+        font-size: 12px;
+        color: #333333;
+      }
+    }
+    img{
+      width: 80px;
+      margin-top: 50px;
+    }
+  }
+}
