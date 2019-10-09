@@ -19,13 +19,23 @@
 @mixin form-box(){
   padding: 32px 60px;
 }
+@mixin main-contents{
+  background-color: white;
+  margin: 0 auto;
+}
+@mixin textbox{
+  height: 50px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 0 5%;
+  text-align: left;
+}
 @mixin user-input(){
-  display:block;
   line-height: 50px;
   text-decoration: none;
   color: white;
   .icon{
-    //background-color: white;
     float: left;
     position: relative;
     left: 16px;
