@@ -5,7 +5,8 @@
   flex-direction: column;
   min-height: 100vh;
 }
-.header {
+// ヘッダー部分
+.kheader {
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   height: 100px;
@@ -37,7 +38,7 @@
       outline: none;
       padding: 0px 50px 0px 10px;
       transition: all 0.3s ease-out 0s;
-      }
+    }
     .search_icon {
       font-family: FontAwesome;
       z-index: 1;
@@ -45,16 +46,36 @@
   }
   .navmenu {
     display: flex;
-    -webkit-box-pack: justify;
+    font-weight: 600;
     justify-content: space-between;
-    padding: 13px 0px 0px;
     margin: 0px 210px;
-      &__leftside-bar {
-        float:left;
+    &__leftside-bar {
+      float:left;
+      padding-top: 13px;
+      .fa {
+        color: red;
       }
-      &__rightside-bar {
-        float:right;
-      }
+    }
+    &__rightside-bar {
+      display: flex;
+      padding-top: 5px;
+        .sign_up {
+          color:white;
+          background-color:red;
+          border-radius: 4px;
+          padding: 6px 10px;
+          margin-right: 10px;
+        }
+        .log_in {
+          color: rgb(0, 149, 238);
+          display: block;
+          border-width: 1px;
+          border-style: solid;
+          border-image: initial;
+          border-radius: 4px;
+          padding: 6px 10px;
+        }
+    }
   }
 }
 
@@ -62,9 +83,10 @@
 .slideshow {
   width:100%;
 }
-// 商品リスト
+// 商品リストのタイトル部分
 .populerlists {
   padding: 56px 0px 30px;
+  background-color: white;
   &__title {
     text-align: center;
     font-size: 28px;
@@ -100,26 +122,27 @@
       font-size: 14px;
       font-weight: 600;
       color:rgb(0, 149, 238);
-      padding: 54px 42px 0px 0px;
+      padding: 54px 0px 0px 0px;
       float: right;
     }
   }
 }
+// 商品リスト部分
 .itemslists {
   background-color: rgb(245, 245, 245);
-  padding: 0px 190px;
+  padding: 0px 175px;
   display: flex;
   flex-wrap: wrap;
 }
 .sampleitem {
   padding:10px 10px;
 }
-
 a{
   color: #333333;
   text-decoration: none;
 }
 
+// 広告部分
 .advertisement {
   height: 260px;
   color: white;
@@ -142,6 +165,11 @@ a{
         font-size: 35px;
         margin-bottom: 20px;
       }
+      .mercari_icon {
+        margin: -8px 10px 16px 4px;
+        width: 68px;
+        float: left;
+      }
     }
     &__right {
       .smartphonepic {
@@ -150,8 +178,8 @@ a{
     }
   }
 }
-
-.footer {
+// フッター
+.kfooter {
   height: 389px;
   background-color: #222222;
   color:white;
@@ -182,5 +210,4 @@ a{
         padding: 0px 40px;
       }
   }
-
 }

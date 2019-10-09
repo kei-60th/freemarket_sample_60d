@@ -1,25 +1,26 @@
 .wrapper
-  .header
-    .header__menu
+  .kheader
+    .kheader__menu
       = image_tag "mercarilogo.svg", class: "img"
       %input.form-contol.seach-input{name: "keyword", class: "search_icon",placeholder: "何かお探しですか？"}
       -# %i.fa.fa-search
-
     .navmenu
-      %ul.__leftside-bar
+      %ul.navmenu__leftside-bar
         %li.fa.fa-list
         =link_to  'カテゴリーから探す'
         %li.fa.fa-tags
         =link_to  'ブランドから探す'
-      %ul.__rightside-bar
-        %li.fa.fa-heart
-        =link_to  'いいね！一覧'
-        %li.fa.fa-bell
-        =link_to 'お知らせ'
-        %li.fa.fa-check
-        =link_to 'やることリスト'
-        %li.fa.smile
-        =link_to 'マイページ'
+      %ul.navmenu__rightside-bar
+        -# %li.fa.fa-heart
+        -# =link_to  'いいね！一覧'
+        -# %li.fa.fa-bell
+        -# =link_to 'お知らせ'
+        -# %li.fa.fa-check
+        -# =link_to 'やることリスト'
+        -# %li.fa.smile
+        -# =link_to 'マイページ'
+        %li.sign_up 新規会員登録
+        %li.log_in ログイン
 
   .slideshow
     = image_tag "topmain.jpg", class: "slideshow"
@@ -57,12 +58,16 @@
       .advertisement__list__left
         %h2 スマホでかんたんフリマアプリ
         %p 今すぐ無料ダウンロード！
+        = image_tag "mercari_icon.png", class: "mercari_icon"
+        = image_tag "app-storeicon.svg", class: "app-storeicon"
+        = image_tag "google-storeicon.svg", class: "google-storeicon"
+
       .advertisement__list__right
         = image_tag "smartphonepic.png",class: "smartphonepic"
 
-  .footer
-    .footer__grobalnavi
-      .footer__grobalnavi__1
+  .kfooter
+    .kfooter__grobalnavi
+      .kfooter__grobalnavi__1
         %p メルカリについて
         %ul
           %li 会社概要
@@ -70,7 +75,7 @@
           %li プレスリリース
           %li 公式ブログ
           %li ガイドライン
-      .footer__grobalnavi__2
+      .kfooter__grobalnavi__2
         %p メルカリについて
         %ul
           %li 会社概要
@@ -78,7 +83,7 @@
           %li プレスリリース
           %li 公式ブログ
           %li ガイドライン
-      .footer__grobalnavi__3
+      .kfooter__grobalnavi__3
         %p メルカリについて
         %ul
           %li 会社概要
@@ -86,7 +91,7 @@
           %li プレスリリース
           %li 公式ブログ
           %li ガイドライン
-      .footer__grobalnavi__4
+      .kfooter__grobalnavi__4
         %p メルカリについて
         %ul
           %li 会社概要
@@ -94,7 +99,7 @@
           %li プレスリリース
           %li 公式ブログ
           %li ガイドライン
-      .footer__grobalnavi__5
+      .kfooter__grobalnavi__5
         %p メルカリについて
         %ul
           %li 会社概要
