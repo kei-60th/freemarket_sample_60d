@@ -1,9 +1,9 @@
 .wrapper
   .header
-    .topmenu
-      = image_tag "mercarilogo.svg", class: :img
+    .header__menu
+      = image_tag "mercarilogo.svg", class: "img"
       %input.form-contol.seach-input{name: "keyword", class: "search_icon",placeholder: "何かお探しですか？"}
-      %i.fa.fa-search
+      -# %i.fa.fa-search
 
     .navmenu
       %ul.__leftside-bar
@@ -19,32 +19,88 @@
         %li.fa.fa-check
         =link_to 'やることリスト'
         %li.fa.smile
-        -# = image_tag "smileface.png", size: "32x32", alt: "icon"
         =link_to 'マイページ'
 
   .slideshow
-    = image_tag "topmain.jpg", class: :slideshow
+    = image_tag "topmain.jpg", class: "slideshow"
 
   .populerlists
     .populerlists__title
       人気のカテゴリー
     %ul.populerlists__categolies
       %li.list
-      =link_to  'レディース'
+        =link_to 'レディース',class: "lists"
       %li.list
-      =link_to  'メンズ'
+        =link_to 'メンズ',class: "lists"
       %li.list
-      =link_to  '家電・スマホ・カメラ'
+        =link_to '家電・スマホ・カメラ',class: "lists"
       %li.list
-      =link_to  'おもちゃ・ホビー・グッズ'
+        =link_to 'おもちゃ・ホビー・グッズ',class: "lists"
 
-  .itemslist
-    .brandlists
-      .ladies_new
-        レディース新着アイテム
-      .ladies_nextpage
+  .itemstitle
+    .itemstitle__box
+      .itemstitle__box__title
+        新着アイテム
+      .itemstitle__box__nextpage
         もっと見る
+        -# =link_to 'もっと見る'
         %i.fa.fa-angle-right
-    .itemimages
-      -(1..5).each do |i|
-        = image_tag "sampleitem.jpg"
+  .itemslists
+    .firstline
+      -(1..10).each do |i|
+        = image_tag "sampleitem.jpg",class: "sampleitem"
+      -# .secondline
+      -#   -(1..5).each do |i|
+      -#     = image_tag "sampleitem.jpg",class: "sampleitem"
+  .advertisement
+    .advertisement__list
+      .advertisement__list__left
+        %h2 スマホでかんたんフリマアプリ
+        %p 今すぐ無料ダウンロード！
+      .advertisement__list__right
+        = image_tag "smartphonepic.png",class: "smartphonepic"
+
+  .footer
+    .footer__grobalnavi
+      .footer__grobalnavi__1
+        %p メルカリについて
+        %ul
+          %li 会社概要
+          %li 採用情報
+          %li プレスリリース
+          %li 公式ブログ
+          %li ガイドライン
+      .footer__grobalnavi__2
+        %p メルカリについて
+        %ul
+          %li 会社概要
+          %li 採用情報
+          %li プレスリリース
+          %li 公式ブログ
+          %li ガイドライン
+      .footer__grobalnavi__3
+        %p メルカリについて
+        %ul
+          %li 会社概要
+          %li 採用情報
+          %li プレスリリース
+          %li 公式ブログ
+          %li ガイドライン
+      .footer__grobalnavi__4
+        %p メルカリについて
+        %ul
+          %li 会社概要
+          %li 採用情報
+          %li プレスリリース
+          %li 公式ブログ
+          %li ガイドライン
+      .footer__grobalnavi__5
+        %p メルカリについて
+        %ul
+          %li 会社概要
+          %li 採用情報
+          %li プレスリリース
+          %li 公式ブログ
+          %li ガイドライン
+
+
