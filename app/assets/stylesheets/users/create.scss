@@ -1,0 +1,75 @@
+.my-page-container{
+  .form{
+    width: 60%;
+    margin: 0 auto;
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    h5{
+      font-size: 9px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    &__card{
+      margin: 15px 0 0;
+      &--center{
+        margin-top: 6px;
+      }
+      &--lower{
+        margin-top: 6px;
+      }
+    }
+    &__deadlile{
+      &--lower{
+        display: flex;
+        margin-top: 6px;
+        .select-month{
+          font-weight: normal;
+          select{
+            width: 80px;
+            height: 28px;
+            padding-left: 10px;
+            background-color: #ffffff;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: normal;
+            border: 0.5px solid #CECECE;
+            &:focus{
+              outline: 0;
+              border: 0.5px solid #0099E8;
+            }
+          }
+        }
+        .select-year{
+          padding-left: 10px;
+          font-weight: normal;
+          select{
+            width: 80px;
+            height: 28px;
+            padding-left: 10px;
+            background-color: #ffffff;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: normal;
+            border: 0.5px solid #CECECE;
+            &:focus{
+              outline: 0;
+              border: 0.5px solid #0099E8;
+            }
+          }
+        }
+      }
+    }
+    &__cvc{
+      &--center{
+        margin-top: 6px;
+      }
+      &--lower{
+        display: flex;
+        justify-content: flex-end;
+        color: #0099E8;
+        font-size: 8px;
+      }
+    }
+  }
+}
