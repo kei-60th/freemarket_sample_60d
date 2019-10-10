@@ -1,0 +1,39 @@
+-# 商品登録ページ
+.item-registration
+  .item-registration__title
+    商品の情報を入力
+
+  .item-registration__image
+    %label.item-registration__image__label
+      出品画像
+    %span.item-registration__image__required
+      必須
+    %p.item-registration__image__message
+      最大10枚までアップロードできます
+
+  .item-registration__name
+    %label.item-registration__name__label
+      商品名
+    %span.item-registration__name__required
+      必須
+    %br/
+    %input.item-registration__name__text{placeholder: '商品名（必須 40文字まで）'}
+
+  .item-registration__discription
+    %label.item-registration__discripstion__label
+      商品の説明
+    %span.item-registration__discription__required
+      必須
+    %br/
+    %textarea.item-registration__discription__text{placeholder: '商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。'}
+
+  .item-registration__caution
+    禁止されている出品、行為を必ずご確認ください。
+    またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+    また、出品をもちまして加盟店規約に同意したことになります。
+
+  .item-registration__button
+    .item-registration__button__submit
+      = link_to "出品する"
+    -# .item-registration__button__backbtn
+      = link_to "もどる"

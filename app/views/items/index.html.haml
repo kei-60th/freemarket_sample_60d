@@ -48,8 +48,8 @@
         %i.fa.fa-angle-right
   .itemslists
     .firstline
-      -(1..10).each do |i|
-        = image_tag "sampleitem.jpg",class: "sampleitem"
+      -@item.(1..10).each do |i|
+      -# = image_tag "sampleitem.jpg",class: "sampleitem"
       -# .secondline
       -#   -(1..5).each do |i|
       -#     = image_tag "sampleitem.jpg",class: "sampleitem"
