@@ -126,8 +126,8 @@ Things you may want to cover:
 |user_id|references|null: false, foreign_key: true|
 |name|string|null: false|
 |price|integer|null: false|
-|fee|interger||null: false|
 |description|text|null: false|
+|fee|interger||null: false|
 |first_category_id|references|null: false, foreign_key: true|
 |second_category_id|references|null: false, foreign_key: true|
 |third_category_id|references|null: false, foreign_key: true|
