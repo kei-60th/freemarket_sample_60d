@@ -28,53 +28,58 @@
           必須
         %input.password-confirmation__text{placeholder: '7文字以上'}
       .identification
-        %h3
+        %h3.identification__confirm
           本人確認
-        %p
+        %p.identification__paragraph
           安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
       .user-name
-        %label.password-confirmation__label
+        %label.user-name__label
           お名前(全角)
-        %span.password-confirmation__required
+        %span.user-name__required
           必須
-        %input.password-confirmation__text{placeholder: '例)山田'}
-        %input.password-confirmation__text{placeholder: '例)彩'}
-      .user-name-kana
-        %label.password-confirmation__label
+        .box
+          %input.box__text{placeholder: '例) 山田'}
+          %input.box__text{placeholder: '例) 彩'}
+      .user-name
+        %label.user-name__label
           お名前カナ(全角)
-        %span.password-confirmation__required
+        %span.user-name__required
           必須
-        %input.password-confirmation__text{placeholder: '例)ヤマダ'}
-        %input.password-confirmation__text{placeholder: '例)アヤ'}
+        .box
+          %input.box__text{placeholder: '例) ヤマダ'}
+          %input.box__text{placeholder: '例) アヤ'}
       .birthday
-        %label.password-confirmation__label
+        %label.birthday__label
           生年月日
-        %span.password-confirmation__required
+        %span.birthday__required
           必須
-        %select{name: "birth_year"}
-          %option{value: "unselected"}
-            = "--"
-            = fa_icon 'angle-down'
-          - for i in (0..119) do
-            %option{value: i}
-              = "#{2019 - i}"
-        %select{name: "birth_month"}
-          %option{value: "unselected"}
-            \--
-          - for i in (1..12) do
-            %option{value: i}
-              = i
-        %select{name: "birth_day"}
-          %option{value: "unselected"}
-            \--
-          - for i in (1..31) do
-            %option{value: i}
-              = i
-        %br
+        .box
+          %select{name: "birth_year"}
+            %option{value: "unselected"}
+              = "--"
+            - for i in (0..119) do
+              %option{value: i}
+                = "#{2019 - i}"
+          年
+          %select{name: "birth_month"}
+            %option{value: "unselected"}
+              \--
+            - for i in (1..12) do
+              %option{value: i}
+                = i
+          月
+          %select{name: "birth_day"}
+            %option{value: "unselected"}
+              \--
+            - for i in (1..31) do
+              %option{value: i}
+                = i
+          日
+      .notation
         ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
       .form__captcha
         私はロボットではありません
-      %p
+      .navigation
         「次へ進む」のボタンを押すことにより、
         %a{href: '/'}
           利用規約
