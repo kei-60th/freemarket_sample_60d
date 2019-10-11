@@ -2,7 +2,7 @@
   .main-top
     会員情報入力
   .main-bottom
-    = form_with model: @user, class: 'form' do |f|
+    = form_with model: @user, :url => {:action => :create}, class: 'form' do |f|
       .nickname
         = f.label :nickname, "ニックネーム", class: "nickname__label"
         %span.nickname__required
