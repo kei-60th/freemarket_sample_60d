@@ -17,5 +17,6 @@ get '/mypage/card/create', to: 'mypage#create'
 
 get '/signin', to: 'users#new'
 
+get '/registration', to: 'registration#confirmation'
 get '/toppage', to: 'test#index'
 end
