@@ -6,4 +6,5 @@ get '/mypage/card/create', to: 'mypage#create'
 get '/registration', to: 'registrations#index'
 get '/registration/new', to: 'sessions#new'
 get '/login', to: 'users#new'
+#商品関連ページ
 end

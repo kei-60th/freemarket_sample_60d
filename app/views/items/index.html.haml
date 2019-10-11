@@ -47,12 +47,14 @@
         -# =link_to 'もっと見る'
         %i.fa.fa-angle-right
   .itemslists
-    .firstline
-      -(1..10).each do |i|
-        = image_tag "sampleitem.jpg",class: "sampleitem"
-      -# .secondline
-      -#   -(1..5).each do |i|
-      -#     = image_tag "sampleitem.jpg",class: "sampleitem"
+    -# .firstline  
+    - @items.each do |item|
+      - item.item_images.each do |item|
+        %img{src:"#{item.image}"}
+
+    -# - @items.each do |item|
+    -#   = render partial: 'items/item-box', locals: {item:item}
+      
   .advertisement
     .advertisement__list
       .advertisement__list__left
@@ -107,5 +109,3 @@
           %li プレスリリース
           %li 公式ブログ
           %li ガイドライン
-
-
