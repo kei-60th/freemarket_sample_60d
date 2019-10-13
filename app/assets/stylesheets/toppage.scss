@@ -128,19 +128,37 @@
   }
 }
 // 商品リスト部分
-.itemslists {
-  background-color: rgb(245, 245, 245);
-  padding: 0px 175px;
-  display: flex;
-  flex-wrap: wrap;
+
+.itemstitle {
+  &__box {
+    height: 188px;
+    width: 252px;
+  }
 }
-.sampleitem {
-  padding:10px 10px;
+
+.item-box {
+  &__contents {
+    display: flex;
+    flex-wrap : wrap;
+    &__image{
+      &__price {
+        color:white;
+        background-color: #333333;
+        width: 80px;
+      }ß
+      &__name {
+        height: 50px;
+        text-align: center;
+        margin: 10px;
+      }
+      }
+  }
 }
+
 a{
-  color: #333333;
-  text-decoration: none;
-}
+color: #333333;
+text-decoration: none;
+ }
 
 // 広告部分
 .advertisement {

@@ -11,6 +11,7 @@
         %li.fa.fa-tags
         =link_to  'ブランドから探す'
       %ul.navmenu__rightside-bar
+        -# ----ログイン後のアイコン----
         -# %li.fa.fa-heart
         -# =link_to  'いいね！一覧'
         -# %li.fa.fa-bell
@@ -46,15 +47,23 @@
         もっと見る
         -# =link_to 'もっと見る'
         %i.fa.fa-angle-right
-  .itemslists
-    -# .firstline  
-    - @items.each do |item|
-      - item.item_images.each do |item|
-        %img{src:"#{item.image}"}
+  .item-box
+    .item-box__contents
+      - @items.each do |item|
+        .item-box__contents__image
+          = image_tag item.item_images[0].image
+          .item-box__contents__price
+            ¥
+            = item.price
+          .item-box__contents__name
+            = item.name
 
-    -# - @items.each do |item|
-    -#   = render partial: 'items/item-box', locals: {item:item}
-      
+
+        -# - item.item_images.each do |item|
+        -#   %img{src:"#{item.image}"}
+
+
+
   .advertisement
     .advertisement__list
       .advertisement__list__left
