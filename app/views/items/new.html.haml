@@ -1,0 +1,104 @@
+-# 商品登録ページ
+.item-registration
+  = form_for @item, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
+    %h2.sell-form__header
+      商品情報を入力
+    .sell-form-container
+      %label.sell-form-container__label
+        出品画像
+      %span.sell-form-container__require
+        必須
+      = f.fields_for :item_images do |image|
+        .dropzone-container.clearfix
+          #preview
+          .dropzone-area
+            = image.label :image, class: "dropzone-box", for: "upload-image" do
+              .input_area
+                = image.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+              %p ドラックアンドドロップ
+          #preview2
+          .dropzone-area2
+            = image.label :image, class: "dropzone-box", for: "upload-image" do
+              %p またはクリックしてファイルをアップロード
+                
+      .sell__content
+        .sell__content__form--upper
+          %label
+            商品名
+            %span.form--require 必須
+          %div
+            = f.text_field :name, class: "input__default", placeholder: "商品名（必須40文字まで)"
+        .sell__content__form--lower
+          %label
+            商品の説明
+            %span.form--require 必須
+          %div
+            = f.text_area :description, class: "textarea__default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
+
+      .sell-body-price
+        .sell-body-price-side
+          .sell-body-price-side__title
+            販売価格(300〜9,999,999)
+            = fa_icon 'question-circle', class: "sell-body-price-side__question-circle"
+        .sell-body-price-main
+          .sell-body-price-main-input
+            .sell-body-price-main-input__box
+              .sell-body-price-main-input__box__name
+                価格
+              .sell-body-price-main-input__box__mark
+                必須
+              = f.text_field :price ,class: 'sell-body-price-main-input__box__yen',placeholder: "例)300"
+              .sell-body-price-main-input__box__yen-mark
+                ￥
+          .sell-body-price-main-commission
+            .sell-body-price-main-commission__box
+              .sell-body-price-main-commission__box__name
+                販売手数料(10%)
+              .sell-body-price-main-commission__box__ans
+                ー
+          .sell-body-price-main-profit
+            .sell-body-price-main-profit__box
+              .sell-body-price-main-profit__box__name
+                販売利益
+              .sell-body-price-main-profit__box__ans
+                ー
+      .sell-body-exhibit
+        %p.sell-body-exhibit__caution
+          #{link_to "禁止されている出品", "#",class: "sell-body-exhibit__caution-link"}、#{link_to "行為", "#",class: "sell-body-exhibit__caution-link"}を必ずご確認ください。
+          %brまたブランド品でシリアルナンバー等がある場合はご記載ください。#{link_to "偽ブランドの販売", "#",class: "sell-body-exhibit__caution-link"}は犯罪であ
+          り処罰される可能性があります。
+          %brまた、出品をもちまして#{link_to "加盟店規約", "#",class: "sell-body-exhibit__caution-link"}に同意したことになります。
+        = f.submit '出品する', class: 'sell-body-exhibit__send'
+        = link_to "#" ,class: "sell-body-exhibit__exit" do
+          .sell-body-exhibit__exit-link
+            もどる
+            
+
+
+
+  -# .item-registration__name
+  -#   %label.item-registration__name__label
+  -#     商品名
+  -#   %span.item-registration__name__required
+  -#     必須
+  -#   %br/
+  -#   %input.item-registration__name__text{placeholder: '商品名（必須 40文字まで）'}
+
+  -# .item-registration__discription
+  -#   %label.item-registration__discripstion__label
+  -#     商品の説明
+  -#   %span.item-registration__discription__required
+  -#     必須
+  -#   %br/
+  -#   %textarea.item-registration__discription__text{placeholder: '商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。'}
+
+  -# .item-registration__caution
+  -#   禁止されている出品、行為を必ずご確認ください。
+  -#   またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+  -#   また、出品をもちまして加盟店規約に同意したことになります。
+
+  -# .item-registration__button
+  -#   .item-registration__button__submit
+  -#     = link_to "出品する"
+  -#   -# .item-registration__button__backbtn
+  -#     = link_to "もどる"

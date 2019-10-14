@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.includes(:item_images).limit(5).order("created_at DESC")
+    @item_images =ItemImage.all
     # @item_images =ItemImage.all
     # @ladies_items = Item.get_ladies.limit(5).includes(:item_images)
     # @mens_items = Item.get_mens.limit(5).includes(:item_images)  
@@ -11,7 +12,16 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @image = Image.new    
+    @item_image = ItemImage.new    
+  end
+
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new, item_images: @item.item_images.build
+    end
   end
 
   # def create
@@ -53,5 +63,14 @@ class ItemsController < ApplicationController
 
   # def search
   # end
+  private
+
+  def item_params
+    params.require(:item).permit(:name, :item_image, :descriptionm, :price)
+  end
 
 end
+
+# :price, :description, :brand_id, :size_id, :condition_id, 
+#       :category_id, :delivery_fee_id, :prefecture_id, :delivery_date_id,  
+#       :delivery_way_id, 

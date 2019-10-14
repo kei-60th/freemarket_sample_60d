@@ -74,7 +74,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|prefecture|string|null:false,unique|
+|name|string|null:false,unique|
 
 ### Association
 - has_many :items
