@@ -8,7 +8,13 @@ class AddressesController < ApplicationController
 
   def create
     @user = User.last
-    @user.address= Address.create(create_params)
+    @user.address= Address.new(create_params)
+    if @user.address.save
+
+    else
+      render :new
+    end
+
     # Address.create(create_params)
     #binding.pry
   end
