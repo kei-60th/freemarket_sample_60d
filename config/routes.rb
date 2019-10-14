@@ -20,6 +20,7 @@ get '/logout', to: 'mypage#logout'
 get '/registration', to: 'registration#confirmation'
 get "/registration/confirmation", to: "sms_confirmation#edit"
 get "/registration/address", to: "addresses#new"
+post "/registration/address/post", to: "addresses#create"
 
 get '/mypage', to: 'mypage#mypage'
 get '/mypage/card', to: 'mypage#index'

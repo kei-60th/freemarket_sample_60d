@@ -3,5 +3,4 @@ class Prefecture < ApplicationRecord
 
   validates :name,         null: false
   validates :addresses_id, null: false
-  validates :addresses_id, foreign_key: true
 end

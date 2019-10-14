@@ -6,5 +6,4 @@ class Address < ApplicationRecord
   validates :city,     null: false
   validates :address,  null: false
   validates :user_id,  null: false
-  validates :user_id,  foreign_key: true
 end
