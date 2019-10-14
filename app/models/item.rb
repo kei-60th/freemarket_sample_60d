@@ -1,6 +1,5 @@
 class Item < ApplicationRecord
   has_many   :item_images
-  # accepts_nested_attributes_for :item_images
   # belongs_to :category
   # belongs_to :brand
   # belongs_to :prefecture
@@ -9,6 +8,8 @@ class Item < ApplicationRecord
   has_one :delivery_fee
   has_one :delivery_way
   has_one :delivery_date
+  # accepts_nested_attributes_for :item_images
+
 end
 
 

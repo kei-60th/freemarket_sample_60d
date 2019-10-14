@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # binding.pry
+    binding.pry
     if @item.save!
       redirect_to root_path
     else
@@ -67,7 +67,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :price)
+    params.require(:item).permit(:name, :description, :price,)
   end
 
 end
