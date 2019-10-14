@@ -13,16 +13,16 @@ class User < ApplicationRecord
   # has_one :creditcard
   # has_one :evaluation
 
-  validates :nickname, null: false
+  validates :nickname, presence: true
   validates :nickname, uniqueness: true
-  validates :last_name, null: false
-  validates :first_name, null: false
-  validates :last_name_kana, null: false
-  validates :first_name_kana, null: false
-  validates :email, null: false
+  validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :last_name_kana, presence: true
+  validates :first_name_kana, presence: true
+  validates :email, presence: true
   validates :email, uniqueness: true
-  validates :password, null: false
-  validates :birth_year, null: false
-  validates :birth_month, null: false
-  validates :birth_day, null: false
+  validates :password, presence: true
+  validates :birth_year, presence: true
+  validates :birth_month, presence: true
+  validates :birth_day, presence: true
 end
