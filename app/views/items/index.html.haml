@@ -40,26 +40,23 @@
         =link_to 'おもちゃ・ホビー・グッズ',class: "lists"
 
   .itemstitle
-    .itemstitle__box
-      .itemstitle__box__title
-        新着アイテム
-      .itemstitle__box__nextpage
-        もっと見る
-        -# =link_to 'もっと見る'
-        %i.fa.fa-angle-right
+    .itemstitle__title
+      新着アイテム
+    .itemstitle__nextpage
+      もっと見る
+      -# =link_to 'もっと見る'
+      %i.fa.fa-angle-right
 
   .item-box
     .item-box__contents
       - @items.each do |item|
         .item-box__contents__image
           = image_tag item.item_images[0].image
-          .item-box__contents__price
+          .item-box__contents__image__price
             ¥
             = item.price
-          .item-box__contents__name
+          .item-box__contents__image__name
             = item.name
-        -# - item.item_images.each do |item|
-        -#   %img{src:"#{item.image}"}
 
   .advertisement
     .advertisement__list
