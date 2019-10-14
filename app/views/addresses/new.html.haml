@@ -1,0 +1,10 @@
+#main-contents-address
+  .main-top
+    住所入力
+  .main-bottom
+    = form_with model: @user, :url => {:controller=> :users, :action => :edit}, class: 'form' do |f|
+      .nickname
+        = f.label :nickname, "ニックネーム", class: "nickname__label"
+        %span.nickname__required
+          必須
+        = f.text_field :nickname, class: 'nickname__text', placeholder: '例)メルカリ太郎'
