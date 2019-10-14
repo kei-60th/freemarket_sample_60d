@@ -4,17 +4,17 @@
   .main-bottom
     = form_with model: @address, scope: "address" , url: {action: "create"}, local: true, class: 'form' do |f|
       .user-name
-        = f.label :user_name, "お名前", class: "user-name__label"
+        = f.label "お名前", class: "user-name__label"
         %span.user-name__required
           必須
-        = f.text_field :user_name, class: 'user-name__text', placeholder: '例) 山田'
-        = f.text_field :user_name, class: 'user-name__text', placeholder: '例) 彩'
+        = f.text_field :first_name, class: 'user-name__text', placeholder: '例) 山田'
+        = f.text_field :last_name, class: 'user-name__text', placeholder: '例) 彩'
       .user-name
-        = f.label :user_name_kana, "お名前カナ", class: "user-name__label"
+        = f.label "お名前カナ", class: "user-name__label"
         %span.user-name__required
           必須
-        = f.text_field :user_name_kana, class: 'user-name__text', placeholder: '例) ヤマダ'
-        = f.text_field :user_name_kana, class: 'user-name__text', placeholder: '例) アヤ'
+        = f.text_field :first_name_kana, class: 'user-name__text', placeholder: '例) ヤマダ'
+        = f.text_field :last_name_kana, class: 'user-name__text', placeholder: '例) アヤ'
       .address-form
         = f.label :postcode, "郵便番号", class: "address-form__label"
         %span.address-form__required
