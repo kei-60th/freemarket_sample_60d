@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "/login", :to => "users/sessions#new"
     get "/registration/information", :to => "users/registrations#new"
+    post "/registration/information/create", :to => "users/registrations#create"
   end
 
 resources :addresses, only: :update
