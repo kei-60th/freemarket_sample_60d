@@ -2,11 +2,7 @@
   .main-top
     会員情報入力
   .main-bottom
-<<<<<<< Updated upstream
-    = form_with model: @user, class: 'form' do |f|
-=======
     = form_with model: @user, :url => {:action => :create}, local: true, class: 'form' do |f|
->>>>>>> Stashed changes
       .nickname
         = f.label :nickname, "ニックネーム", class: "nickname__label"
         %span.nickname__required
@@ -52,21 +48,21 @@
           必須
         .box
           %select{name: "birth_year"}
-            %option{value: "unselected"}
+            %option{value: ""}
               = "--"
             - for i in (0..119) do
-              %option{value: i}
+              %option{value: 2019 - i}
                 = "#{2019 - i}"
           年
           %select{name: "birth_month"}
-            %option{value: "unselected"}
+            %option{value: ""}
               \--
             - for i in (1..12) do
               %option{value: i}
                 = i
           月
           %select{name: "birth_day"}
-            %option{value: "unselected"}
+            %option{value: ""}
               \--
             - for i in (1..31) do
               %option{value: i}
@@ -82,6 +78,6 @@
           利用規約
         に同意したものとみなします
       = f.submit '次へ進む', class: 'form__btn-login'
-      = link_to "/", class: 'form__forget-password' do
-        本人情報の登録について
-        = fa_icon 'angle-right'
+    = link_to "/", class: 'form__forget-password' do
+      本人情報の登録について
+      = fa_icon 'angle-right'
