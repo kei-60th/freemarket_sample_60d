@@ -13,7 +13,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     @user = User.create(user_params)
-    user_birth(@user)
   end
 
   # GET /resource/edit
@@ -78,11 +77,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
             :birth_year, 
             :birth_month, 
             :birth_day, 
-    )
-  end
-
-  def user_birth(user)
-    user.update(birth_year: params[:birth_year],birth_month: params[:birth_month],birth_day: params[:birth_day])
+    ).merge(birth_year: params[:birth_year],birth_month: params[:birth_month],birth_day: params[:birth_day])
   end
 
 
