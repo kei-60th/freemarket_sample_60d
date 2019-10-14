@@ -8,7 +8,7 @@ class User < ApplicationRecord
   # has_many :buyers, class_name: "user", through: orders
   # has_many :sellers, class_name: "user", through: orders
   # has_many :likes
-  # has_one :address
+  has_one :address
   # has_one :payment
   # has_one :creditcard
   # has_one :evaluation
