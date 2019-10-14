@@ -7,7 +7,9 @@ class AddressesController < ApplicationController
   end
 
   def create
-    Address.create(create_params)
+    @user = User.find(1)
+    @user.address= Address.create(create_params)
+    # Address.create(create_params)
     #binding.pry
   end
 
