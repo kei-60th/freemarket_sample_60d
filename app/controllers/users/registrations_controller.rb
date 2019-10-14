@@ -13,6 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     @user = User.create(user_params)
+    redirect_to registration_address_path
   end
 
   # GET /resource/edit
