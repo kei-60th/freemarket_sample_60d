@@ -48,21 +48,21 @@
           必須
         .box
           %select{name: "birth_year"}
-            %option{value: "unselected"}
+            %option{value: ""}
               = "--"
             - for i in (0..119) do
-              %option{value: i}
+              %option{value: 2019 - i}
                 = "#{2019 - i}"
           年
           %select{name: "birth_month"}
-            %option{value: "unselected"}
+            %option{value: ""}
               \--
             - for i in (1..12) do
               %option{value: i}
                 = i
           月
           %select{name: "birth_day"}
-            %option{value: "unselected"}
+            %option{value: ""}
               \--
             - for i in (1..31) do
               %option{value: i}
