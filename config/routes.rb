@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "/login", :to => "users/sessions#new"
     get "/registration/information", :to => "users/registrations#new"
-    get "/registration/address", :to => "users/registrations#edit"
   end
 
 root "items#index"
@@ -16,6 +15,7 @@ get '/mypage', to: 'mypage#mypage'
 get '/mypage/card', to: 'mypage#index'
 get '/mypage/card/create', to: 'mypage#create'
 get "/registration/confirmation", to: "sms_confirmation#edit"
+get "/registration/compleate", to: "compleate#edit"
 
 get '/signin', to: 'users#new'
 

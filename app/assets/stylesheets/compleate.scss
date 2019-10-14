@@ -1,0 +1,46 @@
+.container{
+  background: #fff;
+  padding: 0 0 250px;
+  display: block;
+  .main__box{
+    width: 700px;
+    margin: 0 auto;
+    &__title{
+      font-size: 25px;
+      padding: 32px;
+      text-align: center;
+      color: #333;
+    }
+    &__text{
+      font-size: 20px;
+      border-top: 1px solid #f5f5f5;
+      padding: 40px 40px 64px;
+      &__btn{
+        margin: auto;
+        margin-top: 32px;
+        width: 300px;
+        height: 50px;
+        line-height: 48px;
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+  .bottom-img{
+    height: 638px;
+    margin: 0 auto;
+    width: 700px;
+    background-color:#f08080;
+    color: white;
+    font-size: 24px;
+    &__title{
+      font-weight: 600;
+    }
+    &__text{
+      font-weight: 500;
+    }
+  }
+}
