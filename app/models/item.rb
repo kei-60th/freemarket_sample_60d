@@ -1,9 +1,10 @@
 class Item < ApplicationRecord
   has_many   :item_images
-  belongs_to :category
-  belongs_to :brand
-  belongs_to :prefecture
-  belongs_to :size
+  # accepts_nested_attributes_for :item_images
+  # belongs_to :category
+  # belongs_to :brand
+  # belongs_to :prefecture
+  # belongs_to :size
   has_one :condition
   has_one :delivery_fee
   has_one :delivery_way
