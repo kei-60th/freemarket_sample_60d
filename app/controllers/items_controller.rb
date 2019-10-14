@@ -8,10 +8,11 @@ class ItemsController < ApplicationController
     # @Electric_items = Item.get_Electric.limit(5).includes(:item_images)
     # @hobby_items = Item.get_hobby.limit(5).includes(:item_images)
   end
-  # def new
-  #   @item = Item.new
-  #   @image = Image.new    
-  # end
+
+  def new
+    @item = Item.new
+    @image = Image.new    
+  end
 
   # def create
   #   @item = current_user.items.new(item_params)
