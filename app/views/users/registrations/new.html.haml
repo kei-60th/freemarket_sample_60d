@@ -2,7 +2,7 @@
   .main-top
     会員情報入力
   .main-bottom
-    = form_with model: @user, class: 'form' do |f|
+    = form_with model: @user, :url => {:action => :create}, class: 'form' do |f|
       .nickname
         = f.label :nickname, "ニックネーム", class: "nickname__label"
         %span.nickname__required
@@ -77,7 +77,7 @@
         %a{href: '/'}
           利用規約
         に同意したものとみなします
-      = f.submit 'ログイン', class: 'form__btn-login'
+      = f.submit '次へ進む', class: 'form__btn-login'
       = link_to "/", class: 'form__forget-password' do
         本人情報の登録について
         = fa_icon 'angle-right'
