@@ -26,4 +26,6 @@ get '/mypage', to: 'mypage#mypage'
 get '/mypage/card', to: 'mypage#index'
 get '/mypage/card/create', to: 'mypage#create'
 
+get "/registration/compleate", to: "compleate#edit"
+
 end
