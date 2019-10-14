@@ -11,8 +11,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    super
-    User.create(params)
+    @user = User.create(user_params)
+    user_birth(@user)
   end
 
   # GET /resource/edit
@@ -60,4 +60,37 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+
+  private
+
+  def user_params
+    params.require(:user)
+    .permit(:email,
+            :password,
+            :password_confirmation,
+            :nickname,
+            :first_name,
+            :last_name,
+            :first_name_kana, 
+            :last_name_kana,
+            :birth_year, 
+            :birth_month, 
+            :birth_day, 
+    )
+  end
+
+  def user_birth(user)
+    user.update(birth_year: params[:birth_year],birth_month: params[:birth_month],birth_day: params[:birth_day])
+  end
+
+
+
+
+
+
+
+
+
+
 end
