@@ -2,7 +2,7 @@
   .main-top
     住所入力
   .main-bottom
-    = form_with model: @user, :url => {:action => :new}, class: 'form' do |f|
+    = form_with model: @address, scope: "address" , url: {action: "create"}, local: true, class: 'form' do |f|
       .user-name
         = f.label :user_name, "お名前", class: "user-name__label"
         %span.user-name__required
