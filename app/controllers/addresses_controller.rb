@@ -1,7 +1,9 @@
 class AddressesController < ApplicationController
   layout 'registration'
 
-  def update
-    bunding.pry
+  def new
+  end
+
+  def edit
   end
 end

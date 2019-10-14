@@ -1,33 +1,5 @@
 @import "mixin";
 
-@mixin required{
-  background-color: #ea352d;
-  border-radius: 2px;
-  color: white;
-  font-size: 12px;
-  padding: 2px 3px;
-}
-@mixin info-box{
-  text-align: left;
-  margin: 32px auto;
-  &__label{
-    font-size: 14px;
-    font-weight: bold;
-  }
-  &__required{
-    @include required;
-  }
-  &__text{
-    @include user-input();
-    @include textbox;
-    width: 100%;
-    color: black;
-    &--password{
-      margin-top: 20px;
-    }
-  }
-}
-
 #main-contents-user-info{
   @include main-contents;
   height: 1500px;
@@ -124,10 +96,7 @@
         color: #333333;
       }
       &__btn-login{
-        @include user-input();
-        width: 100%;
-        margin: 20px;
-        background-color: #ea352d;
+        @include red-btn;
       }
       &__forget-password{
         float: right;
