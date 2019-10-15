@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_12_175156) do
+
+ActiveRecord::Schema.define(version: 2019_10_15_023004) do
+
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -18,7 +20,20 @@ ActiveRecord::Schema.define(version: 2019_10_12_175156) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+
+  create_table "creditcards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "curd_number", null: false
+    t.integer "valid_year", null: false
+    t.integer "valid_month", null: false
+    t.integer "cvc", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_creditcards_on_user_id"
+  end
+
+  create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+
     t.string "name", null: false
     t.bigint "parent_id_id", null: false
     t.datetime "created_at", null: false
@@ -95,12 +110,9 @@ ActiveRecord::Schema.define(version: 2019_10_12_175156) do
     t.index ["item_id"], name: "index_sizes_on_item_id"
   end
 
-  add_foreign_key "conditions", "items"
-  add_foreign_key "delivery_dates", "items"
-  add_foreign_key "delivery_fees", "items"
-  add_foreign_key "delivery_ways", "items"
-  add_foreign_key "item_images", "items"
-  add_foreign_key "size_categories", "categories"
-  add_foreign_key "size_categories", "sizes"
-  add_foreign_key "sizes", "items"
+
+  add_foreign_key "addresses", "users"
+  add_foreign_key "creditcards", "users"
+  add_foreign_key "prefectures", "addresses", column: "addresses_id"
+
 end

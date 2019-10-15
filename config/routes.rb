@@ -22,6 +22,9 @@ get "/registration/confirmation", to: "sms_confirmation#edit"
 get "/registration/address", to: "addresses#new"
 post "/registration/address/post", to: "addresses#create"
 
+get "/registration/payment", to: "creditcards#new"
+post "/registration/payment/post", to: "creditcards#create"
+
 get '/mypage', to: 'mypage#mypage'
 get '/mypage/card', to: 'mypage#index'
 get '/mypage/card/create', to: 'mypage#create'
@@ -30,6 +33,8 @@ get '/registration/new', to: 'sessions#new'
 get '/login', to: 'users#new'
 get "/registration/compleate", to: "compleate#edit"
 
+
 resources :items, only: [:new, :create, :index]
 
 end
+
