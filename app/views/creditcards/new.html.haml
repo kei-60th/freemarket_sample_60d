@@ -2,25 +2,25 @@
   .main-top
     支払い方法
   .main-bottom
-    = form_with model: @creditcard, scope: "address" , url: {action: "create"}, local: true, class: 'form' do |f|
+    = form_with model: @creditcard, scope: "creditcard" , url: {action: "create"}, local: true, class: 'form' do |f|
       .address-form
-        = f.label :city, "カード番号", class: "address-form__label"
+        = f.label :curd_number, "カード番号", class: "address-form__label"
         %span.address-form__required
           必須
-        = f.text_field :city, class: 'address-form__text', placeholder: '半角数字のみ'
+        = f.text_field :curd_number, class: 'address-form__text', placeholder: '半角数字のみ'
       .address-form
         = f.label "有効期限", class: 'address-form__label'
         %span.address-form__required
           必須
         .box
-          %select{name: "birth_month"}
+          %select{name: "valid_month"}
             %option{value: ""}
               \--
             - for i in (1..12) do
               %option{value: i}
                 = i
           月
-          %select{name: "birth_year"}
+          %select{name: "valid_year"}
             %option{value: ""}
               = "--"
             - for i in (0..119) do
@@ -28,10 +28,10 @@
                 = "#{2019 - i}"
           年
       .address-form
-        = f.label :address, "セキュリティコード", class: "address-form__label"
+        = f.label :cvc, "セキュリティコード", class: "address-form__label"
         %span.address-form__required
           必須
-        = f.text_field :address, class: 'address-form__text', placeholder: 'カード背面4桁もしくは3桁の番号'
+        = f.text_field :cvc, class: 'address-form__text', placeholder: 'カード背面4桁もしくは3桁の番号'
       = f.submit '次へ進む', class: 'form__btn'
 
 
