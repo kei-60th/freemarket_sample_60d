@@ -8,10 +8,10 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :category,         null: false, index: true, foreign_key: true
       t.integer  :prefecure,        foreign_key: true
       t.integer  :size,             null: false, index: true, foreign_key: true
-      t.integer  :condition,        null: false, foreign_key: true
-      t.integer  :delivery_fee,     null: false, foreign_key: true
-      t.integer  :delivery_way,     null: false, foreign_key: true
-      t.integer  :delivery_date,    null: false, foreign_key: true
+      # t.integer  :condition,        null: false, foreign_key: true
+      # t.integer  :delivery_fee,     null: false, foreign_key: true
+      # t.integer  :delivery_way,     null: false, foreign_key: true
+      # t.integer  :delivery_date,    null: false, foreign_key: true
       t.references :user,             null: false
       t.timestamps 
     end

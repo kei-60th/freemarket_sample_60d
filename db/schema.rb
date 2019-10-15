@@ -96,10 +96,6 @@ ActiveRecord::Schema.define(version: 2019_10_15_093605) do
     t.integer "category", null: false
     t.integer "prefecure"
     t.integer "size", null: false
-    t.integer "condition", null: false
-    t.integer "delivery_fee", null: false
-    t.integer "delivery_way", null: false
-    t.integer "delivery_date", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
