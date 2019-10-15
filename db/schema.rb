@@ -100,11 +100,12 @@ ActiveRecord::Schema.define(version: 2019_10_15_093605) do
     t.integer "delivery_fee", null: false
     t.integer "delivery_way", null: false
     t.integer "delivery_date", null: false
-    t.integer "user", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category"], name: "index_items_on_category"
     t.index ["size"], name: "index_items_on_size"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
