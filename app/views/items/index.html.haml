@@ -48,6 +48,15 @@
       %i.fa.fa-angle-right
 
   .item-box
+    .item-box__contents
+      - @items.each do |item|
+        .item-box__contents__image
+          = image_tag item.item_images[0].image
+          .item-box__contents__price
+            ¥
+            = item.price
+          .item-box__contents__name
+            = item.name
 
     .item-box__contents
       - @items.each do |item|
