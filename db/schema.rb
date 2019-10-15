@@ -97,11 +97,9 @@ ActiveRecord::Schema.define(version: 2019_10_15_023004) do
   end
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.bigint "addresses_id", null: false
+    t.string "string", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["addresses_id"], name: "index_prefectures_on_addresses_id"
   end
 
   create_table "size_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -120,7 +118,6 @@ ActiveRecord::Schema.define(version: 2019_10_15_023004) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-
     t.string "email", null: false
     t.string "encrypted_password", null: false
     t.string "nickname", null: false
@@ -147,7 +144,6 @@ ActiveRecord::Schema.define(version: 2019_10_15_023004) do
   add_foreign_key "delivery_fees", "items"
   add_foreign_key "delivery_ways", "items"
   add_foreign_key "item_images", "items"
-  add_foreign_key "prefectures", "addresses", column: "addresses_id"
   add_foreign_key "size_categories", "categories"
   add_foreign_key "size_categories", "sizes"
   add_foreign_key "sizes", "items"
