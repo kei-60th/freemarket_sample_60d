@@ -52,10 +52,10 @@
       - @items.each do |item|
         .item-box__contents__image
           = image_tag item.item_images[0].image
-          .item-box__contents__price
+          .item-box__contents__image__price
             ¥
             = item.price
-          .item-box__contents__name
+          .item-box__contents__image__name
             = item.name
 
     .item-box__contents
@@ -67,6 +67,7 @@
             = item.price
           .item-box__contents__image__name
             = item.name
+
   .advertisement
     .advertisement__list
       .advertisement__list__left
@@ -79,45 +80,5 @@
       .advertisement__list__right
         = image_tag "smartphonepic.png",class: "smartphonepic"
 
-  .kfooter
-    .kfooter__grobalnavi
-      .kfooter__grobalnavi__1
-        %p メルカリについて
-        %ul
-          %li 会社概要
-          %li 採用情報
-          %li プレスリリース
-          %li 公式ブログ
-          %li ガイドライン
-      .kfooter__grobalnavi__2
-        %p メルカリについて
-        %ul
-          %li 会社概要
-          %li 採用情報
-          %li プレスリリース
-          %li 公式ブログ
-          %li ガイドライン
-      .kfooter__grobalnavi__3
-        %p メルカリについて
-        %ul
-          %li 会社概要
-          %li 採用情報
-          %li プレスリリース
-          %li 公式ブログ
-          %li ガイドライン
-      .kfooter__grobalnavi__4
-        %p メルカリについて
-        %ul
-          %li 会社概要
-          %li 採用情報
-          %li プレスリリース
-          %li 公式ブログ
-          %li ガイドライン
-      .kfooter__grobalnavi__5
-        %p メルカリについて
-        %ul
-          %li 会社概要
-          %li 採用情報
-          %li プレスリリース
-          %li 公式ブログ
-          %li ガイドライン
+  = render "shared/footer"
+  = render "shared/new_item_button"
