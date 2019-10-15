@@ -7,14 +7,19 @@ class AddressesController < ApplicationController
   end
 
   def create
-    @user = User.find(1)
-    @user.address= Address.create(create_params)
+    @address= Address.new(create_params)
+    if @address.save
+
+    else
+      render :new
+    end
+
     # Address.create(create_params)
     #binding.pry
   end
 
   private
   def create_params
-    params.require(:address).permit(:postcode, :city, :address, :building_name)
+    params.require(:address).permit(:postcode, :city, :address, :building_name).merge(user_id: User.last.id)
   end
 end
