@@ -14,7 +14,7 @@
         .form__card--center
           %input{placeholder: "半角数字のみ"}
         .form__card--lower
-          -# = image_tag "credit-cards", height: "18"
+          = image_tag "cards", height: "30", width: "300"
       .form__deadlile
         .form__deadlile--upper.null-null
           %h5 有効期限
@@ -59,7 +59,7 @@
           %input{placeholder: "カード背面4桁もしくは3桁の番号"}
         .form__cvc--lower
           -# font-awesomeいれる...............................
-          %span ?
+          %span.fa.fa-question-circle
           %h6 カード裏面の番号とは？
       .form__button
         %button 追加する
