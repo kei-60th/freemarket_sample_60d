@@ -2,7 +2,7 @@
   .main-top
     支払い方法
   .main-bottom
-    = form_with model: @payment, scope: "address" , url: {action: "create"}, local: true, class: 'form' do |f|
+    = form_with model: @creditcard, scope: "address" , url: {action: "create"}, local: true, class: 'form' do |f|
       .address-form
         = f.label :city, "カード番号", class: "address-form__label"
         %span.address-form__required
