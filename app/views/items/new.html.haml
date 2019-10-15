@@ -1,76 +1,75 @@
 -# 商品登録ページ
-.item-registration
-  = form_for @item, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
-    %h2.sell-form__header
-      商品情報を入力
-    .sell-form-container
-      %label.sell-form-container__label
-        出品画像
-      %span.sell-form-container__require
-        必須
-      = f.fields_for :item_images do |image|
-        .dropzone-container.clearfix
-          #preview
-          .dropzone-area
-            = image.label :image, class: "dropzone-box", for: "upload-image" do
-              .input_area
-                = image.file_field :image, multiple: true, name: 'item_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
-              %p ドラックアンドドロップ
-          #preview2
-          .dropzone-area2
-            = image.label :image, class: "dropzone-box", for: "upload-image" do
-              %p またはクリックしてファイルをアップロード
+%main#main
+  %section.container
+    #sell__container
+      %div
+        .sell__container__inner
+          %h2.sell__head 
+          商品の情報を入力
+          = form_for @item do |f|
+            .sell--upload__box
+              %h3.sell--upload__head
+                出品画像
+                %span.form--require 必須
+              %p 最大4枚までアップロードできます
+              = f.fields_for :item_images do |fi|
+                = fi.label :image, class: "sell--upload__drop__box" do
+                  .sell--upload__drop__box__imageview
+                    = fi.file_field :image,class:"file",style:"display:none;"
+                    %pre
+                      #preview
+                        クリックしてファイルをアップロード
                 
-      .sell__content
-        .sell__content__form--upper
-          %label
-            商品名
-            %span.form--require 必須
-          %div
-            = f.text_field :name, class: "input__default", placeholder: "商品名（必須40文字まで)"
-        .sell__content__form--lower
-          %label
-            商品の説明
-            %span.form--require 必須
-          %div
-            = f.text_area :description, class: "textarea__default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
-      .sell-body-price
-        .sell-body-price-side
-          .sell-body-price-side__title
-            販売価格(300〜9,999,999)
-            = fa_icon 'question-circle', class: "sell-body-price-side__question-circle"
-        .sell-body-price-main
-          .sell-body-price-main-input
-            .sell-body-price-main-input__box
-              .sell-body-price-main-input__box__name
-                価格
-              .sell-body-price-main-input__box__mark
-                必須
-              = f.text_field :price ,class: 'sell-body-price-main-input__box__yen',placeholder: "例)300"
-              .sell-body-price-main-input__box__yen-mark
-                ￥
-          .sell-body-price-main-commission
-            .sell-body-price-main-commission__box
-              .sell-body-price-main-commission__box__name
-                販売手数料(10%)
-              .sell-body-price-main-commission__box__ans
-                ー
-          .sell-body-price-main-profit
-            .sell-body-price-main-profit__box
-              .sell-body-price-main-profit__box__name
-                販売利益
-              .sell-body-price-main-profit__box__ans
-                ー
-      .sell-body-exhibit
-        %p.sell-body-exhibit__caution
-          #{link_to "禁止されている出品", "#",class: "sell-body-exhibit__caution-link"}、#{link_to "行為", "#",class: "sell-body-exhibit__caution-link"}を必ずご確認ください。
-          %brまたブランド品でシリアルナンバー等がある場合はご記載ください。#{link_to "偽ブランドの販売", "#",class: "sell-body-exhibit__caution-link"}は犯罪であ
-          り処罰される可能性があります。
-          %brまた、出品をもちまして#{link_to "加盟店規約", "#",class: "sell-body-exhibit__caution-link"}に同意したことになります。
-        = f.submit '出品する', class: 'sell-body-exhibit__send'
-        = link_to "#" ,class: "sell-body-exhibit__exit" do
-          .sell-body-exhibit__exit-link
-            もどる
+            .sell__content
+              .sell__content__form--upper
+                %label
+                  商品名
+                  %span.form--require 必須
+                %div
+                  = f.text_field :name, class: "input__default", placeholder: "商品名（必須40文字まで)"
+              .sell__content__form--lower
+                %label
+                  商品の説明
+                  %span.form--require 必須
+                %div
+                  = f.text_area :description, class: "textarea__default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"
+            .sell-body-price
+              .sell-body-price-side
+                .sell-body-price-side__title
+                  販売価格(300〜9,999,999)
+                  = fa_icon 'question-circle', class: "sell-body-price-side__question-circle"
+              .sell-body-price-main
+                .sell-body-price-main-input
+                  .sell-body-price-main-input__box
+                    .sell-body-price-main-input__box__name
+                      価格
+                    .sell-body-price-main-input__box__yen-mark
+                      ￥
+                    .sell-body-price-main-input__box__mark
+                      必須                      
+                    = f.text_field :price ,class: 'sell-body-price-main-input__box__yen',placeholder: "例)300"
+                .sell-body-price-main-commission
+                  .sell-body-price-main-commission__box
+                    .sell-body-price-main-commission__box__name
+                      販売手数料(10%)
+                    .sell-body-price-main-commission__box__ans
+                      ー
+                .sell-body-price-main-profit
+                  .sell-body-price-main-profit__box
+                    .sell-body-price-main-profit__box__name
+                      販売利益
+                    .sell-body-price-main-profit__box__ans
+                      ー
+            .sell-body-exhibit
+              %p.sell-body-exhibit__caution
+                #{link_to "禁止されている出品", "#",class: "sell-body-exhibit__caution-link"}、#{link_to "行為", "#",class: "sell-body-exhibit__caution-link"}を必ずご確認ください。
+                %brまたブランド品でシリアルナンバー等がある場合はご記載ください。#{link_to "偽ブランドの販売", "#",class: "sell-body-exhibit__caution-link"}は犯罪であ
+                り処罰される可能性があります。
+                %brまた、出品をもちまして#{link_to "加盟店規約", "#",class: "sell-body-exhibit__caution-link"}に同意したことになります。
+              = f.submit '出品する', class: 'sell-body-exhibit__send'
+              = link_to "#" ,class: "sell-body-exhibit__exit" do
+                .sell-body-exhibit__exit-link
+                  もどる
             
 
 

@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   has_one :delivery_fee
   has_one :delivery_way
   has_one :delivery_date
-  # accepts_nested_attributes_for :item_images
+  accepts_nested_attributes_for :item_images
 
 end
 
