@@ -1,49 +1,8 @@
 @import "mixin";
 
-@mixin required{
-  background-color: #ea352d;
-  border-radius: 2px;
-  color: white;
-  font-size: 12px;
-  padding: 3px;
-}
-@mixin info-box{
-  text-align: left;
-  margin: 32px auto;
-  &__label{
-    font-size: 14px;
-    font-weight: bold;
-  }
-  &__required{
-    @include required;
-  }
-  &__text{
-    @include user-input();
-    @include textbox;
-    &--password{
-      margin-top: 20px;
-    }
-  }
-}
-@mixin name-box{
-  text-align: left;
-  margin: 32px auto;
-  &__label{
-    font-size: 14px;
-    font-weight: bold;
-  }
-  &__required{
-    @include required;
-  }
-  &__text{
-    @include user-input();
-    @include textbox;
-  }
-}
-
 #main-contents-user-info{
   @include main-contents;
-  height: 1800px;
+  height: 1500px;
   width: 700px;
   .main-top{
     line-height: 97px;
@@ -70,25 +29,77 @@
       }
       @include form-box();
       height: 410px;
-      .user-name{
-        @include name-box;
+      .identification{
+        &__confirm{
+          text-align: left;
+          font-weight: bold;
+          font-size: 16px;
+        }
+        &__paragraph{
+          text-align: left;
+          font-size: 14px;
+        }
       }
-      .user-name-kana{
-        @include name-box;
+      .user-name{
+        text-align: left;
+        margin: 32px auto;
+        &__label{
+          font-size: 14px;
+          font-weight: bold;
+        }
+        &__required{
+          @include required;
+        }
+        .box{
+          &__text{
+            @include user-input();
+            @include textbox;
+            width: 40%;
+            color: black;
+          }
+        }
+      }
+      .birthday{
+        text-align: left;
+        &__label{
+          font-size: 14px;
+          font-weight: bold;
+        }
+        &__required{
+          @include required;
+        }
+        .box{
+          color: #333333;
+          select{
+            @include textbox;
+            line-height: 50px;
+            background-color: white;
+            width: 25%;
+            cursor: pointer;
+            option{
+            }
+          }
+        }
+      }
+      .notation{
+        font-size: 14px;
+        color: #888888;
       }
       &__captcha{
         height: 75px;
         width: 300px;
-        margin: 20px 0;
+        margin: 40px 0;
         border: 1px solid black;
       }
+      .navigation{
+        font-size: 14px;
+        color: #333333;
+      }
       &__btn-login{
-        @include user-input();
-        background-color: #ea352d;
-        width: 100%;
+        @include red-btn;
       }
       &__forget-password{
-        float: left;
+        float: right;
         text-decoration: none;
         font-size: 14px;
         color: #0099e8;

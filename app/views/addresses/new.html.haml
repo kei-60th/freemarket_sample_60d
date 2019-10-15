@@ -1,0 +1,50 @@
+#main-contents-address
+  .main-top
+    住所入力
+  .main-bottom
+    = form_with model: @address, scope: "address" , url: {action: "create"}, local: true, class: 'form' do |f|
+      .user-name
+        = f.label "お名前", class: "user-name__label"
+        %span.user-name__required
+          必須
+        = f.text_field :first_name, class: 'user-name__text', placeholder: '例) 山田'
+        = f.text_field :last_name, class: 'user-name__text', placeholder: '例) 彩'
+      .user-name
+        = f.label "お名前カナ", class: "user-name__label"
+        %span.user-name__required
+          必須
+        = f.text_field :first_name_kana, class: 'user-name__text', placeholder: '例) ヤマダ'
+        = f.text_field :last_name_kana, class: 'user-name__text', placeholder: '例) アヤ'
+      .address-form
+        = f.label :postcode, "郵便番号", class: "address-form__label"
+        %span.address-form__required
+          必須
+        = f.text_field :postcode, class: 'address-form__text', placeholder: '例) 123-4567'
+      .prefecture
+        -# = f.label :, "", class: "__label"
+        -# %span.__required
+        -#   必須
+        -# = f.text_field :, class: '__text', placeholder: ''
+      .address-form
+        = f.label :city, "市区町村", class: "address-form__label"
+        %span.address-form__required
+          必須
+        = f.text_field :city, class: 'address-form__text', placeholder: '例) 市区町村'
+      .address-form
+        = f.label :address, "番地", class: "address-form__label"
+        %span.address-form__required
+          必須
+        = f.text_field :address, class: 'address-form__text', placeholder: '例) 番地'
+      .arbitral-form
+        = f.label :building_name, "建物名", class: "arbitral-form__label"
+        %span.arbitral-form__arbitral
+          任意
+        = f.text_field :building_name, class: 'arbitral-form__text', placeholder: '例) 建物名'
+      .arbitral-form
+        = f.label :phone_number, "電話", class: "arbitral-form__label"
+        %span.arbitral-form__arbitral
+          任意
+        = f.text_field :phone_number, class: 'arbitral-form__text', placeholder: '例) 09012345678'
+      = f.submit '次へ進む', class: 'form__btn'
+
+
