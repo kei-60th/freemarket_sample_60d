@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_10_15_023004) do
 
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "postcode", null: false
+    t.string "city", null: false
+    t.string "address", null: false
+    t.string "building_name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -20,20 +29,7 @@ ActiveRecord::Schema.define(version: 2019_10_15_023004) do
     t.datetime "updated_at", null: false
   end
 
-
-  create_table "creditcards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "curd_number", null: false
-    t.integer "valid_year", null: false
-    t.integer "valid_month", null: false
-    t.integer "cvc", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_creditcards_on_user_id"
-  end
-
-  create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "parent_id_id", null: false
     t.datetime "created_at", null: false
@@ -47,6 +43,17 @@ ActiveRecord::Schema.define(version: 2019_10_15_023004) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_conditions_on_item_id"
+  end
+
+  create_table "creditcards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "curd_number", null: false
+    t.integer "valid_year", null: false
+    t.integer "valid_month", null: false
+    t.integer "cvc", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_creditcards_on_user_id"
   end
 
   create_table "delivery_dates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -90,9 +97,11 @@ ActiveRecord::Schema.define(version: 2019_10_15_023004) do
   end
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "string", null: false
+    t.string "name", null: false
+    t.bigint "addresses_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["addresses_id"], name: "index_prefectures_on_addresses_id"
   end
 
   create_table "size_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -110,9 +119,35 @@ ActiveRecord::Schema.define(version: 2019_10_15_023004) do
     t.index ["item_id"], name: "index_sizes_on_item_id"
   end
 
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "email"
+    t.string "encrypted_password"
+    t.string "nickname"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "first_name_kana"
+    t.string "last_name_kana"
+    t.integer "birth_year"
+    t.integer "birth_month"
+    t.integer "birth_day"
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "conditions", "items"
   add_foreign_key "creditcards", "users"
+  add_foreign_key "delivery_dates", "items"
+  add_foreign_key "delivery_fees", "items"
+  add_foreign_key "delivery_ways", "items"
+  add_foreign_key "item_images", "items"
   add_foreign_key "prefectures", "addresses", column: "addresses_id"
-
+  add_foreign_key "size_categories", "categories"
+  add_foreign_key "size_categories", "sizes"
+  add_foreign_key "sizes", "items"
 end
