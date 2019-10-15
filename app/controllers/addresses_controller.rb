@@ -2,20 +2,15 @@ class AddressesController < ApplicationController
   layout 'registration'
 
   def new
-    #@address = Address.new
-    #@address.save
   end
 
   def create
     @address= Address.new(create_params)
     if @address.save
-
+      redirect_to controller: :creditcards, action: :new
     else
       render :new
     end
-
-    # Address.create(create_params)
-    #binding.pry
   end
 
   private

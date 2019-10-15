@@ -1,4 +1,5 @@
 class CreditcardsController < ApplicationController
+  layout 'registration'
 
   def new
   end
@@ -6,7 +7,7 @@ class CreditcardsController < ApplicationController
   def create
     @creditcard= Creditcard.new(create_params)
     if @creditcard.save
-
+      redirect_to controller: :compleate, action: :edit
     else
       render :new
     end
