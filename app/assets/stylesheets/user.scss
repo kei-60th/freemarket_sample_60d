@@ -17,12 +17,43 @@
       }
     }
     .right-contents{
+      padding: 4% 0;
       lo{
         .list{
           float: left;
+          list-style-type: none;
+          font-size: 12px;
+          height: 32px;
+          margin-right: 40px;
+          color: #CCCCCC;
           &--active{
-            float: left;
             color: #EA352D;
+          }
+          .progress-status{
+          }
+          .progress-status::before{
+            position: relative;
+            //left: 35%;
+            height: 2px;
+            width: calc(40px + 100%);
+            background-color: #CCCCCC;
+            
+            display: inline-block;
+            content: '';
+          }
+          .progress-status::after {
+            position: relative;
+            top: -10px;
+            
+            display: inline-block;
+            
+            width: 12px;
+            height: 12px;
+            
+            content: '';
+            
+            border-radius: 100%;
+            background: #CCCCCC;
           }
         }
       }

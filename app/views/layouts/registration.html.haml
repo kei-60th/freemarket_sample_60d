@@ -14,16 +14,21 @@
           = image_tag 'mercarilogo.svg'
       .right-contents
         %lo
-          %li.list--active
+          %li.list.list--active
             会員情報
+            .progress-status
           %li.list
             電話番号認証
+            .progress-status
           %li.list
             お届け先住所入力
+            .progress-status
           %li.list
             支払い方法
+            .progress-status
           %li.list
             完了
+            .progress-status
     .contents
       = yield
     .g_footer

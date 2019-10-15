@@ -1,8 +1,8 @@
 @import "mixin";
 
-#main-contents-address{
+#main-contents-creditcards{
   @include main-contents;
-  height: 1050px;
+  height: 600px;
   width: 700px;
   .main-top{
     line-height: 97px;
@@ -15,7 +15,10 @@
     margin: 0 auto;
     .form{
       width: 100%;
-      .user-name{
+      .one-form{
+        @include info-box;
+      }
+      .two-form{
         text-align: left;
         margin: 32px auto;
         &__label{
@@ -31,33 +34,6 @@
             @include textbox;
             width: 39%;
             color: black;
-          }
-        }
-      }
-      .address-form{
-        @include info-box;
-      }
-      .arbitral-form{
-        text-align: left;
-        margin: 32px auto;
-        &__label{
-          font-size: 14px;
-          font-weight: bold;
-        }
-        &__arbitral{
-          background-color: #cbcbcb;
-          border-radius: 2px;
-          color: white;
-          font-size: 12px;
-          padding: 2px 3px;
-        }
-        &__text{
-          @include user-input();
-          @include textbox;
-          width: 90%;
-          color: black;
-          &--password{
-            margin-top: 20px;
           }
         }
       }

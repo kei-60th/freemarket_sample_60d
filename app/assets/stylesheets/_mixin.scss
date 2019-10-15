@@ -33,7 +33,7 @@
   &__text{
     @include user-input();
     @include textbox;
-    width: 100%;
+    width: 90%;
     color: black;
     &--password{
       margin-top: 20px;
@@ -47,7 +47,7 @@
 @mixin red-btn{
   @include user-input();
   width: 100%;
-  margin: 20px;
+  margin: 20px 0;
   background-color: #ea352d;
 }
 @mixin required{
