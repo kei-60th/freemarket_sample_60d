@@ -7,14 +7,16 @@
         = f.label "お名前", class: "user-name__label"
         %span.user-name__required
           必須
-        = f.text_field :first_name, class: 'user-name__text', placeholder: '例) 山田'
-        = f.text_field :last_name, class: 'user-name__text', placeholder: '例) 彩'
+        .box
+          = f.text_field  :first_name, class:  'box__text',   placeholder: '例) 山田'
+          = f.text_field  :last_name, class:   'box__text',  placeholder: '例) 彩'
       .user-name
         = f.label "お名前カナ", class: "user-name__label"
         %span.user-name__required
           必須
-        = f.text_field :first_name_kana, class: 'user-name__text', placeholder: '例) ヤマダ'
-        = f.text_field :last_name_kana, class: 'user-name__text', placeholder: '例) アヤ'
+        .box
+          = f.text_field :first_name_kana, class:   'box__text', placeholder: '例) ヤマダ'
+          = f.text_field :last_name_kana, class:  'box__text', placeholder: '例) アヤ'
       .address-form
         = f.label :postcode, "郵便番号", class: "address-form__label"
         %span.address-form__required
