@@ -2,7 +2,7 @@
 
 #main-contents-address{
   @include main-contents;
-  height: 1050px;
+  height: 1150px;
   width: 700px;
   .main-top{
     line-height: 97px;
@@ -36,6 +36,24 @@
       }
       .address-form{
         @include info-box;
+      }
+      .prefecture{
+        color: #333333;
+        text-align: left;
+        &__label{
+          font-size: 14px;
+          font-weight: bold;
+        }
+        &__required{
+          @include required;
+        }
+        select{
+          @include textbox;
+          line-height: 50px;
+          background-color: white;
+          width: 100%;
+          cursor: pointer;
+        }
       }
       .arbitral-form{
         text-align: left;
