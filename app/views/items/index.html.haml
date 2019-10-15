@@ -11,6 +11,7 @@
         %li.fa.fa-tags
         =link_to  'ブランドから探す'
       %ul.navmenu__rightside-bar
+        -# ----ログイン後のアイコン----
         -# %li.fa.fa-heart
         -# =link_to  'いいね！一覧'
         -# %li.fa.fa-bell
@@ -39,20 +40,17 @@
         =link_to 'おもちゃ・ホビー・グッズ',class: "lists"
 
   .itemstitle
-    .itemstitle__box
-      .itemstitle__box__title
-        新着アイテム
-      .itemstitle__box__nextpage
-        もっと見る
-        -# =link_to 'もっと見る'
-        %i.fa.fa-angle-right
-  .itemslists
-    .firstline
-      -(1..10).each do |i|
-        = image_tag "sampleitem.jpg",class: "sampleitem"
-      -# .secondline
-      -#   -(1..5).each do |i|
-      -#     = image_tag "sampleitem.jpg",class: "sampleitem"
+    .itemstitle__title
+      新着アイテム
+    .itemstitle__nextpage
+      もっと見る
+      -# =link_to 'もっと見る'
+      %i.fa.fa-angle-right
+
+  .item-box
+    -# .item-box__contents
+    -#   - @items.each do |item|
+
   .advertisement
     .advertisement__list
       .advertisement__list__left
@@ -107,5 +105,3 @@
           %li プレスリリース
           %li 公式ブログ
           %li ガイドライン
-
-

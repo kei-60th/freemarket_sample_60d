@@ -1,0 +1,26 @@
+.item-box
+  .item-box__image
+    - @items.each do |item|
+      = item.name
+  .item-box__price
+    = converting_price(item.price)
+  .item-box__title
+    ＝item.name
+
+  -# .sold-out-box
+  -#   .sold-out-text SOLD
+
+
+%li.item-box
+  =link_to item_path(item.id) do
+    = image_tag item.item_images[0].image
+    - if item.order_status_id == 2
+
+  .item-box-text
+    .text-box
+      %h4
+        = item.name
+    .price
+      = converting_price(item.price)
+    .price-tax
+      (税込)

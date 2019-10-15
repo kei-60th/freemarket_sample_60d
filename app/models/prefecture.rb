@@ -1,6 +1,6 @@
 class Prefecture < ApplicationRecord
-  belongs_to :address
 
-  validates :name,         null: false
-  validates :addresses_id, null: false
+  has_many :items
+  has_many :users
+
 end

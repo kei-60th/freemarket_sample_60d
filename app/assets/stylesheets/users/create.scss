@@ -6,14 +6,19 @@
     font-weight: bold;
     letter-spacing: 2px;
     h5{
-      font-size: 9px;
-      font-weight: bold;
-      letter-spacing: 2px;
+      text-align: 14px;
+      font-size: 14px;
+      font-weight: 600;
+      height: 14px;
     }
     &__card{
       margin: 15px 0 0;
-      &--center{
-        margin-top: 6px;
+      &--input{
+        width: 309px;
+        height: 28px;
+        font-size: 14px;
+        margin-top: 8px;
+        padding: 10px 16px 8px 16px;
       }
       &--lower{
         margin-top: 6px;
@@ -26,9 +31,9 @@
         .select-month{
           font-weight: normal;
           select{
-            width: 80px;
-            height: 28px;
-            padding-left: 10px;
+            width: 98px;
+            height: 48px;
+            padding: 0 16px;
             background-color: #ffffff;
             border-radius: 3px;
             font-size: 11px;
@@ -65,10 +70,25 @@
         margin-top: 6px;
       }
       &--lower{
+        text-height:15px;
+        text-align: 15px;
+        width: 363px;
         display: flex;
         justify-content: flex-end;
         color: #0099E8;
-        font-size: 8px;
+        font-size: 14px;
+      }
+    }
+    &__button{
+      button{
+      font-size: 14px;
+      margin-top: 32px;
+      padding: 0;
+      width: 362px;
+      line-height: 48px;
+      color: white;
+      background-color: #EA352D;
+      text-align: center;
       }
     }
   }

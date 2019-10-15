@@ -77,6 +77,7 @@ gem 'capistrano-rbenv'
 gem 'capistrano-bundler'
 gem 'capistrano-rails'
 gem 'capistrano3-unicorn'
+gem 'ancestry'
 
 gem 'haml-rails'
 gem 'erb2haml'
