@@ -23,8 +23,8 @@ get "/registration/confirmation", to: "sms_confirmation#edit"
 get "/registration/address", to: "addresses#new"
 post "/registration/address/post", to: "addresses#create"
 
-get "/registration/payment", to: "payment#new"
-post "/registration/payment/post", to: "payment#create"
+get "/registration/payment", to: "creditcards#new"
+post "/registration/payment/post", to: "creditcards#create"
 
 get '/mypage', to: 'mypage#mypage'
 get '/mypage/card', to: 'mypage#index'
