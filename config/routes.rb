@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
-    :sessions => 'users/sessions'   
-  } 
+    :sessions => 'users/sessions'
+  }
 
   devise_scope :user do
     get "/login", :to => "users/sessions#new"
@@ -13,9 +13,10 @@ Rails.application.routes.draw do
 resources :addresses, only: [:create]
 resources :creditcards, only: [:new, :create]
 resources :items, only: [:new, :create, :index]
+resources :orders, only: [:index]
 
 root "items#index"
-  
+
 get '/toppage', to: 'test#index'
 get '/signin', to: 'users#new'
 get '/logout', to: 'mypage#logout'
@@ -30,6 +31,8 @@ get '/registration', to: 'registrations#index'
 get '/registration/new', to: 'sessions#new'
 get '/login', to: 'users#new'
 get "/registration/compleate", to: "compleate#edit"
+
+get "/purchase/confirmation", to: "orders#index"
 
 end
 
