@@ -6,6 +6,9 @@ class AddressesController < ApplicationController
 
   def create
     @address= Address.new(create_params)
+    @user = User.last
+    @user.update(prefecture_id: params[:prefecture_id])
+    @user.save
     if @address.save
       redirect_to controller: :creditcards, action: :new
     else
@@ -15,6 +18,6 @@ class AddressesController < ApplicationController
 
   private
   def create_params
-    params.require(:address).permit(:postcode, :city, :address, :building_name).merge(user_id: User.last.id, prefecture_id: params[:prefecture_id])
+    params.require(:address).permit(:postcode, :city, :address, :building_name).merge(user_id: User.last.id)
   end
 end
