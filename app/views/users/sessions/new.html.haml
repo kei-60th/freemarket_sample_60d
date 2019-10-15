@@ -1,7 +1,7 @@
 #main-contents-login
   .main-top
     アカウントをお持ちでない方はこちら
-    = link_to "/", class: "main-top__btn-registration" do
+    = link_to new_user_registration_path, class: "main-top__btn-registration" do
       新規会員登録
   .main-bottom
     .buttons
@@ -13,7 +13,7 @@
         Googleでログイン
     = form_with model: @user, url: user_session_path, class: 'form' do |f|
       = f.text_field :email, placeholder: 'メールアドレス', class: 'form__text'
-      = f.text_field :password, placeholder: 'パスワード', class: 'form__text form__text--password'
+      = f.text_field :password, placeholder: 'パスワード', class: 'form__text form__text--password', type: "password"
       .form__captcha
         私はロボットではありません
       = f.submit 'ログイン', class: "form__btn-login"
