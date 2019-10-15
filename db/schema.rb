@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_15_023004) do
+ActiveRecord::Schema.define(version: 2019_10_15_093605) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postcode", null: false
@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 2019_10_15_023004) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.bigint "parent_id_id", null: false
+    t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["parent_id_id"], name: "index_categories_on_parent_id_id"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -92,6 +92,21 @@ ActiveRecord::Schema.define(version: 2019_10_15_023004) do
     t.string "name", null: false
     t.integer "price", null: false
     t.text "description", null: false
+    t.integer "order_status", null: false
+    t.integer "category", null: false
+    t.integer "prefecure"
+    t.integer "size", null: false
+    t.integer "condition", null: false
+    t.integer "delivery_fee", null: false
+    t.integer "delivery_way", null: false
+    t.integer "delivery_date", null: false
+    t.integer "user", null: false
+    t.index ["category"], name: "index_items_on_category"
+    t.index ["size"], name: "index_items_on_size"
+  end
+
+  create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
