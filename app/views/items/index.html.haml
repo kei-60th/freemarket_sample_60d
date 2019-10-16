@@ -22,7 +22,7 @@
           %li.fa.smile
           =link_to 'マイページ'
         - else
-          =link_to new_user_registration_path, class: 'sign_up' do
+          =link_to signin_path, class: 'sign_up' do
             新規会員登録
           =link_to new_user_session_path, class: 'log_in' do
             ログイン
