@@ -13,7 +13,7 @@ class User < ApplicationRecord
   # has_one :payment
   # has_one :creditcard
   # has_one :evaluation
-  belongs_to :prefecture
+  # belongs_to :prefecture
 
   validates :nickname, presence: true
   validates :nickname, uniqueness: true

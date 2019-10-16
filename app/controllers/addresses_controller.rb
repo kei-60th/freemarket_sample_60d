@@ -6,9 +6,9 @@ class AddressesController < ApplicationController
 
   def create
     @address= Address.new(create_params)
-    @user = User.last
-    @user.update(prefecture_id: params[:prefecture_id])
-    @user.save
+    # @user = User.last
+    # @user.update(prefecture_id: params[:prefecture_id])
+    # @user.save
     if @address.save
       redirect_to controller: :creditcards, action: :new
     else

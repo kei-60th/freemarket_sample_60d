@@ -82,7 +82,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
             :birth_year, 
             :birth_month, 
             :birth_day, 
-    ).merge(birth_year: params[:birth_year],birth_month: params[:birth_month],birth_day: params[:birth_day], prefecture_id: 1)
+    ).merge(birth_year: params[:birth_year],birth_month: params[:birth_month],birth_day: params[:birth_day])
   end
 
 
