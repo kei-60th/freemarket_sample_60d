@@ -1,5 +1,4 @@
 -# 商品購入確認ページ mkは後で削除
-.mk-wrapper
 
 .k-header
   = image_tag "mercarilogo.svg", class: "mercari_logo"
@@ -28,7 +27,8 @@
   購入する
 
 .order-item__adress
-  %h5 配送先
+  .order-item__adress__title
+    配送先
   %br/
   .order-item__adress__zipcode
     〒 999-9999
@@ -40,9 +40,22 @@
     %p 変更する＞
 
 .order-item__payment-type
-  %h5 支払い方法
-  %br/
+  支払い方法
   .order-item__payment-type_details
     現金
     %br/
     %p 変更する＞
+
+.k-footer
+  %ul.links
+    %li
+      =link_to "/", class: 'links__link-bottom' do
+        プライバシーポリシー
+    %li
+      =link_to "/", class: 'links__link-bottom' do
+        メルカリ利用規約
+    %li
+      =link_to "/", class: 'links__link-bottom' do
+        特定商取引に関する表記
+  =link_to "/" do
+    = image_tag 'mercarilogo-gray.svg'
