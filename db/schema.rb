@@ -126,7 +126,6 @@ ActiveRecord::Schema.define(version: 2019_10_15_114811) do
     t.integer "birth_year"
     t.integer "birth_month"
     t.integer "birth_day"
-    t.integer "prefecture_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
