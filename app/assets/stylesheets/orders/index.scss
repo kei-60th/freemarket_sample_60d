@@ -1,15 +1,98 @@
-.header {
-  text-align: center; 
+.mk-wrapper {
+  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  color: #333333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.k-header {
+  height: 128px;
+  background-color: #F5F5F5;
+  text-align: center;
+  .mercari_logo {
+    width: 185px;
+    height: 49px;
+  }
 }
 
 .title {
-  text-align: center;
-  padding: 16px;
-  font-size: 22px;
-}
-
-.item {
   width: 700px;
   margin: 0 auto;
-  background-color: pink
+  text-align: center;
+  font-size: 22px;
+  padding: 16px;
+}
+
+.order-item {
+  &__top-content {
+    margin: 0 auto;
+    width: 354px;
+    padding: 24px 16px 0px;
+    border-top: 1px solid #f5f5f5;
+    display: flex;
+    justify-content: space-between;
+
+    &__image {
+      border-top: 1px solid #f5f5f5;
+      background-color:aqua;
+      height: 85px;
+      width: 64px;
+    }
+    &__name {
+      font-size: 22px;
+      text-align: center;
+      padding:16px 70px 16px 0px;
+    }
+  }
+  &__second-content {
+    &__price {
+      width: 354px;
+      padding-top: 10px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    &__point-button {
+      background-color: #ccc;
+      width: 320px;
+      margin: 0 auto;
+      padding: 16px;
+      text-align: center;
+    }
+  }
+    &__price-details {
+      width: 354px;
+      margin: 0 auto;
+      &__price {
+        width: 354px;
+        margin: 0 auto;
+      }
+    }
+    &__purchase-button{
+      background-color:#888;
+      color: white;
+      width: 320px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 16px;
+    }
+  &__adress{
+    width: 354px;
+    margin: 0 auto;
+    border-top: 1px solid #f5f5f5;
+  }
+  &__payment-type{
+    width: 354px;
+    margin: 0 auto;
+    border-top: 1px solid #f5f5f5;
+  }
+}
+
+p {
+  color: #0099e8;
+  text-align:right;
+}
+
+h5 {
+  font-size: 14px;
 }
