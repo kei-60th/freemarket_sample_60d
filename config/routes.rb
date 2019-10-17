@@ -13,6 +13,11 @@ Rails.application.routes.draw do
 resources :addresses, only: [:create]
 resources :creditcards, only: [:new, :create]
 resources :items, only: [:new, :create, :index]
+resources :items do
+  collection do
+    post '/pay', to: 'orders#create'
+  end
+end
 
 root "items#index"
   
@@ -30,6 +35,7 @@ get '/registration', to: 'registrations#index'
 get '/registration/new', to: 'sessions#new'
 get "/registration/compleate", to: "compleate#edit"
 get "/item", to: "item_details#index"
+get "/order/confirmation", to: "order#index"
 
 end
 
