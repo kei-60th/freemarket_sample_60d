@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
 resources :addresses, only: [:create]
 resources :creditcards, only: [:new, :create]
-resources :items, only: [:new, :create, :index]
+resources :items, only: [:new, :create, :index, :show]
 
 root "items#index"
   
@@ -29,7 +29,6 @@ get '/mypage/card/create', to: 'mypage#create'
 get '/registration', to: 'registrations#index'
 get '/registration/new', to: 'sessions#new'
 get "/registration/compleate", to: "compleate#edit"
-get "/item", to: "item_details#index"
 
 end
 

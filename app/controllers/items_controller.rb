@@ -10,6 +10,10 @@ class ItemsController < ApplicationController
     # @hobby_items = Item.get_hobby.limit(5).includes(:item_images)
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
   def new
     @item = Item.new
     # @item_image = ItemImage.new

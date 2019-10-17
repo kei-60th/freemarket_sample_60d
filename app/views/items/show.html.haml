@@ -26,16 +26,15 @@
   .item-deteal
     .item-deteal__box
       %h1.item-deteal__box__title
-        -# = @item.name
+        = @item.items.name
       .item-deteal__box__item
         .item-deteal__box__item__left
-          = image_tag "https://ca.slack-edge.com/T1MLERC4C-U9PSHLBL7-a610cbcb3e56-72", class: "item-img"
           .left__top
 
-            -# = image_tag @item.images[0].image.url, alt: '', class: 'slide__box__image3'
+            = image_tag @item.image[0].image.url, alt: '', class: 'slide__box__image3'
           .left__down
             .left__down__iir
-              -# - @images.each_with_index do |image, index|
+              - @image.each_with_index do |image, index|
                 .left__down__iir__gffk
                   = image_tag image.image.url, alt: '', class: 'left__down__iir__gffk__image'
         %table.item-detail-table
@@ -44,7 +43,7 @@
               %th 出品者
               %td.td-padding
                 = link_to "#", class: "kiyaku--bule-underline" do
-                  -# = @item.user.nickname
+                  = @item.users.nickname
                 .yyy.icon-top
                   .item-user-ratings
                     = fa_icon 'smile-o', {class: "good-icons--pink"}
@@ -58,61 +57,61 @@
             %tr
               %th カテゴリー
               %td.td-padding
-                -# - if @item.category.parent.parent
+                - if @item.category.parent.parent
                   = link_to "#", class: "kiyaku--bule-underline" do
                     %div
-                      = @item.category.parent.parent.name #親
+                      = @item.categories.parent_id.name #親
                 = link_to "#" do
                   .item-detail-table-sub-category{class: "kiyaku--bule-underline"}
                     %i.icon-arrow-right
-                    -# = "＞" + @item.category.parent.name        #子
+                    = "＞" + @item.categories.parent_id.name        #子
                 = link_to "#" do
                   .item-detail-table-sub-sub-category{class: "kiyaku--bule-underline"}
                     %i.icon-arrow-right
-                    -# = "＞" + @item.category.name               #孫
-            -# - if @item.brand
+                    = "＞" + @item.categories.name               #孫
+            - if @item.brand
               %tr
                 %th ブランド
                 %td.td-padding
                   %a{href: "#", class: "kiyaku--bule-underline"}
                     %div
-                      = @item.brand.name
-            -# - if @item.size
+                      = @item.brands.name
+            - if @item.sizes
               %tr
                 %th 商品のサイズ
                 %td.td-padding
-                  = @item.size.name
+                  = @item.sizes.size
             %tr
               %th 商品の状態
               %td.td-padding
-                -# = @item.display_product_state
+                = @item.conditions.condition
             %tr
               %th 配送料の負担
               %td.td-padding
-                -# = @item.burden.parent.name
+                = @item.delivery_fees.fee
             %tr
               %th 配送の方法
               %td.td-padding
-                -# = @item.burden.name
+                = @item.delivery_ways.way
             %tr
               %th 配送元地域
               %td.td-padding
                 %a{href: "#", class: "kiyaku--bule-underline"}
-                  -# = @item.prefecture.name
+                  = @item.prefecture.name
             %tr
               %th 発送日の目安
               %td.td-padding
-                -# = @item.display_shipping_days
+                = @item.delivery_dates.date
 
-      -# - if @item.user != current_user
+      - if @item.users != current_user
         .item-deteal__box__price
           %span.oooo
             ¥
-            -# = @item.price.to_s(:delimited)
+            = @item.items.price.to_s(:delimited)
           %span.rrrr
             （税込）
           %span.wwww
-            -# = @item.burden.parent.name.sub(/（出品者負担）/,"").sub(/（購入者負担）/,"")
+            = @item.burden.parent.name.sub(/（出品者負担）/,"").sub(/（購入者負担）/,"")
         - if @item.transact.buyer_id
           = link_to "#", class:'kkooko', style: "background-color: grey;"do
             売り切れました
@@ -121,12 +120,12 @@
             購入画面に進む
         .item-deteal__box__description
           %p.item-deteal__box__description__idjs
-            = @item.description
+            = @items.description
       - else
         .item-deteal__box__price
           %span.oooo
             ¥
-            = @item.price.to_s(:delimited)
+            = @item.items.price.to_s(:delimited)
           %span.rrrr
             （税込）
           %span.wwww
@@ -166,7 +165,7 @@
       .message-contents
         .message-container__contents__form
           %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          %input.textarea-default
+          %input.text-area-default
           %button.btn-default
             %span コメントする
 
