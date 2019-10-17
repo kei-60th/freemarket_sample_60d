@@ -29,19 +29,20 @@
         = @item.name
       .item-deteal__box__item
         .item-deteal__box__item__left
-          .left__top
-
+          .left-top
             = image_tag @item.item_images[0].image.url
-          .left__down
-            .left__down__iir
-              .left__down__iir__gffk
-                -# = image_tag @item.item_images[0].image.url
+          .left-bottom
+            .left-bottom__array
+              = image_tag @item.item_images[0].image.url
+              .left-bottom__array__box
+                = image_tag @item.item_images[0].image.url
+
         %table.item-detail-table
           %tbody
             %tr
               %th 出品者
-              %td.td-padding
-                = link_to "#", class: "kiyaku--bule-underline" do
+              %td.td-box
+                = link_to "#", class: "link-blue" do
                   メルカリ太郎
                   -# = @item.nickname
                 .yyy.icon-top
@@ -56,67 +57,67 @@
                     %span 0
             %tr
               %th カテゴリー
-              %td.td-padding
+              %td.td-box
                 -# - if @item.category.parent_id.name
-                  = link_to "#", class: "kiyaku--bule-underline" do
+                  = link_to "#", class: "link-blue" do
                     %div
                       = @item.categories.parent_id.name #親
                 = link_to "#" do
-                  .item-detail-table-sub-category{class: "kiyaku--bule-underline"}
+                  .item-detail-table-sub-category{class: "link-blue"}
                     %i.icon-arrow-right
                     -# = "＞" + @item.categories.parent_id.name        #子
                 = link_to "#" do
-                  .item-detail-table-sub-sub-category{class: "kiyaku--bule-underline"}
+                  .item-detail-table-sub-sub-category{class: "link-blue"}
                     %i.icon-arrow-right
                     -# = "＞" + @item.categories.name               #孫
             -# - if @item.brand
               %tr
                 %th ブランド
-                %td.td-padding
-                  %a{href: "#", class: "kiyaku--bule-underline"}
+                %td.td-box
+                  %a{href: "#", class: "link-blue"}
                     %div
                       = @item.brands.name
             -# - if @item.sizes
               %tr
                 %th 商品のサイズ
-                %td.td-padding
+                %td.td-box
                   = @item.sizes.size
             %tr
               %th 商品の状態
-              %td.td-padding
+              %td.td-box
                 = @item.condition
             %tr
               %th 配送料の負担
-              %td.td-padding
+              %td.td-box
                 -# = @item.fee
             %tr
               %th 配送の方法
-              %td.td-padding
+              %td.td-box
                 -# = @item.way
             %tr
               %th 配送元地域
-              %td.td-padding
-                %a{href: "#", class: "kiyaku--bule-underline"}
+              %td.td-box
+                %a{href: "#", class: "link-blue"}
                   -# = @item.prefecture.name
             %tr
               %th 発送日の目安
-              %td.td-padding
+              %td.td-box
                 -# = @item.date
 
-      -# - if @item.users != current_user
+      -# - if @item.user != current_user
         .item-deteal__box__price
           %span.oooo
             ¥
-            = @item.items.price.to_s(:delimited)
+            = @item.price.to_s(:delimited)
           %span.rrrr
             （税込）
           %span.wwww
             = @item.burden.parent.name.sub(/（出品者負担）/,"").sub(/（購入者負担）/,"")
         - if @item.transact.buyer_id
-          = link_to "#", class:'kkooko', style: "background-color: grey;"do
+          = link_to "#", class:'sale', style: "background-color: grey;"do
             売り切れました
         - else
-          = link_to "/items/buy/#{@item.id}", class:'kkooko'do
+          = link_to "/items/create/#{@item.id}", class:'sale'do
             購入画面に進む
         .item-deteal__box__description
           %p.item-deteal__box__description__idjs
@@ -125,7 +126,7 @@
         .item-deteal__box__price
           %span.oooo
             ¥
-            = @item.items.price.to_s(:delimited)
+            = @item.price.to_s(:delimited)
           %span.rrrr
             （税込）
           %span.wwww
@@ -134,20 +135,20 @@
           %p.item-deteal__box__description__idjs
             = @item.description
         - if @item.transact.buyer_id
-          = link_to edit_item_path(@item.id), class:'kkooko--edit-grey'do
+          = link_to edit_item_path(@item.id), class:'sale--edit-grey'do
             商品が購入されました。発送してください。
         - else
-          = link_to edit_item_path(@item.id), class:'kkooko--edit' do
+          = link_to edit_item_path(@item.id), class:'sale--edit' do
             商品の編集
-          = link_to "この商品を削除する", "/items/#{@item.id}", method: :delete, data: { confirm: "確認\n削除すると二度と復活できません\n本当に削除しますか？" }, class: 'kkooko--edit-grey'
+          = link_to "この商品を削除する", "/items/#{@item.id}", method: :delete, data: { confirm: "確認\n削除すると二度と復活できません\n本当に削除しますか？" }, class: 'sale--edit-grey'
 
       .item-button-container.clearfix
         .item-button-left
-          %button.item-button.item-button-like{"data-ga" => "element", "data-ga-category" => "LIKE", "data-ga-label" => "like!", "data-id" => "m38799137224", "data-toggle" => "like", :name => "like!", :type => "button"}
+          %button.item-button.item-button-like
             %i.icon-like-border
             = fa_icon 'heart', {class: "icon-good"}
             %span いいね!
-            %span.fade-in-down{"data-num" => "like"} 3
+            %span.fade-in-bottom{"data-num" => "like"} 3
 
           .item-button-report
             = fa_icon 'flag', {class: "icon-bad"}
