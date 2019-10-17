@@ -1,5 +1,7 @@
-class OrderController < ApplicationController
+class OrdersController < ApplicationController
   require 'payjp'
+  def index
+  end
 
   def create
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']

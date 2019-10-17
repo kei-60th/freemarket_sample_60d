@@ -35,7 +35,7 @@ get '/registration', to: 'registrations#index'
 get '/registration/new', to: 'sessions#new'
 get "/registration/compleate", to: "compleate#edit"
 get "/item", to: "item_details#index"
-get "/order/confirmation", to: "order#index"
+get "/order/confirmation", to: "orders#index"
 
 end
 
