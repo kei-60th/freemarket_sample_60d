@@ -21,7 +21,7 @@
         ¥
         100,000,000
     .order-item__purchase-but
-      = form_with(action: :create) do
+      = form_with action: "create" do
         %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_e2a35b594536903b05446c30"}
 
   .order-item__adress
