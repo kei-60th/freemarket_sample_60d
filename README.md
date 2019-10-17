@@ -128,7 +128,7 @@ Things you may want to cover:
 |price|integer|null: false|
 |description|text|null: false|
 |category_id|references|null: false, foreign_key: true|
-|prefecure_id|references|foreign_key:true|
+|prefecture_id|references|foreign_key:true|
 |order_status_id|
 
 ### Association
