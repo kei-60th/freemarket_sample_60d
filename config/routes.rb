@@ -29,6 +29,9 @@ get '/mypage/card/create', to: 'mypage#create'
 get '/registration', to: 'registrations#index'
 get '/registration/new', to: 'sessions#new'
 get "/registration/compleate", to: "compleate#edit"
-
+  
+get "/item", to: "item_details#index"
+get "/order/confirmation", to: "orders#index"
+get "/order/create", to: "orders#create"
 end
 

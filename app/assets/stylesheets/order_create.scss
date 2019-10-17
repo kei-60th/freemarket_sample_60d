@@ -1,0 +1,30 @@
+#order-create{
+  width: 700px;
+  background-color: white;
+  margin: 0 auto;
+  .top-contents{
+    background-color: #FEF7DD;
+    padding: 5% 20%;
+    .upper-text{
+      color: #D44031;
+      font-size: 20px;
+    }
+    .lower-text{
+      font-size: 16px;
+    }
+  }
+  .middle-contents{
+    .middle-upper{
+      font-size: 30px;
+      line-height: 100px;
+    }
+    .middle-lower{
+      border-top: 1px solid #F6F6F6;
+      border-bottom: 1px solid #F6F6F6;
+      height: 500px;
+    }
+  }
+  .bottom-contents{
+    line-height: 100px;
+  }
+}
