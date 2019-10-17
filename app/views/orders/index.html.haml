@@ -24,9 +24,19 @@
     .order-item__price-details__price
       ¥
       100,000,000
-  .order-item__purchase-but
-    = form_with(action: :order, action: :create) do
-      %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => ENV['PAYJP_PRIVATE_KEY']}
+
+    .order-item__second-content__tax
+      送料込み
+    .order-item__second-content__point-button
+      ポイントはありません
+.order-item__price-details
+  %h1 支払金額
+  .order-item__price-details__price
+    ¥
+    100,000,000
+.order-item__purchase-but
+  = form_with(action: :create) do
+    %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => ENV['PAYJP_PRIVATE_KEY']}
 
   .order-item__adress
     .order-item__adress__title
