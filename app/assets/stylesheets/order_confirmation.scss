@@ -1,9 +1,8 @@
 #main-contents-order{
-  width: 300px;
+  width: 700px;
   margin: 0 auto;
   .title {
     background-color: white;
-    //width: 700px;
     margin: 0 auto;
     text-align: center;
     font-size: 22px;
@@ -14,8 +13,7 @@
     &__top-content {
       background-color: white;
       margin: 0 auto;
-      width: 377px;
-      padding: 24px 12.5% 40px;
+      padding: 24px 24.5% 40px;
       border-top: 1px solid #f5f5f5;
       display: flex;
       justify-content: space-between;
@@ -35,7 +33,6 @@
       justify-content: space-between;
       background-color: white;
       margin: 0 auto;
-      width:731px;
       &__price {
         width: 354px;
         padding-top: 10px;
@@ -59,7 +56,6 @@
       }
     }
     &__price-details {
-      width: 731px;
       padding-top: 16px;
       margin: 0 auto;
       display:flex;
@@ -81,7 +77,6 @@
       }
     }
     &__adress{
-      width: 376px;
       margin: 0 auto;
       padding: 24px 12.5% 40px;
       border-top: 1px solid #f5f5f5;
@@ -92,7 +87,6 @@
       }
     }
     &__payment-type{
-      width: 376px;
       margin: 0 auto;
       padding: 24px 12.5% 40px;
       border-top: 1px solid #f5f5f5;
