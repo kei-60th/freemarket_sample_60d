@@ -32,6 +32,6 @@ get "/registration/compleate", to: "compleate#edit"
   
 get "/item", to: "item_details#index"
 get "/order/confirmation", to: "orders#index"
-get "/order/create", to: "orders#create"
+post "/order/confirmation", to: "orders#create"
 end
 
