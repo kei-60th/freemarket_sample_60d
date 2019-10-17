@@ -26,24 +26,23 @@
   .item-deteal
     .item-deteal__box
       %h1.item-deteal__box__title
-        = @item.items.name
+        = @item.name
       .item-deteal__box__item
         .item-deteal__box__item__left
           .left__top
 
-            = image_tag @item.image[0].image.url, alt: '', class: 'slide__box__image3'
+            = image_tag @item.item_images[0].image.url
           .left__down
             .left__down__iir
-              - @image.each_with_index do |image, index|
-                .left__down__iir__gffk
-                  = image_tag image.image.url, alt: '', class: 'left__down__iir__gffk__image'
+              .left__down__iir__gffk
+                -# = image_tag @item.item_images[0].image.url
         %table.item-detail-table
           %tbody
             %tr
               %th 出品者
               %td.td-padding
                 = link_to "#", class: "kiyaku--bule-underline" do
-                  = @item.users.nickname
+                  メルカリ太郎
                 .yyy.icon-top
                   .item-user-ratings
                     = fa_icon 'smile-o', {class: "good-icons--pink"}
@@ -57,26 +56,26 @@
             %tr
               %th カテゴリー
               %td.td-padding
-                - if @item.category.parent.parent
+                -# - if @item.category.parent_id.name
                   = link_to "#", class: "kiyaku--bule-underline" do
                     %div
                       = @item.categories.parent_id.name #親
                 = link_to "#" do
                   .item-detail-table-sub-category{class: "kiyaku--bule-underline"}
                     %i.icon-arrow-right
-                    = "＞" + @item.categories.parent_id.name        #子
+                    -# = "＞" + @item.categories.parent_id.name        #子
                 = link_to "#" do
                   .item-detail-table-sub-sub-category{class: "kiyaku--bule-underline"}
                     %i.icon-arrow-right
-                    = "＞" + @item.categories.name               #孫
-            - if @item.brand
+                    -# = "＞" + @item.categories.name               #孫
+            -# - if @item.brand
               %tr
                 %th ブランド
                 %td.td-padding
                   %a{href: "#", class: "kiyaku--bule-underline"}
                     %div
                       = @item.brands.name
-            - if @item.sizes
+            -# - if @item.sizes
               %tr
                 %th 商品のサイズ
                 %td.td-padding
@@ -84,26 +83,26 @@
             %tr
               %th 商品の状態
               %td.td-padding
-                = @item.conditions.condition
+                = @item.condition
             %tr
               %th 配送料の負担
               %td.td-padding
-                = @item.delivery_fees.fee
+                -# = @item.fee
             %tr
               %th 配送の方法
               %td.td-padding
-                = @item.delivery_ways.way
+                -# = @item.way
             %tr
               %th 配送元地域
               %td.td-padding
                 %a{href: "#", class: "kiyaku--bule-underline"}
-                  = @item.prefecture.name
+                  -# = @item.prefecture.name
             %tr
               %th 発送日の目安
               %td.td-padding
-                = @item.delivery_dates.date
+                -# = @item.date
 
-      - if @item.users != current_user
+      -# - if @item.users != current_user
         .item-deteal__box__price
           %span.oooo
             ¥
@@ -165,7 +164,7 @@
       .message-contents
         .message-container__contents__form
           %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          %input.text-area-default
+          %input.textarea-default
           %button.btn-default
             %span コメントする
 
