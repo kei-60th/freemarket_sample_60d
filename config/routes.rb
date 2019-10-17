@@ -28,8 +28,8 @@ get '/mypage/card', to: 'mypage#index'
 get '/mypage/card/create', to: 'mypage#create'
 get '/registration', to: 'registrations#index'
 get '/registration/new', to: 'sessions#new'
-get '/login', to: 'users#new'
 get "/registration/compleate", to: "compleate#edit"
+get "/item", to: "item_details#index"
 
 end
 

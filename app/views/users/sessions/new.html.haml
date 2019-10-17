@@ -1,7 +1,7 @@
 #main-contents-login
   .main-top
     アカウントをお持ちでない方はこちら
-    = link_to "/", class: "main-top__btn-registration" do
+    = link_to new_user_registration_path, class: "main-top__btn-registration" do
       新規会員登録
   .main-bottom
     .buttons
@@ -11,19 +11,11 @@
       = link_to "/", class: "buttons__google" do
         = image_tag "googlelogo.jpg", class: "icon"
         Googleでログイン
-    //= form_for @user do |f|
-    //  = f.text_field , :e-mail, placeholder: 'メールアドレス', class: 'user-input user-form'
-    //  = f.text_field , :password, placeholder: 'パスワード', class: 'user-input user-form password-form'
-    //  #captcha
-    //    私はロボットではありません
-    //  = f.submit, class: "user-input btn-login", value: 'ログイン'
-    //  = link_to "/" do
-    //    パスワードをお忘れの方
-    %form.form
-      %input.form__text{placeholder: 'メールアドレス'}
-      %input.form__text.form__text--password{placeholder: 'パスワード'}
+    = form_with model: @user, url: user_session_path, class: 'form' do |f|
+      = f.text_field :email, placeholder: 'メールアドレス', class: 'form__text'
+      = f.text_field :password, placeholder: 'パスワード', class: 'form__text form__text--password', type: "password"
       .form__captcha
         私はロボットではありません
-      %input.form__btn-login{type: 'submit', value: 'ログイン'}
+      = f.submit 'ログイン', class: "form__btn-login"
       = link_to "/", class: 'form__forget-password' do
         パスワードをお忘れの方

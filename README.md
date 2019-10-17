@@ -55,6 +55,7 @@ Things you may want to cover:
 - has_one :payment
 - has_one :creditcard
 - has_one :evaluation
+- belongs_to :prefecture
 
 ## addressesテーブル
 

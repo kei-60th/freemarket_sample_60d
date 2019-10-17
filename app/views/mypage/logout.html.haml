@@ -101,8 +101,8 @@
               = link_to "ログアウト", "#", class:"mypage_nav__parent__list__content__side_link"
               = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
     .right-content
-      %form.l-single-inner{:action => "https://www.mercari.com/jp/logout/", :method => "POST", :novalidate => "novalidate"}
+      .l-single-inner
         .l-single-content
-          %button.btn-default.btn-red{:type => "submit"} ログアウト
+          = link_to "ログアウト", '/users/sign_out', class: 'btn-default btn-red',method:"DELETE"
           %input{:name => "__csrf_value", :type => "hidden", :value => "459d9dde17c7d60b6a40dbf7581377f666fe862e32d291906cfa400be5a09caf0a5bf7be612c4eca1f553f5369ea6c432ece5486506a5b438cfb0b2d904b70e16"}/
   .footer

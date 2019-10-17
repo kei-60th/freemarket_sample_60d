@@ -13,6 +13,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer :birth_year,         presence: true
       t.integer :birth_month,        presence: true
       t.integer :birth_day,          presence: true
+      #t.integer :prefecture_id
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

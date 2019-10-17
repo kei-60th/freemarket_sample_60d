@@ -15,7 +15,6 @@ DeliveryDate.create([{day: "1~2日で発送"}, {day: "2~3日で発送"}, {day: "
 
 DeliveryWay.create([{method: "未定", delivery_fee_id: "1"}, {method: "らくらくメルカリ便", delivery_fee_id: "1"}, {method: "ゆうメール", delivery_fee_id: "1"}, {method: "レターパック", delivery_fee_id: "1"}, {method: "普通郵便(定型、定形外)", delivery_fee_id: "1"}, {method: "クロネコヤマト", delivery_fee_id: "1"}, {method: "ゆうパック", delivery_fee_id: "1"}, {method: "クリックポスト", delivery_fee_id: "1"},{method: "ゆうパケット", delivery_fee_id: "1"},{method: "未定", delivery_fee_id: "2"}, {method: "クロネコヤマト", delivery_fee_id: "2"}, {method: "ゆうパック", delivery_fee_id: "2"}, {method: "ゆうメール", delivery_fee_id: "2"}])
 
-
 # レディース
 lady = Category.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")

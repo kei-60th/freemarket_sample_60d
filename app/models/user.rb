@@ -13,6 +13,7 @@ class User < ApplicationRecord
   # has_one :payment
   # has_one :creditcard
   # has_one :evaluation
+  # belongs_to :prefecture
 
   validates :nickname, presence: true
   validates :nickname, uniqueness: true
@@ -26,4 +27,5 @@ class User < ApplicationRecord
   validates :birth_year, presence: true
   validates :birth_month, presence: true
   validates :birth_day, presence: true
+  #validates :prefecture_id, presence: true
 end
