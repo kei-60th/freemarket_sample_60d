@@ -1,19 +1,9 @@
-.wrapper {
-  background-color: #F5F5F5;
-  .k-header {
-    height: 128px;
-    background-color: #F5F5F5;
-    text-align: center;
-    .mercari_logo {
-      width: 185px;
-      height: 49px;
-      margin-top: 40px;
-    }
-  }
-
+#main-contents-order{
+  width: 300px;
+  margin: 0 auto;
   .title {
     background-color: white;
-    width: 700px;
+    //width: 700px;
     margin: 0 auto;
     text-align: center;
     font-size: 22px;
@@ -117,29 +107,6 @@
   p {
     color: #0099e8;
     text-align:right;
-  }
-
-  .k-footer {
-    height: 250px;
-    padding: 40px;
-    text-align: center;
-    background-color: #F5F5F5;
-    .links {
-      line-height: 24px;
-      li {
-        display: inline-block;
-        margin-right: 10px;
-      }
-      &__link-bottom {
-        text-decoration: none;
-        font-size: 12px;
-        color: #333333;
-      }
-    }
-    img {
-      width: 80px;
-      margin-top: 50px;
-    }
   }
 
 }

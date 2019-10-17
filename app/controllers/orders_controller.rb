@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  layout 'registration'
   require 'payjp'
   def index
   end
