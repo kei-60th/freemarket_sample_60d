@@ -5,6 +5,16 @@ prefecture_array.each do |pref|
   )
 end
 
+Size.create([{size: "XXS以下"}, {size: "XS(SS)"}, {size: "S"}, {size: "M"}, {size: "L"}, {size: "XL(LL)"}, {size: "2XL(3L)"}, {size: "3XL(4L)"}, {size: "4XL(5L)以上"}, {size: "FREE SIZE"}])
+
+Condition.create([{condition: "新品"}, {condition: "未使用品"}, {condition: "未使用に近い"}, {condition: "目立った傷や汚れなし"}, {condition: "やや傷や汚れあり"}, {condition: "傷や汚れあり"}, {condition: "全体的に状態が悪い"}])
+
+DeliveryFee.create([{fee: "送料込み(出品者負担)"}, {fee: "着払い(購入者負担)"}])
+
+DeliveryDate.create([{day: "1~2日で発送"}, {day: "2~3日で発送"}, {day: "4~7日で発送"}])
+
+DeliveryWay.create([{method: "未定", delivery_fee_id: "1"}, {method: "らくらくメルカリ便", delivery_fee_id: "1"}, {method: "ゆうメール", delivery_fee_id: "1"}, {method: "レターパック", delivery_fee_id: "1"}, {method: "普通郵便(定型、定形外)", delivery_fee_id: "1"}, {method: "クロネコヤマト", delivery_fee_id: "1"}, {method: "ゆうパック", delivery_fee_id: "1"}, {method: "クリックポスト", delivery_fee_id: "1"},{method: "ゆうパケット", delivery_fee_id: "1"},{method: "未定", delivery_fee_id: "2"}, {method: "クロネコヤマト", delivery_fee_id: "2"}, {method: "ゆうパック", delivery_fee_id: "2"}, {method: "ゆうメール", delivery_fee_id: "2"}])
+
 # レディース
 lady = Category.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")

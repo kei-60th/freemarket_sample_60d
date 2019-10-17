@@ -1,4 +1,4 @@
-class CreditcardsController < ApplicationController
+  class CreditcardsController < ApplicationController
   layout 'registration'
 
   def new

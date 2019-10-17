@@ -10,9 +10,14 @@ class ItemsController < ApplicationController
     # @hobby_items = Item.get_hobby.limit(5).includes(:item_images)
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
   def new
     @item = Item.new
-    # @item_image = ItemImage.new
+    @parents = Category.where(ancestry: nil)  
+    10.times{@item.item_images.build}
   end
 
   def create
@@ -66,7 +71,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :price,item_images_attributes: [:id, :image])
+    params.require(:item).permit(:name, :description, :price, :prefecture, item_images_attributes: [:id, :image]).merge(order_status:1,category:1,prefecture:1,size:1,user_id:1)
   end
 
 end
