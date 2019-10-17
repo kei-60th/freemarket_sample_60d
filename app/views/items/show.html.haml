@@ -43,6 +43,7 @@
               %td.td-padding
                 = link_to "#", class: "kiyaku--bule-underline" do
                   メルカリ太郎
+                  -# = @item.nickname
                 .yyy.icon-top
                   .item-user-ratings
                     = fa_icon 'smile-o', {class: "good-icons--pink"}
@@ -181,45 +182,4 @@
       .advertisement__list__right
         = image_tag "smartphonepic.png",class: "smartphonepic"
 
-  .kfooter
-    .kfooter__grobalnavi
-      .kfooter__grobalnavi__1
-        %p メルカリについて
-        %ul
-          %li 会社概要
-          %li 採用情報
-          %li プレスリリース
-          %li 公式ブログ
-          %li ガイドライン
-      .kfooter__grobalnavi__2
-        %p メルカリについて
-        %ul
-          %li 会社概要
-          %li 採用情報
-          %li プレスリリース
-          %li 公式ブログ
-          %li ガイドライン
-      .kfooter__grobalnavi__3
-        %p メルカリについて
-        %ul
-          %li 会社概要
-          %li 採用情報
-          %li プレスリリース
-          %li 公式ブログ
-          %li ガイドライン
-      .kfooter__grobalnavi__4
-        %p メルカリについて
-        %ul
-          %li 会社概要
-          %li 採用情報
-          %li プレスリリース
-          %li 公式ブログ
-          %li ガイドライン
-      .kfooter__grobalnavi__5
-        %p メルカリについて
-        %ul
-          %li 会社概要
-          %li 採用情報
-          %li プレスリリース
-          %li 公式ブログ
-          %li ガイドライン
+  = render 'shared/footer'
