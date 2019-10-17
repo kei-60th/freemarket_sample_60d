@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2019_10_15_093605) do
     t.text "description", null: false
     t.integer "order_status", null: false
     t.integer "category", null: false
-    t.integer "prefecure"
+    t.integer "prefecture"
     t.integer "size", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false

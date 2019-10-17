@@ -12,7 +12,8 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    4.times{@item.item_images.build}
+    @parents = Category.where(ancestry: nil)  
+    10.times{@item.item_images.build}
   end
 
   def create
@@ -66,7 +67,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :price,item_images_attributes: [:id, :image]).merge(order_status:1,category:1,prefecure:1,size:1,user_id:1)
+    params.require(:item).permit(:name, :description, :price, :prefecture, item_images_attributes: [:id, :image]).merge(order_status:1,category:1,prefecture:1,size:1,user_id:1)
   end
 
 end

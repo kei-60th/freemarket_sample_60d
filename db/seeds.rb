@@ -1,3 +1,20 @@
+prefecture_array = %w(北海道 青森県 岩手県 宮城県 秋田県 山形県 福島県 茨城県 栃木県 群馬県 埼玉県 千葉県 東京都 神奈川県 新潟県 富山県 石川県 福井県 山梨県 長野県 岐阜県 静岡県 愛知県 三重県 滋賀県 京都府 大阪府 兵庫県 奈良県 和歌山県 鳥取県 島根県 岡山県 広島県 山口県 徳島県 香川県 愛媛県 高知県 福岡県 佐賀県 長崎県 熊本県 大分県 宮崎県 鹿児島県 沖縄県)
+prefecture_array.each do |pref|
+  Prefecture.create!(
+    name: pref
+  )
+end
+
+Size.create([{size: "XXS以下"}, {size: "XS(SS)"}, {size: "S"}, {size: "M"}, {size: "L"}, {size: "XL(LL)"}, {size: "2XL(3L)"}, {size: "3XL(4L)"}, {size: "4XL(5L)以上"}, {size: "FREE SIZE"}])
+
+Condition.create([{condition: "新品"}, {condition: "未使用品"}, {condition: "未使用に近い"}, {condition: "目立った傷や汚れなし"}, {condition: "やや傷や汚れあり"}, {condition: "傷や汚れあり"}, {condition: "全体的に状態が悪い"}])
+
+DeliveryFee.create([{fee: "送料込み(出品者負担)"}, {fee: "着払い(購入者負担)"}])
+
+DeliveryDate.create([{day: "1~2日で発送"}, {day: "2~3日で発送"}, {day: "4~7日で発送"}])
+
+DeliveryWay.create([{method: "未定", delivery_fee_id: "1"}, {method: "らくらくメルカリ便", delivery_fee_id: "1"}, {method: "ゆうメール", delivery_fee_id: "1"}, {method: "レターパック", delivery_fee_id: "1"}, {method: "普通郵便(定型、定形外)", delivery_fee_id: "1"}, {method: "クロネコヤマト", delivery_fee_id: "1"}, {method: "ゆうパック", delivery_fee_id: "1"}, {method: "クリックポスト", delivery_fee_id: "1"},{method: "ゆうパケット", delivery_fee_id: "1"},{method: "未定", delivery_fee_id: "2"}, {method: "クロネコヤマト", delivery_fee_id: "2"}, {method: "ゆうパック", delivery_fee_id: "2"}, {method: "ゆうメール", delivery_fee_id: "2"}])
+
 
 # レディース
 lady = Category.create(name: "レディース")
