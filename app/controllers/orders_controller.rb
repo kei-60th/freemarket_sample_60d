@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    @item = Item.find(params[:id])
     Payjp.api_key = "sk_test_b250324552e33cee76c39e0e"
     Payjp::Charge.create(
       amount: 100,
@@ -16,4 +17,5 @@ class OrdersController < ApplicationController
       currency: 'jpy'
     )
   end
+  
 end
