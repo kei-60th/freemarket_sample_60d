@@ -91,3 +91,6 @@ gem 'sprockets', '3.7.2'
 gem 'jquery-rails'
 gem 'payjp', '0.0.6'
 gem "gretel"
+gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
+gem 'omniauth-facebook', '~> 5.0'
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.5'

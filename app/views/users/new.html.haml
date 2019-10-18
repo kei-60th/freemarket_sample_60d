@@ -5,9 +5,9 @@
     =link_to new_user_registration_path, class: "main-bottom__btn-mail" do
       = fa_icon 'envelope', class: "icon"
       メールアドレスで登録する
-    =link_to "https://github.com/kei-60th/freemarket_sample_60d/branches", class: "main-bottom__btn-facebook" do
+    = link_to "Facebookで登録する", user_facebook_omniauth_authorize_path, class: "main-bottom__btn-facebook" do
       = fa_icon 'facebook', class: "icon"
-      Facebookで登録する
+      -# Facebookで登録する
     = link_to "https://master.tech-camp.in/", class: "main-bottom__btn-google" do
       = image_tag "googlelogo.jpg", class: "icon"
       Googleで登録する

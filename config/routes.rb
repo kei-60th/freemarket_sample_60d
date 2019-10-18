@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => {
+  devise_for :users,
+  controllers: {
     :registrations => 'users/registrations',
-    :sessions => 'users/sessions'   
-  } 
+    :sessions => 'users/sessions',
+    omniauth_callbacks: 'omniauth_callbacks'
+  }
 
-  devise_scope :user do
+  # path: '',
+  # path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
+  # #controllers: {omniauth_callbacks: 'omniauth_callbacks'}
+
+    devise_scope :user do
     get "/login", :to => "users/sessions#new"
     get "/registration/information", :to => "users/registrations#new"
     post "/registration/information/create", :to => "users/registrations#create"
@@ -15,7 +21,7 @@ resources :creditcards, only: [:new, :create]
 resources :items, only: [:new, :create, :index, :show]
 
 root "items#index"
-  
+
 get '/toppage', to: 'test#index'
 get '/signin', to: 'users#new'
 get '/logout', to: 'mypage#logout'
@@ -29,7 +35,7 @@ get '/mypage/card/create', to: 'mypage#create'
 get '/registration', to: 'registrations#index'
 get '/registration/new', to: 'sessions#new'
 get "/registration/compleate", to: "compleate#edit"
-  
+
 get "/item", to: "item_details#index"
 get "/order/confirmation", to: "orders#index"
 post "/order/confirmation", to: "orders#create"

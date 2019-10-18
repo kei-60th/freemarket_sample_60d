@@ -32,3 +32,6 @@
 
 # Ignore uploaded files in development
 /public/uploads/
+
+#環境変数
+/.env
