@@ -4,6 +4,10 @@ class OrdersController < ApplicationController
   def index
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
   def create
     Payjp.api_key = "sk_test_b250324552e33cee76c39e0e"
     Payjp::Charge.create(
