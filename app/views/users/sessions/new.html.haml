@@ -5,7 +5,7 @@
       新規会員登録
   .main-bottom
     .buttons
-      = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path do
+      = button_to user_facebook_omniauth_authorize_path, class: "buttons__facebook" do
         = fa_icon 'facebook', class: "icon"
         Facebookでログイン
       = link_to "/", class: "buttons__google" do

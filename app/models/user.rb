@@ -16,6 +16,24 @@ class User < ApplicationRecord
   # has_one :evaluation
   # belongs_to :prefecture
 
+  # userがいなければfacebookアカウントでuserを作成するメソッド
+  def self.from_omniauth(auth)
+    user = User.where(email: auth.info.email).first
+    if user
+      return user
+    else
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.email = auth.info.email
+        user.password = Devise.friendly_token[0,20]
+        user.name = auth.info.name
+        user.image = auth.info.image
+        user.uid = auth.uid
+        user.provider = auth.provider
+        user.skip_confirmation!
+      end
+    end
+  end
+
   validates :nickname, presence: true
   validates :nickname, uniqueness: true
   validates :last_name, presence: true
