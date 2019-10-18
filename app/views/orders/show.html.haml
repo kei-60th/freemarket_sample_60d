@@ -34,8 +34,8 @@
       = current_user.address.city
     %br/
     .order-item__adress__details
-      = current_user.address.prefecture.name
-      = current_user.address.address_number
+      //= current_user.address.prefecture.name
+      = current_user.address.address
       = current_user.address.building_name
     .order-item__adress__name
       = current_user.last_name
@@ -51,4 +51,4 @@
       クレジットカード
       %br/
       変更する
-        = fa_icon 'chevron-right', class: 'icon'
+      = fa_icon 'chevron-right', class: 'icon'
