@@ -89,6 +89,6 @@ gem 'mini_magick'
 # gem 'compass-rails'
 gem 'sprockets', '3.7.2'
 gem 'jquery-rails'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'payjp', '0.0.6'
-gem 'dotenv-rails'
 gem "gretel"
