@@ -6,6 +6,11 @@
     background-color: #FEF7DD;
     padding: 5% 20%;
     .upper-text{
+      i{
+        height: 20px;
+        width: 20px;
+        color: #D44031;
+      }
       color: #D44031;
       font-size: 20px;
     }
@@ -16,15 +21,28 @@
   .middle-contents{
     .middle-upper{
       font-size: 30px;
+      font-weight: bold;
       line-height: 100px;
     }
     .middle-lower{
       border-top: 1px solid #F6F6F6;
       border-bottom: 1px solid #F6F6F6;
-      height: 500px;
+      height: 300px;
+      .item-image{
+        margin-top: 20px;
+      }
+      .item-name{
+        margin-top: 10px;
+        margin-bottom: 30px;
+        font-size: 20px;
+      }
     }
   }
   .bottom-contents{
     line-height: 100px;
+    span{
+      font-size: 30px;
+      font-weight: bold;
+    }
   }
 }

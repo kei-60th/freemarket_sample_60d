@@ -1,6 +1,7 @@
 #order-create
   .top-contents
     .upper-text
+      = fa_icon 'clock'
       発送をお待ちください
     .lower-text
       出品者からの発送通知をお待ちください
@@ -8,6 +9,12 @@
     .middle-upper
       購入が完了しました
     .middle-lower
-      = image_tag @item.item_images[0].item.url
+      .item-image
+        = image_tag @item.item_images[0].image.url, height: '200px'
+      .item-name
+        = @item.name
   .bottom-contents
+    %span
+      ¥
+      = @item.price.to_s(:delimited)
     送料込み
