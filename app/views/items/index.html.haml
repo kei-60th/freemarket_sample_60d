@@ -57,7 +57,8 @@
     .item-box__contents
       - @items.each do |item|
         .item-box__contents__image
-          = image_tag item.item_images[0].image.url, height: "146px" , width: "146px"
+          =link_to "/items/#{item.id}" do
+            = image_tag item.item_images[0].image.url, height: "146px" , width: "146px"
           .item-box__contents__image__price
             ¥
             = item.price

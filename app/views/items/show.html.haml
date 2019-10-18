@@ -74,7 +74,7 @@
                   .item-detail-table-sub-sub-category{class: "link-blue"}
                     %i.icon-arrow-right
                     -# = "＞" + @item.categories.name               #孫
-            - if @item.brand
+            -# - if @item.brand
               %tr
                 %th ブランド
                 %td.td-box
@@ -116,8 +116,8 @@
           %span.rrrr
             （税込）
           %button.sale
-            = link_to "/" do
-              %a 購入画面に進む
+            = link_to "/items/#{@item.id}/order/confirmation/" do
+              購入画面に進む
         .item-deteal__box__description
           %p.item-deteal__box__description__text
             = @item.description
