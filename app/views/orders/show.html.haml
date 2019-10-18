@@ -22,7 +22,7 @@
         = @item.price.to_s(:delimited)
     .order-item__purchase-button
       = form_with action: "create" do
-        %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript", "data-text": "購入する", "data-key": "pk_test_e2a35b594536903b05446c30"}
+        %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript", "data-text": "購入する", "data-key": ENV['PAYJP_TEST_PUBLIC_KEY']}
 
   .order-item__adress
     .order-item__adress__title
