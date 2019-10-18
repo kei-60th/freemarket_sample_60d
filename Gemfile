@@ -90,5 +90,6 @@ gem 'mini_magick'
 gem 'sprockets', '3.7.2'
 gem 'jquery-rails'
 gem 'payjp', '0.0.6'
-gem 'dotenv-rails'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
+gem 'gem-that-requires-env-variables'
 gem "gretel"
