@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   
   has_many   :item_images
   belongs_to :category, optional: true
-  # belongs_to :brand, optional: true
+  belongs_to :brand, optional: true
   belongs_to :prefecture, optional: true
   belongs_to :size, optional: true
   belongs_to :condition, optional: true

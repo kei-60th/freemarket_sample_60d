@@ -1,3 +1,3 @@
 class DeliveryWay < ApplicationRecord
-  has_many :items
+  has_one :item
 end

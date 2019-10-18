@@ -1,5 +1,5 @@
 -# 商品登録ページ
-.sell-item-container
+.my-page-container
   .sell-form
     .sell-form--upper
       %h2 商品の情報を入力
@@ -32,11 +32,11 @@
               .null-null
                 %h5 カテゴリー
                 %span.null-false 必須
-              = f.select :category_id, @parents.all.map{|p|[p.name,p.id]}
+              = f.select :category_id, @parents.all.map{|p|[p.name,p.id]}, {prompt: "---"}
               .null-null
                 %h5 商品の状態
                 %span.null-false 必須
-              = f.select :condition_id, Condition.all.collect{|p|[p.condition,p.id]}
+              = f.select :condition_id, Condition.all.collect{|p|[p.condition,p.id]}, {prompt: "---"}
         .item__delivery.border-bottom
           .innner-box.choose
             .choose--left
@@ -45,19 +45,19 @@
               .null-null
                 %h5 配送量の負担
                 %span.null-false 必須
-              = f.select :delivery_fee_id, DeliveryFee.all.collect{|p|[p.fee,p.id]}
+              = f.select :delivery_fee_id, DeliveryFee.all.collect{|p|[p.fee,p.id]}, {prompt: "---"}
               .null-null
                 %h5 配送方法
                 %span.null-false 必須
-              = f.select :delivery_way_id, DeliveryWay.all.collect{|p|[p.way,p.id]}
+              = f.select :delivery_way_id, DeliveryWay.all.collect{|p|[p.way,p.id]}, {prompt: "---"}
               .null-null
                 %h5 発送元の地域
                 %span.null-false 必須
-              = f.select :prefecture_id, Prefecture.all.collect{|p|[p.name,p.id]}
+              = f.select :prefecture_id, Prefecture.all.collect{|p|[p.name,p.id]}, {prompt: "---"}
               .null-null
                 %h5 発送までの日数
                 %span.null-false 必須
-              = f.select :delivery_date_id, DeliveryDate.all.collect{|p|[p.date,p.id]}
+              = f.select :delivery_date_id, DeliveryDate.all.collect{|p|[p.date,p.id]}, {prompt: "---"}
         .item__price.border-bottom
           .inner-box.choose
             .choose--left 販売価格(300〜9,999,999)

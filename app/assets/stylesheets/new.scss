@@ -1,44 +1,70 @@
-.sell-item-container{
-  box-sizing: border-box;
+body{
+  background-color: gray;
+  height: 100%;
   .sell-form{
-    margin: 0 auto;     
-    width: 60%;
-    height: 1900px;
-    &--upper{
-      border-bottom: solid red;
-      line-height: 33px;
-      width: 100%;
-      padding: 32px 16px;
+    width: 600px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: white;
+    .first{
+      height: 100px;
       text-align: center;
-      font-size: 22px;
-      }
-      &--lower{
-        .item__images.border-bottom{
-          border-bottom: rgb(51, 51, 51);
-          .inner-box{
-            padding: 40px;
-            .null-null{
-              display: flex;  
-              text-align: right;
-            }
-            .image-area{
-              padding: 40px;
-            }
-          }
-        }
-        .item__name.border-bottom{
-          .inner-box{
-            padding: 40px;
-            .null-null{
-              display: flex;             
-            }
-            .null-null{
-              display: flex;
-            }                
-          }              
-        }
+      border-bottom: 2px solid gray;
+      h1{
+        line-height: 100px;
+        font-weight: bold;
       }
     }
+    .forth{
+      padding-top: 50px;
+    }
+    .inner-box{
+      width: 90%;
+      margin: 0 auto;
+      .title{
+        display: flex;
+        padding-top: 50px;
+      }
+      h3{
+        font-size: 22px;
+        padding-right: 10px;
+        line-height: 36px;
+      }
+      h4{
+        font-size: 22px;
+        background-color: #EA352D;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 3px;
+      }
+      .file-field{
+        margin-top: 20px;
+        background-color: lightgray;
+        width: 100%;
+        height: 150px;
+      }
+    }
+    #a{
+      width: 100%;
+      height: 50px;
+    }
+    .flex{
+      display: flex;
+      justify-content: space-between;
+      .left{
+        width: 40%;
+      }
+      .right{
+        width: 60%;
+      }
+    }
+    .flex-start{
+      display: flex;
+      justify-content: flex-start;
+    }
   }
-      
-    
+  .border-bottom{
+    padding-bottom: 50px;
+    border-bottom: 2px solid gray;
+  }
+ }
