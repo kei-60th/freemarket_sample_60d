@@ -4,7 +4,7 @@
   .order-item
     .order-item__top-content
       .order-item__top-content__image
-        = image_tag @item.item_images[0].image.url
+        = image_tag @item.item_images[0].image.url, height: "64px" , width: "64px"
       .order-item__top-content__name
         商品名が入ります
     .order-item__second-content
