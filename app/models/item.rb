@@ -1,14 +1,15 @@
 class Item < ApplicationRecord
+  
   has_many   :item_images
-  # belongs_to :category
-  # belongs_to :brand
-  # belongs_to :prefecture
-  # belongs_to :size
-  has_one :condition
-  has_one :delivery_fee
-  has_one :delivery_way
-  has_one :delivery_date
-  accepts_nested_attributes_for :item_images
+  belongs_to :category, optional: true
+  # belongs_to :brand, optional: true
+  belongs_to :prefecture, optional: true
+  belongs_to :size, optional: true
+  belongs_to :condition, optional: true
+  belongs_to :delivery_fee, optional: true
+  belongs_to :delivery_way, optional: true
+  belongs_to :delivery_date, optional: true
+  accepts_nested_attributes_for :item_images, allow_destroy: true
 
 end
 

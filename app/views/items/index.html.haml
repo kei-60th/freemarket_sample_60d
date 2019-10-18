@@ -58,7 +58,7 @@
           = image_tag item.item_images[0].image.url
           .item-box__contents__image__price
             ¥
-            = item.price
+            = item.price.to_s(:delimited)
           .item-box__contents__image__name
             = item.name
     -# .item-box__contents

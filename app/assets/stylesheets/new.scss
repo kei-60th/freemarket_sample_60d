@@ -1,0 +1,44 @@
+.sell-item-container{
+  box-sizing: border-box;
+  .sell-form{
+    margin: 0 auto;     
+    width: 60%;
+    height: 1900px;
+    &--upper{
+      border-bottom: solid red;
+      line-height: 33px;
+      width: 100%;
+      padding: 32px 16px;
+      text-align: center;
+      font-size: 22px;
+      }
+      &--lower{
+        .item__images.border-bottom{
+          border-bottom: rgb(51, 51, 51);
+          .inner-box{
+            padding: 40px;
+            .null-null{
+              display: flex;  
+              text-align: right;
+            }
+            .image-area{
+              padding: 40px;
+            }
+          }
+        }
+        .item__name.border-bottom{
+          .inner-box{
+            padding: 40px;
+            .null-null{
+              display: flex;             
+            }
+            .null-null{
+              display: flex;
+            }                
+          }              
+        }
+      }
+    }
+  }
+      
+    
