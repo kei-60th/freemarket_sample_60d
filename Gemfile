@@ -90,3 +90,4 @@ gem 'mini_magick'
 gem 'sprockets', '3.7.2'
 gem 'jquery-rails'
 gem 'payjp', '0.0.6'
+gem "gretel"
