@@ -4,6 +4,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     callback_from(:facebook)
   end
 
+  def google_oauth2
+    callback_for(:google)
+  end
+
   private
   def callback_from(provider)
     provider = provider.to_s

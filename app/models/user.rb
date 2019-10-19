@@ -31,7 +31,7 @@ class User < ApplicationRecord
     user
   end
 
-  validates :nicknamde, presence: true
+  validates :nickname, presence: true
   validates :nickname, uniqueness: true
   validates :last_name, presence: true
   validates :first_name, presence: true
