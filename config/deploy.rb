@@ -63,20 +63,20 @@ set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
 # デプロイ処理が終わった後、Unicornを再起動するための記述
-set :linked_files, %w{ config/secrets.yml }
+set :linked_files, %w{ config/credentials.yml.enc }
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
     invoke 'unicorn:restart'
   end
 
-  desc 'upload secrets.yml'
+  desc 'upload credentials.yml.enc'
   task :upload do
     on roles(:app) do |host|
       if test "[ ! -d #{shared_path}/config ]"
         execute "mkdir -p #{shared_path}/config"
       end
-      upload!('config/secrets.yml', "#{shared_path}/config/secrets.yml")
+      upload!('config/credentials.yml.enc', "#{shared_path}/config/credentials.yml.enc")
     end
   end
   before :starting, 'deploy:upload'
