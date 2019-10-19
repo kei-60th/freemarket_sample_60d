@@ -15,7 +15,7 @@ resources :creditcards, only: [:new, :create]
 resources :items, only: [:new, :create, :index, :show]
 
 root "items#index"
-  
+
 get '/toppage', to: 'test#index'
 get '/signin', to: 'users#new'
 get '/logout', to: 'mypage#logout'
@@ -29,8 +29,11 @@ get '/mypage/card/create', to: 'mypage#create'
 get '/registration', to: 'registrations#index'
 get '/registration/new', to: 'sessions#new'
 get "/registration/compleate", to: "compleate#edit"
-  
+
 get "/item", to: "item_details#index"
+
+get "/privacypolicy", to: 'privacypolicy#index'
+
 resources :items do
   get "/order/confirmation", to: "orders#show"
   post "/order/confirmation", to: "orders#create"
