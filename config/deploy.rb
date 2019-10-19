@@ -57,6 +57,8 @@ set :rbenv_ruby, '2.5.1'
 set :ssh_options, auth_methods: ['publickey'],
                   keys: ['~/.ssh/freemarketSample60d.pem']
 
+set :linked_files, %w{config/master.key}
+
 # プロセス番号を記載したファイルの場所
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 
@@ -65,7 +67,6 @@ set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
 # デプロイ処理が終わった後、Unicornを再起動するための記述
-set :linked_files, %w{ config/master.key }
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
