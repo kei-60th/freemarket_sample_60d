@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_18_102721) do
+ActiveRecord::Schema.define(version: 2019_10_19_083809) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "postcode", null: false
@@ -125,6 +125,15 @@ ActiveRecord::Schema.define(version: 2019_10_18_102721) do
     t.index ["item_id"], name: "index_sizes_on_item_id"
   end
 
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email"
     t.string "encrypted_password"
@@ -143,7 +152,6 @@ ActiveRecord::Schema.define(version: 2019_10_18_102721) do
     t.datetime "updated_at", null: false
     t.string "provider"
     t.string "uid"
-    t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -158,4 +166,5 @@ ActiveRecord::Schema.define(version: 2019_10_18_102721) do
   add_foreign_key "size_categories", "categories"
   add_foreign_key "size_categories", "sizes"
   add_foreign_key "sizes", "items"
+  add_foreign_key "sns_credentials", "users"
 end
