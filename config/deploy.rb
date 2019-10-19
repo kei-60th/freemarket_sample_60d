@@ -42,8 +42,8 @@ set :repo_url, 'git@github.com:kei-60th/freemarket_sample_60d.git'
 set :default_env, {
   rbenv_root: "/usr/local/rbenv",
   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
-  AWS_ACCESS_KEY_ID: Rails.application.credentials.AWS_ACCESS_KEY_ID,
-  AWS_SECRET_ACCESS_KEY: Rails.application.credentials.AWS_SECRET_ACCESS_KEY
+  AWS_ACCESS_KEY_ID: ENV['AWS_SECRET_ACCESS_KEY'],
+  AWS_SECRET_ACCESS_KEY: ENV['AWS_ACCESS_KEY_ID']
 }
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
