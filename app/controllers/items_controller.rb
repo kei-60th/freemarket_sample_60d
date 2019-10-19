@@ -8,12 +8,13 @@ class ItemsController < ApplicationController
     # @mens_items = Item.get_mens.limit(5).includes(:item_images)
     # @Electric_items = Item.get_Electric.limit(5).includes(:item_images)
     # @hobby_items = Item.get_hobby.limit(5).includes(:item_images)
+    # binding.pry
   end
 
   def new
     @item = Item.new
     @parents = Category.where(ancestry: nil)  
-    10.times{@item.item_images.build}
+    4.times{@item.item_images.build}
   end
 
   def create
@@ -22,7 +23,7 @@ class ItemsController < ApplicationController
     if @item.save!
       redirect_to root_path
     else
-      # render :new, item_images: @item.item_images.build
+      render :new, item_images: @item.item_images.build
     end
   end
 

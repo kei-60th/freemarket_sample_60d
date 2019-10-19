@@ -1,118 +1,93 @@
--# 商品登録ページ
-.my-page-container
-  .sell-form
-    .sell-form--upper
-      %h2 商品の情報を入力
-    .sell-form--lower
-      = form_for @item do |f|
-        .item__images.border-bottom
-          .inner-box
-            .null-null
-              %h3 出品画像
-              %span.null-false 必須
-            最大10枚までアップロードできます
-            .image-area
-              = f.fields_for :item_images do |fi|
-                = fi.file_field :image     
-        .item__name.border-bottom
-          .inner-box
-            .null-null
-              %h5 商品名
-              %span.null-false 必須
-            = f.text_field :name, placeholder: "商品名（必須40文字まで)"
-            .null-null
-              %h5 商品の説明
-              %span.null-false 必須
-            = f.text_area :description, placeholder: "商品の説明（必須1,000字まで)"
-        .sell__container__category.border-bottom    
-          .inner-box.choose
-            .choose--left
-              %p 商品の詳細
-            .choose--right
-              .null-null
-                %h5 カテゴリー
-                %span.null-false 必須
-              = f.select :category_id, @parents.all.map{|p|[p.name,p.id]}, {prompt: "---"}
-              .null-null
-                %h5 商品の状態
-                %span.null-false 必須
-              = f.select :condition_id, Condition.all.collect{|p|[p.condition,p.id]}, {prompt: "---"}
-        .item__delivery.border-bottom
-          .innner-box.choose
-            .choose--left
-              %p 配送について
-            .choose--right
-              .null-null
-                %h5 配送量の負担
-                %span.null-false 必須
-              = f.select :delivery_fee_id, DeliveryFee.all.collect{|p|[p.fee,p.id]}, {prompt: "---"}
-              .null-null
-                %h5 配送方法
-                %span.null-false 必須
-              = f.select :delivery_way_id, DeliveryWay.all.collect{|p|[p.way,p.id]}, {prompt: "---"}
-              .null-null
-                %h5 発送元の地域
-                %span.null-false 必須
-              = f.select :prefecture_id, Prefecture.all.collect{|p|[p.name,p.id]}, {prompt: "---"}
-              .null-null
-                %h5 発送までの日数
-                %span.null-false 必須
-              = f.select :delivery_date_id, DeliveryDate.all.collect{|p|[p.date,p.id]}, {prompt: "---"}
-        .item__price.border-bottom
-          .inner-box.choose
-            .choose--left 販売価格(300〜9,999,999)
-            .choose--right
-              .null-null
-              %p5 価格
-              %span.null-false 必須
-              = f.text_field :price ,class: 'item-price',placeholder: "例)300"
-            .center
-              .center-left
-                %h5 販売手数料（10%)
-              .center-right
-                %p - 
-            .lower
-              .lower--left
-                %h5 販売利益
-              .lower--right
-                %p - 
-        .sell-body-exhibit
-          %p.sell-body-exhibit__caution
-            #{link_to "禁止されている出品", "#",class: "sell-body-exhibit__caution-link"}、#{link_to "行為", "#",class: "sell-body-exhibit__caution-link"}を必ずご確認ください。
-            %brまたブランド品でシリアルナンバー等がある場合はご記載ください。#{link_to "偽ブランドの販売", "#",class: "sell-body-exhibit__caution-link"}は犯罪であ
-            り処罰される可能性があります。
-            %brまた、出品をもちまして#{link_to "加盟店規約", "#",class: "sell-body-exhibit__caution-link"}に同意したことになります。
-          = f.submit '出品する', class: 'sell-body-exhibit__send'
-          = link_to "#" ,class: "sell-body-exhibit__exit" do
-            .sell-body-exhibit__exit-link
-              もどる
-            
+.sell-page-container
+  = form_for @item do |f|
+    .sell-page-container__header
+      %h1 商品の情報を入力
+    .item_image.border-bottom
+      .inner-box
+        .title
+          %h3 出品画像
+          %h4 必須
+        .sub-title
+          %h6 最大10枚までアップロードできます
+        .file-field
+          = f.fields_for :item_images do |fi|
+            = fi.file_field :image     
+    .item_name.border-bottom
+      .inner-box
+        .title
+          %h3 商品名
+          %h4 必須
+        = f.text_field :name, class:"text-box", placeholder: "商品名（必須40文字まで)"
+        .title-item_detail
+          %h3 商品の説明
+          %h4 必須
+        = f.text_area :description, class:"text-box", placeholder: "商品の説明（必須1,000字まで)"
+    .item_detail.border-bottom
+      .inner-box.flex
+        .left
+          %h5 商品の詳細
+        .right
+          .right-top-title.flex-start
+            %h3 カテゴリー
+            %h4 必須
+          = f.select :category_id, @parents.all.map{|p|[p.name,p.id]}, {prompt: "---"}, class:"select-box"
+          .right-title.flex-start
+            %h3 商品の状態
+            %h4 必須
+          = f.select :condition_id, Condition.all.collect{|p|[p.condition,p.id]}, {prompt: "---"}, class:"select-box"
+    .item_delivery.border-bottom
+      .inner-box.flex
+        .left
+          %h5 配送について ??
+        .right
+          .right-top-title.flex-start
+            %h3 配送料の負担
+            %h4 必須
+          = f.select :delivery_fee_id, DeliveryFee.all.collect{|p|[p.fee,p.id]}, {prompt: "---"}, class:"select-box"
+          .right-title.flex-start
+            %h3 配送の方法
+            %h4 必須
+          = f.select :delivery_way_id, DeliveryWay.all.collect{|p|[p.way,p.id]}, {prompt: "---"}, class:"select-box"
+          .right-title.flex-start
+            %h3 発送元の地域
+            %h4 必須
+          = f.select :prefecture_id, Prefecture.all.collect{|p|[p.name,p.id]}, {prompt: "---"}, class:"select-box"
+          .right-title.flex-start
+            %h3 発送までの日数
+            %h4 必須
+          = f.select :delivery_date_id, DeliveryDate.all.collect{|p|[p.date,p.id]}, {prompt: "---"}, class:"select-box"
+    .item_price.border-bottom
+      .inner-box.flex
+        .left
+          %h5 販売価格(300〜9,999,999)
+        .right
+          .right-upper
+            .right-upper__left.flex-start
+              %h3 価格
+              %h4.center-null-false 必須
+            .right-upper__right.flex
+              %p ￥
+              = f.text_field :price ,class: 'item-price_field',placeholder: "例)300"
+          .right-center.flex
+            .right-center__left
+              %h5 販売手数料 (10%)
+            .right-center__right
+              %h5 -
+          .right-lower.flex
+            .right-lower__left
+              %h3 販売利益 
+            .right-lower__right
+              %h1 -
+    .sell-button
+      .inner-box
+        .inner-box__upper
+          %p 禁止されている出品、行為を必ずご確認ください。
+          %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+          %p また、出品をもちまして加盟店規約に同意したことになります
+        .inner-box__center
+          = f.submit "出品する", class: "sell_button"
+        .inner-box__lower
+          = link_to "もどる", root_path, class: "sell-return"
+          
 
 
-
-  -# -# .item-registration__name
-  -# -#   %label.item-registration__name__label
-  -# -#     商品名
-  -# -#   %span.item-registration__name__required
-  -# -#     必須
-  -# -#   %br/
-  -# -#   %input.item-registration__name__text{placeholder: '商品名（必須 40文字まで）'}
-
-  -# -# .item-registration__discription
-  -# -#   %label.item-registration__discripstion__label
-  -# -#     商品の説明
-  -# -#   %span.item-registration__discription__required
-  -# -#     必須
-  -# -#   %br/
-  -# -#   %textarea.item-registration__discription__text{placeholder: '商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。'}
-
-  -# -# .item-registration__caution
-  -# -#   禁止されている出品、行為を必ずご確認ください。
-  -# -#   またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
-  -# -#   また、出品をもちまして加盟店規約に同意したことになります。
-
-  -# -# .item-registration__button
-  -# -#   .item-registration__button__submit
-  -# -#     = link_to "出品する"
-  -# -#   -# .item-registration__button__backbtn
-  -# -#     = link_to "もどる"

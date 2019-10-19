@@ -9,10 +9,9 @@ class Item < ApplicationRecord
   belongs_to :delivery_fee, optional: true
   belongs_to :delivery_way, optional: true
   belongs_to :delivery_date, optional: true
-  accepts_nested_attributes_for :item_images, allow_destroy: true
+  accepts_nested_attributes_for :item_images
 
 end
-
 
 
 
