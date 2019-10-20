@@ -21,7 +21,7 @@
           =link_to 'やることリスト'
           %li.fa.smile
           %li.fa.fa-user
-          =link_to mypage_path, class: 'mypage' do
+          =link_to mypage_path(current_user), class: 'mypage' do
             マイページ
         - else
           =link_to signin_path, class: 'sign_up' do
