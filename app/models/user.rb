@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   ## Include default devise modules. Others available are:
   ## :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
+  has_many :sns_credentials, dependent: :destroy
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
@@ -17,18 +20,51 @@ class User < ApplicationRecord
   # belongs_to :prefecture
 
   # <-----------SNSログイン関係----------->
-  def self.find_for_oauth(auth)
-    user = User.where(uid: auth.uid, provider: auth.provider).first
+  def self.without_sns_data(auth)
+    user = User.where(email: auth.info.email).first
 
-    unless user
-      user = User.create(
-        uid:      auth.uid,
-        provider: auth.provider,
-        email:    auth.info.email,
-        password: Devise.friendly_token[0, 20]
+      if user.present?
+        sns = SnsCredential.create(
+          uid: auth.uid,
+          provider: auth.provider,
+          user_id: user.id
+        )
+      else
+        user = User.new(
+          nickname: auth.info.name,
+          email: auth.info.email,
+        )
+        sns = SnsCredential.new(
+          uid: auth.uid,
+          provider: auth.provider
+        )
+      end
+      return { user: user ,sns: sns}
+    end
+
+   def self.with_sns_data(auth, snscredential)
+    user = User.where(id: snscredential.user_id).first
+    unless user.present?
+      user = User.new(
+        nickname: auth.info.name,
+        email: auth.info.email,
       )
     end
-    user
+    return {user: user}
+   end
+
+   def self.find_oauth(auth)
+    uid = auth.uid
+    provider = auth.provider
+    snscredential = SnsCredential.where(uid: uid, provider: provider).first
+    if snscredential.present?
+      user = with_sns_data(auth, snscredential)[:user]
+      sns = snscredential
+    else
+      user = without_sns_data(auth)[:user]
+      sns = without_sns_data(auth)[:sns]
+    end
+    return { user: user ,sns: sns}
   end
 
   validates :nickname, presence: true
