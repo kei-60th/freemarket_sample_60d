@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, :only => [:new, :create]
 
   def index
     @items = Item.all.includes(:item_images).limit(5).order("created_at DESC")
