@@ -92,3 +92,7 @@ gem 'jquery-rails'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'payjp', '0.0.6'
 gem "gretel"
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook', '~> 5.0'
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.5'
