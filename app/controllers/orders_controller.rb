@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, :only => [:show, :create]
   layout 'registration'
   require 'payjp'
   def index
