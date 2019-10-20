@@ -74,22 +74,22 @@ group :production do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-# gem 'capistrano'
-# gem 'capistrano-rbenv'
-# gem 'capistrano-bundler'
-# gem 'capistrano-rails'
-# gem 'capistrano3-unicorn'
-# gem 'ancestry'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'capistrano'
+gem 'capistrano-rbenv'
+gem 'capistrano-bundler'
+gem 'capistrano-rails'
+gem 'capistrano3-unicorn'
+gem 'ancestry'
 
-# gem 'haml-rails'
-# gem 'erb2haml'
-# gem "font-awesome-rails"
-# gem "devise"
-# gem "carrierwave"
-# gem 'fog-aws'
-# gem 'mini_magick'
-# # gem 'compass-rails'
+gem 'haml-rails'
+gem 'erb2haml'
+gem "font-awesome-rails"
+gem "devise"
+gem "carrierwave"
+gem 'fog-aws'
+gem 'mini_magick'
+# gem 'compass-rails'
 # gem 'sprockets', '3.7.2'
 # gem 'jquery-rails'
 # gem 'dotenv-rails', require: 'dotenv/rails-now'
