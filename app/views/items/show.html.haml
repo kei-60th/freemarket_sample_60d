@@ -47,7 +47,7 @@
             %tr
               %th 出品者
               %td.td-box
-                = link_to "/mypage", class: "link-blue" do
+                =link_to mypage_path(current_user), class: "link-blue" do
                   = @item.user.nickname
                 .yyy.icon-top
                   .item-user-ratings
