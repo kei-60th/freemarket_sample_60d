@@ -1,8 +1,21 @@
-.right-content{
-  position: absolute;
-  bottom: 445px;
-  left: 540px;
+.groundwork{
+  background-color: #F5F5F5;
+  padding:20px;
+}
 
+.n-main-content{
+  display:flex;
+  justify-content: space-between;
+  margin: 20px auto 0;
+  width: 1020px;
+  background-color: #F5F5F5;
+}
+
+.left-content{
+  width:280px;
+}
+
+.right-content{
   .mypage-icon{
     display: block;
     padding: 20;
