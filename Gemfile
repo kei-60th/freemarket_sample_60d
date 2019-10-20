@@ -95,4 +95,3 @@ gem "gretel"
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook', '~> 5.0'
-gem 'dotenv-rails', '~> 2.7', '>= 2.7.5'
