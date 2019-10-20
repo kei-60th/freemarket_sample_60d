@@ -1,105 +1,13 @@
-.default-container
-  .header
-  .main-content
-    .side-content
-      %nav.mypage_nav
-        %ul.mypage_nav__parent
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "マイページ", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "お知らせ", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "やることリスト", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "いいね！一覧", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "出品する", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "出品した商品 - 出品中", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "出品した商品 - 取引中", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "出品した商品 - 売却済み", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "購入した商品 - 取引中", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "購入した商品 - 過去の取引", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "ニュース一覧", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "評価一覧", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "ガイド", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "お問い合わせ", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-        %h3.mypage_nav__head メルペイ
-        %ul.mypage_nav__parent
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "売上・振込申請", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "ポイント", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-        %h3.mypage_nav__head 設定
-        %ul.mypage_nav__parent
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "プロフィール", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "発送元・お届け先住所変更", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "支払い方法", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "メール/パスワード", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "本人情報", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "電話番号の確認", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
-          %li.mypage_nav__parent__list
-            .mypage_nav__parent__list__content
-              = link_to "ログアウト", "#", class:"mypage_nav__parent__list__content__side_link"
-              = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
+-# 下記２行パンくず
+- breadcrumb :mypage
+= breadcrumbs separator: " &rsaquo; "
+= render 'shared/header'
+= render 'shared/new_item_button'
+
+.groundwork
+  .n-main-content
+    .left-content
+      = render 'shared/side_bar'
     .right-content
       .l-single-inner
         .l-single-content
