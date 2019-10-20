@@ -1,9 +1,8 @@
+= render 'shared/header'
+= render 'shared/new_item_button'
 -# 下記２行パンくず
 - breadcrumb :mypage
 = breadcrumbs separator: " &rsaquo; "
-= render 'shared/header'
-= render 'shared/new_item_button'
-
 .groundwork
   .n-main-content
     .left-content
@@ -13,4 +12,4 @@
         .l-single-content
           = link_to "ログアウト", '/users/sign_out', class: 'btn-default btn-red',method:"DELETE"
           %input{:name => "__csrf_value", :type => "hidden", :value => "459d9dde17c7d60b6a40dbf7581377f666fe862e32d291906cfa400be5a09caf0a5bf7be612c4eca1f553f5369ea6c432ece5486506a5b438cfb0b2d904b70e16"}/
-  .footer
+.footer
