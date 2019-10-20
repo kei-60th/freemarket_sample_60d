@@ -412,6 +412,7 @@ DEPENDENCIES
   rails-controller-testing
   rspec-rails
   sass-rails
+  sassc
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
