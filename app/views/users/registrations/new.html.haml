@@ -3,7 +3,7 @@
     会員情報入力
   .main-bottom
     -# = form_with model: @user, :url => {:action => :create}, local: true, class: 'form' do |f|
-    = form_for @user, :url => {:action => :create} do |f|
+    = form_for @user,url:{controller:'users/sessions',action:'create'} , html: {class: "form"} , method: :get do |f|
       .nickname
         = f.label :nickname, "ニックネーム", class: "nickname__label"
         %span.nickname__required
@@ -14,8 +14,9 @@
         %span.mail-adress__required
           必須
         = f.email_field :email, class: 'mail-adress__text', placeholder: 'PC・携帯どちらでも可'
+    - if session["devise.sns_uid"].blank?
       .password
-        = f.label :password, "パスワード", class: 'password__label'
+        = f.label :パスワード
         %span.password__required
           必須
         = f.password_field :password, class: 'password__text', placeholder: '7文字以上'
@@ -24,6 +25,9 @@
         %span.password-confirmation__required
           必須
         = f.password_field :password_confirmation, class: 'password-confirmation__text', placeholder: '7文字以上'
+    - else
+      = f.hidden_field :password
+      = f.hidden_field :password_confirmation
       .identification
         %h3.identification__confirm
           本人確認

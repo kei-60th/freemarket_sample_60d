@@ -57,6 +57,9 @@ class User < ApplicationRecord
     uid = auth.uid
     provider = auth.provider
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
+    password = Devise.friendly_token.first(7)
+    #biding.pry
+
     if snscredential.present?
       user = with_sns_data(auth, snscredential)[:user]
       sns = snscredential
