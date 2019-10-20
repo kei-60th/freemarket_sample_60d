@@ -3,7 +3,7 @@
     会員情報入力
   .main-bottom
     -# = form_with model: @user, :url => {:action => :create}, local: true, class: 'form' do |f|
-    = form_for @user,url:{controller:'users/sessions',action:'create'} , html: {class: "form"} , method: :get do |f|
+    = form_for @user,url:{controller:'users/registrations',action:'create'} , html: {class: "form"} do |f|
       .nickname
         = f.label :nickname, "ニックネーム", class: "nickname__label"
         %span.nickname__required
