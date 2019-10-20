@@ -23,7 +23,8 @@ get '/registration', to: 'registration#confirmation'
 get "/registration/confirmation", to: "sms_confirmation#edit"
 get "/registration/address", to: "addresses#new"
 
-get '/mypage', to: 'mypage#mypage'
+
+get '/mypage', to: 'mypage#show'
 get '/mypage/card', to: 'mypage#index'
 get '/mypage/card/create', to: 'mypage#create'
 get '/registration', to: 'registrations#index'
