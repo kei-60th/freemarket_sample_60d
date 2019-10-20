@@ -14,20 +14,20 @@
         %span.mail-adress__required
           必須
         = f.email_field :email, class: 'mail-adress__text', placeholder: 'PC・携帯どちらでも可'
-    - if session["devise.sns_uid"].blank?
-      .password
-        = f.label :パスワード
-        %span.password__required
-          必須
-        = f.password_field :password, class: 'password__text', placeholder: '7文字以上'
-      .password-confirmation
-        = f.label :password_confirmation, "パスワード(確認)", class: 'password-confirmation__label'
-        %span.password-confirmation__required
-          必須
-        = f.password_field :password_confirmation, class: 'password-confirmation__text', placeholder: '7文字以上'
-    - else
-      = f.hidden_field :password
-      = f.hidden_field :password_confirmation
+      - if session["devise.sns_uid"].blank?
+        .password
+          = f.label :password, "パスワード", class: 'password__label'
+          %span.password__required
+            必須
+          = f.password_field :password, class: 'password__text', placeholder: '7文字以上'
+        .password-confirmation
+          = f.label :password_confirmation, "パスワード(確認)", class: 'password-confirmation__label'
+          %span.password-confirmation__required
+            必須
+          = f.password_field :password_confirmation, class: 'password-confirmation__text', placeholder: '7文字以上'
+      - else
+        = f.hidden_field :password
+        = f.hidden_field :password_confirmation
       .identification
         %h3.identification__confirm
           本人確認

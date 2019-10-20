@@ -12,11 +12,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @omniauth = request.env['omniauth.auth']
     info = User.find_oauth(@omniauth)
     @user = info[:user]
-    if @user.persisted?
+    @sns = info[:sns]
+
+    if @user.persisted? #snsが存在したら
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
-    else
-      @sns = info[:sns]
+    else #snsが存在しなかったら
+      session["devise.sns_uid"] = @sns[:uid]
       render template: "users/registrations/new"
     end
   end

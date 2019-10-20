@@ -8,7 +8,7 @@
       = link_to user_facebook_omniauth_authorize_path, method: :post,class: "buttons__facebook" do
         = fa_icon 'facebook', class: "icon"
         Facebookでログイン
-      = link_to google_oauth2_omniauth_authorize_path, method: :post,class: "buttons__google" do
+      = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "main-bottom__btn-google" do
         = image_tag "googlelogo.jpg", class: "icon"
         Googleでログイン
     = form_with model: @user, url: user_session_path, class: 'form' do |f|
