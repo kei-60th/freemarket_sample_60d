@@ -1,0 +1,21 @@
+.container
+  %section.container__single
+    %h2.container__single__head
+      電話番号の確認
+    .container__single__inner
+      .content
+        .content__form
+          %label.content__form__label
+            携帯電話の番号
+          %input.content__form__input{type: "text", placeholder: "携帯電話の番号を入力"}
+        %p.content__text
+          本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+        %button.content__btn-default
+          SMSを送信する
+        %p.content__text__under
+          ※電話番号は本人確認のや不正利用防止のために利用します。他のユーザーに公開されることはありません。
+        .text-right
+          %a.text-right__link
+            電話番号の確認が必要な理由
+            .text-right__link__icon
+              = fa_icon "chevron-right", class: ".text-right__link__icon"

@@ -1,0 +1,45 @@
+@import "mixin";
+
+#main-contents-creditcards{
+  @include main-contents;
+  height: 600px;
+  width: 700px;
+  .main-top{
+    line-height: 97px;
+    border-bottom: #f5f5f5 1px solid;
+    font-weight: bold;
+    font-size: 22px;
+  }
+  .main-bottom{
+    width: 65%;
+    margin: 0 auto;
+    .form{
+      width: 100%;
+      .one-form{
+        @include info-box;
+      }
+      .two-form{
+        text-align: left;
+        margin: 32px auto;
+        &__label{
+          font-size: 14px;
+          font-weight: bold;
+        }
+        &__required{
+          @include required;
+        }
+        .box{
+          &__text{
+            @include user-input();
+            @include textbox;
+            width: 39%;
+            color: black;
+          }
+        }
+      }
+      &__btn{
+        @include red-btn;
+      }
+    }
+  }
+}

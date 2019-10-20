@@ -1,20 +1,89 @@
-.header
-  = image_tag "mercarilogo.svg"
-  %input.form-contol.seach-input{name: "keyword", placeholder: "何かお探しですか？"}
+.wrapper
+  .kheader
+    .kheader__menu
+      = image_tag "mercarilogo.svg", class: "img"
+      %input.form-contol.seach-input{name: "keyword", class: "search_icon",placeholder: "何かお探しですか？"}
+      -# %i.fa.fa-search
+    .navmenu
+      %ul.navmenu__leftside-bar
+        %li.fa.fa-list
+        =link_to  'カテゴリーから探す'
+        %li.fa.fa-tags
+        =link_to  'ブランドから探す'
+      %ul.navmenu__rightside-bar
+        -# ----ログイン後のアイコン----
+        - if user_signed_in?
+          -# %li.fa.fa-heart
+          -# =link_to  'いいね！一覧'
+          -# %li.fa.fa-bell
+          -# =link_to 'お知らせ'
+          -# %li.fa.fa-check
+          -# =link_to 'やることリスト'
+          -# %li.fa.smile
+          %li.fa.fa-user
+          =link_to mypage_path, class: 'mypage' do
+            マイページ
+        - else
+          =link_to signin_path, class: 'sign_up' do
+            新規会員登録
+          =link_to new_user_session_path, class: 'log_in' do
+            ログイン
 
-  -# .navigation
-  -#   .__leftside-bar
-  -#   =link_to category 'カテゴリーから探す'
-  -#   =link_to brand 'ブランドから探す'
-  -#   =link_to mypage/like/history 'いいね一覧'
-  -#   .__rightside-bar
-  -#   =link_to mypage/like/notification 'お知らせ'
-  -#   =link_to mypage/like/todolist 'やることリスト'
-  -#   =link_to mypage/like/mypage 'マイページ'
+  .slideshow
+    = image_tag "topmain.jpg", class: "slideshow"
 
-.itemlists
-  商品リスト
-.advertisement
-  画像
-.footer
-  グローバルナビ
+  .populerlists
+    .populerlists__title
+      人気のカテゴリー
+    %ul.populerlists__categolies
+      %li.list
+        =link_to 'レディース',class: "lists"
+      %li.list
+        =link_to 'メンズ',class: "lists"
+      %li.list
+        =link_to '家電・スマホ・カメラ',class: "lists"
+      %li.list
+        =link_to 'おもちゃ・ホビー・グッズ',class: "lists"
+
+  .itemstitle
+    .itemstitle__title
+      新着アイテム
+    .itemstitle__nextpage
+      もっと見る
+      -# =link_to 'もっと見る'
+      %i.fa.fa-angle-right
+
+  .item-box
+    .item-box__contents
+      - @items.each do |item|
+        .item-box__contents__image
+          =link_to "/items/#{item.id}" do
+            = image_tag item.item_images[0].image.url, height: "146px" , width: "146px"
+          .item-box__contents__image__price
+            ¥
+            = item.price
+          .item-box__contents__image__name
+            = item.name
+    -# .item-box__contents
+    -#   - @items.each do |item|
+    -#     .item-box__contents__image
+    -#       = image_tag item.item_images[0].image.url
+    -#       .item-box__contents__image__price
+    -#         ¥
+    -#         = item.price
+    -#       .item-box__contents__image__name
+    -#         = item.name
+  .advertisement
+    .advertisement__list
+      .advertisement__list__left
+        %h2 スマホでかんたんフリマアプリ
+        %p 今すぐ無料ダウンロード！
+        = image_tag "mercari_icon.png", class: "mercari_icon"
+        = image_tag "app-storeicon.svg", class: "app-storeicon"
+        = image_tag "google-storeicon.svg", class: "google-storeicon"
+
+      .advertisement__list__right
+        = image_tag "smartphonepic.png",class: "smartphonepic"
+
+  = render "shared/footer"
+  = render "shared/new_item_button"

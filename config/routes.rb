@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-<<<<<<< Updated upstream
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-=======
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'   
@@ -26,6 +23,7 @@ get '/registration', to: 'registration#confirmation'
 get "/registration/confirmation", to: "sms_confirmation#edit"
 get "/registration/address", to: "addresses#new"
 
+
 get '/mypage', to: 'mypage#show'
 get '/mypage/card', to: 'mypage#index'
 get '/mypage/card/create', to: 'mypage#create'
@@ -40,5 +38,6 @@ get "/privacypolicy", to: 'privacypolicy#index'
 resources :items do
   get "/order/confirmation", to: "orders#show"
   post "/order/confirmation", to: "orders#create"
->>>>>>> Stashed changes
 end
+end
+

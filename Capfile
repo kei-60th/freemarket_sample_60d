@@ -1,3 +1,5 @@
+require 'capistrano/console'
+
 # Load DSL and set up stages
 require "capistrano/setup"
 

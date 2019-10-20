@@ -40,6 +40,7 @@ Things you may want to cover:
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
+|prefecture_id|reference|foreign_key: true|
 <!-- |point_amount|integer|
 |profit_amount|integer| -->
 ### Association
@@ -54,6 +55,7 @@ Things you may want to cover:
 - has_one :payment
 - has_one :creditcard
 - has_one :evaluation
+- belongs_to :prefecture
 
 ## addressesテーブル
 
@@ -68,18 +70,16 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :user
-- has_one :prefecture
 
 ## prefecturesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
-|addresses_id|references|null: false, foreign_key: true|
+|name|string|null:false,unique|
 
 ### Association
-
-- belongs_to :address
+- has_many :items
+- has_many :users
 
 ## paymentsテーブル
 
@@ -126,11 +126,9 @@ Things you may want to cover:
 |user_id|references|null: false, foreign_key: true|
 |name|string|null: false|
 |price|integer|null: false|
-|fee|interger||null: false|
 |description|text|null: false|
-|first_category_id|references|null: false, foreign_key: true|
-|second_category_id|references|null: false, foreign_key: true|
-|third_category_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
+|prefecture_id|references|foreign_key:true|
 |order_status_id|
 
 ### Association
@@ -138,50 +136,18 @@ Things you may want to cover:
 - belongs_to :user
 - has_many :item_images
 - has_many :likes
-<!-- - has_many :comments -->
 - has_many :warnings
 - has_many :message_users,through::messages,source::user
 - has_many :like_users,through::likes,source::user
 - has_many :warning_users,through::warnings,source::user
-- belongs_to :first_category
-- belongs_to :second_category
-- belongs_to :third_category
-- has_one :size
+- belongs_to :category
+- belongs_to :prefecture
+- belongs_to :size
 - belongs_to :brand
 - has_one :condition
 - has_one :delivery_fee
-- has_one :delivery_ways
-- has_one :delivery_day
-
-## firrt_categories
-
-|first_category|string|null:false|
-
-### Association
-
-- has_many :items
-- has_many :second_categories
-
-## second_categories
-
-|first_category_id|references|foreign_key:ture|
-|second_category|string|null:false|
-
-### Association
-
-- belongs_to :first_category
-- has_many :third_categories
-- has_many :items
-
-## third_categories
-
-|second_category_id|references|foreign_key:ture|
-|third_category|strings|null:fall|
-
-### Association
-
-- belongs_to :second_category
-- has_many :items
+- has_one :delivery_way
+- has_one :delivery_date
 
 ## item_imagesテーブル
 
@@ -194,16 +160,42 @@ Things you may want to cover:
 
 - belongs_to :item
 
+## categoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null false|
+|parent_id|references|null:zfalse, foreign_key: true|
+
+### Association
+
+- belongs_to :parent, class_name: "Category"
+- has_many :items
+- has_many :child, class_name: "Category", foreign_key: "parent_id"
+- has_many :size_category
+- has_many :sizes, through: :size_category
+
 ## sizesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|size|string|
+|size|string|null: false|
 |item_id|references|null: false, foreign_key: true|
 
 ### Association
 
-- belongs_to :item
+- has_many :categories, through: :size_category
+- has_many :items
+- has_many :size_category
+
+## size_category
+|size_id|references|null: false, foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
+
+### Association
+
+- belongs_to :category
+- belongs_to :size
 
 ## brandsテーブル
 
@@ -230,7 +222,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|charge|string|
+|fee|string|
 |item_id|references|null: false, foreign_key: true|
 
 ### Association

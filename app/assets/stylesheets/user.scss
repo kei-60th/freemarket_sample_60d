@@ -1,0 +1,86 @@
+.wrapper{
+  box-sizing: border-box;
+  background-color: #f5f5f5;
+  text-align: center;
+  .header{
+    max-height: 130px;
+    background-color: #f5f5f5;
+    box-shadow: none;
+    display: flex;
+    .logo{
+      margin: auto;
+      .mercarilogo{
+        margin: auto;
+        img{
+          height: 50px;
+        }
+      }
+    }
+    .right-contents{
+      padding: 4% 0;
+      lo{
+        .list{
+          float: left;
+          list-style-type: none;
+          font-size: 12px;
+          height: 32px;
+          margin-right: 40px;
+          color: #CCCCCC;
+          &--active{
+            color: #EA352D;
+          }
+          .progress-status{
+          }
+          .progress-status::before{
+            position: relative;
+            //left: 35%;
+            height: 2px;
+            width: calc(40px + 100%);
+            background-color: #CCCCCC;
+            
+            display: inline-block;
+            content: '';
+          }
+          .progress-status::after {
+            position: relative;
+            top: -10px;
+            
+            display: inline-block;
+            
+            width: 12px;
+            height: 12px;
+            
+            content: '';
+            
+            border-radius: 100%;
+            background: #CCCCCC;
+          }
+        }
+      }
+    }
+  }
+  .contents{
+    @import 'signup';
+    @import 'login';
+  }
+  .g_footer{
+    height: 250px;
+    padding: 40px;
+    .links{
+      line-height: 24px;
+      li{
+        display: inline-block;
+        margin-right: 10px;
+      }
+      &__link-bottom{
+        text-decoration: none;
+        font-size: 12px;
+        color: #333333;
+      }
+    }
+    img{
+      width: 80px;
+      margin-top: 50px;
+    }
+  }
+}

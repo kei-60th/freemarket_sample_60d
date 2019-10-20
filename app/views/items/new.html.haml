@@ -1,0 +1,118 @@
+-# 商品登録ページ
+.sell-item-container
+  .sell-form
+    .sell-form--upper
+      %h2 商品の情報を入力
+    .sell-form--lower
+      = form_for @item do |f|
+        .item__images.border-bottom
+          .inner-box
+            .null-null
+              %h3 出品画像
+              %span.null-false 必須
+            最大10枚までアップロードできます
+            .image-area
+              = f.fields_for :item_images do |fi|
+                = fi.file_field :image     
+        .item__name.border-bottom
+          .inner-box
+            .null-null
+              %h5 商品名
+              %span.null-false 必須
+            = f.text_field :name, placeholder: "商品名（必須40文字まで)"
+            .null-null
+              %h5 商品名
+              %span.null-false 必須
+            = f.text_area :description, placeholder: "商品の説明（必須1,000字まで)"
+        .sell__container__category.border-bottom    
+          .inner-box.choose
+            .choose--left
+              %p 商品の詳細
+            .choose--right
+              .null-null
+                %h5 カテゴリー
+                %span.null-false 必須
+              = f.select :category, @parents.all.map{|p|[p.name,p.id]}
+              .null-null
+                %h5 商品の状態
+                %span.null-false 必須
+              = f.select :condition, Condition.all.collect{|p|[p.name,p.id]}
+        .item__delivery.border-bottom
+          .innner-box.choose
+            .choose--left
+              %p 配送について
+            .choose--right
+              .null-null
+                %h5 配送量の負担
+                %span.null-false 必須
+              = f.select :delivery_fee, DeliveryFee.all.collect{|p|[p.name,p.id]}
+              .null-null
+                %h5 配送方法
+                %span.null-false 必須
+              = f.select :delivery_way, DeliveryWay.all.collect{|p|[p.name,p.id]}
+              .null-null
+                %h5 発送元の地域
+                %span.null-false 必須
+              = f.select :prefecture, Prefecture.all.collect{|p|[p.name,p.id]}
+              .null-null
+                %h5 発送までの日数
+                %span.null-false 必須
+              = f.select :delivery_date, DeliveryDate.all.collect{|p|[p.name,p.id]}
+        .item__price.border-bottom
+          .inner-box.choose
+            .choose--left 販売価格(300〜9,999,999)
+            .choose--right
+              .null-null
+              %p5 価格
+              %span.null-false 必須
+              = f.text_field :price ,class: 'item-price',placeholder: "例)300"
+            .center
+              .center-left
+                %h5 販売手数料（10%)
+              .center-right
+                %p - 
+            .lower
+              .lower--left
+                %h5 販売利益
+              .lower--right
+                %p - 
+        .sell-body-exhibit
+          %p.sell-body-exhibit__caution
+            #{link_to "禁止されている出品", "#",class: "sell-body-exhibit__caution-link"}、#{link_to "行為", "#",class: "sell-body-exhibit__caution-link"}を必ずご確認ください。
+            %brまたブランド品でシリアルナンバー等がある場合はご記載ください。#{link_to "偽ブランドの販売", "#",class: "sell-body-exhibit__caution-link"}は犯罪であ
+            り処罰される可能性があります。
+            %brまた、出品をもちまして#{link_to "加盟店規約", "#",class: "sell-body-exhibit__caution-link"}に同意したことになります。
+          = f.submit '出品する', class: 'sell-body-exhibit__send'
+          = link_to "#" ,class: "sell-body-exhibit__exit" do
+            .sell-body-exhibit__exit-link
+              もどる
+            
+
+
+
+  -# -# .item-registration__name
+  -# -#   %label.item-registration__name__label
+  -# -#     商品名
+  -# -#   %span.item-registration__name__required
+  -# -#     必須
+  -# -#   %br/
+  -# -#   %input.item-registration__name__text{placeholder: '商品名（必須 40文字まで）'}
+
+  -# -# .item-registration__discription
+  -# -#   %label.item-registration__discripstion__label
+  -# -#     商品の説明
+  -# -#   %span.item-registration__discription__required
+  -# -#     必須
+  -# -#   %br/
+  -# -#   %textarea.item-registration__discription__text{placeholder: '商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。'}
+
+  -# -# .item-registration__caution
+  -# -#   禁止されている出品、行為を必ずご確認ください。
+  -# -#   またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+  -# -#   また、出品をもちまして加盟店規約に同意したことになります。
+
+  -# -# .item-registration__button
+  -# -#   .item-registration__button__submit
+  -# -#     = link_to "出品する"
+  -# -#   -# .item-registration__button__backbtn
+  -# -#     = link_to "もどる"

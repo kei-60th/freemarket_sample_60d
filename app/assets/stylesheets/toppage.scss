@@ -1,9 +1,9 @@
-<<<<<<< Updated upstream
+
 .header {
 background-color: white;
 box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 height: calc(100vh - 100px);
-=======
+
 .wrapper {
   font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   color: #333333;
@@ -127,21 +127,72 @@ height: calc(100vh - 100px);
       padding: 3px 16px;
     }
   }
->>>>>>> Stashed changes
 }
 
-.itemlists{
-  
+.itemstitle {
+  background-color: rgb(245, 245, 245);
+  padding: 10px 190px;
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    padding: 42px 0px 0px 10px;
+    float: left;
+  }
+  &__nextpage {
+    font-size: 14px;
+    font-weight: 600;
+    color:rgb(0, 149, 238);
+    padding: 54px 0px 0px 0px;
+    float: right;
+  }
 }
 
-.advertisement{
+// 商品リスト部分
 
+.item-box {
+  &__contents {
+    display: flex;
+    padding: 10px 190px;
+    img{
+      width: 186px;
+      position: relative;
+      border: 1px #dcdcdc solid;
+      margin: 5px 5px 1px 5px;
+      z-index: 1;
+    }
+    &__image {
+      &__price {
+        color:white;
+        background-color:black;
+        width: 100px;
+        opacity: 0.5;
+        position: relative; top: -50px;
+        padding: 5px 15px;
+        margin-left: 5px;
+        border-radius: 0 14px 14px 0;
+        z-index: 3;
+      }
+      &__name {
+        background-color:white;
+        padding-top: 34px;
+        height: 50px;
+        text-align: center;
+        overflow: hidden;
+        border: 1px #dcdcdc solid;
+        margin: 5px 5px 1px 5px;
+        position: relative; top: -40px;
+        z-index: 2;
+      }
+    }
+  }
 }
 
-.footer{
+a{
+color: #333333;
+text-decoration: none;
+}
 
-<<<<<<< Updated upstream
-=======
+
 // 広告部分
 .advertisement {
   height: 260px;
@@ -173,7 +224,7 @@ height: calc(100vh - 100px);
     }
     &__right {
       .smartphonepic {
-        height: 260px;;
+        height: 260px;
       }
     }
   }
@@ -210,5 +261,4 @@ height: calc(100vh - 100px);
         padding: 0px 40px;
       }
   }
->>>>>>> Stashed changes
 }

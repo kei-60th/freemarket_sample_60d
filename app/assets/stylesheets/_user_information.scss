@@ -1,0 +1,110 @@
+@import "mixin";
+
+#main-contents-user-info{
+  @include main-contents;
+  height: 1500px;
+  width: 700px;
+  .main-top{
+    line-height: 97px;
+    border-bottom: #f5f5f5 1px solid;
+    font-weight: bold;
+    font-size: 22px;
+  }
+  .main-bottom{
+    width: 65%;
+    margin: 0 auto;
+    .form{
+      .nickname{
+        @include info-box();
+        margin-top: 0;
+      }
+      .mail-adress{
+        @include info-box();
+      }
+      .password{
+        @include info-box();
+      }
+      .password-confirmation{
+        @include info-box();
+      }
+      @include form-box();
+      height: 410px;
+      .identification{
+        &__confirm{
+          text-align: left;
+          font-weight: bold;
+          font-size: 16px;
+        }
+        &__paragraph{
+          text-align: left;
+          font-size: 14px;
+        }
+      }
+      .user-name{
+        text-align: left;
+        margin: 32px auto;
+        &__label{
+          font-size: 14px;
+          font-weight: bold;
+        }
+        &__required{
+          @include required;
+        }
+        .box{
+          &__text{
+            @include user-input();
+            @include textbox;
+            width: 37%;
+            color: black;
+          }
+        }
+      }
+      .birthday{
+        text-align: left;
+        &__label{
+          font-size: 14px;
+          font-weight: bold;
+        }
+        &__required{
+          @include required;
+        }
+        .box{
+          color: #333333;
+          select{
+            @include textbox;
+            line-height: 50px;
+            background-color: white;
+            width: 25%;
+            cursor: pointer;
+            option{
+            }
+          }
+        }
+      }
+      .notation{
+        font-size: 14px;
+        color: #888888;
+      }
+      &__captcha{
+        height: 75px;
+        width: 300px;
+        margin: 40px 0;
+        border: 1px solid black;
+      }
+      .navigation{
+        font-size: 14px;
+        color: #333333;
+      }
+      &__btn-login{
+        @include red-btn;
+      }
+      &__forget-password{
+        float: right;
+        text-decoration: none;
+        font-size: 14px;
+        color: #0099e8;
+        margin-top: 30px;
+      }
+    }
+  }
+}
