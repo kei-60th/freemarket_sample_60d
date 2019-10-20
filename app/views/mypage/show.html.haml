@@ -13,15 +13,16 @@
         .mypage-icon__img
           = image_tag ("https://static.mercdn.net/images/member_photo_noimage_thumb.png")
         %h2.mypage-icon__name
-          %ul.mypage-icon__data
-            %li.mypage-icon__data__column
-              評価
-              %span.mypage-icon__data__number
-                15
-            %li.mypage-icon__data__column
-              出品数
-              %span.mypage-icon__data__number
-                20
+          = @user.nickname
+        %ul.mypage-icon__data
+          %li.mypage-icon__data__column
+            評価
+            %span.mypage-icon__data__number
+              15
+          %li.mypage-icon__data__column
+            出品数
+            %span.mypage-icon__data__number
+              20
 
       %section.upper-container
         %ul.upper-container__tabs
