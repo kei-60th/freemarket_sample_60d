@@ -47,9 +47,9 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'faker' 
-  gem 'omniauth'
-  gem 'omniauth-google-oauth2'
-  gem 'omniauth-facebook', '~> 5.0'
+  # gem 'omniauth'
+  # gem 'omniauth-google-oauth2'
+  # gem 'omniauth-facebook', '~> 5.0'
 end
 
 group :development do
