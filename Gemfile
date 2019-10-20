@@ -56,6 +56,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'omniauth'
+  gem 'omniauth-google-oauth2'
+  gem 'omniauth-facebook', '~> 5.0'
 end
 
 group :test do
@@ -92,6 +95,3 @@ gem 'jquery-rails'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'payjp', '0.0.6'
 gem "gretel"
-gem 'omniauth'
-gem 'omniauth-google-oauth2'
-gem 'omniauth-facebook', '~> 5.0'
