@@ -1,0 +1,120 @@
+= render 'shared/header'
+= render 'shared/new_item_button'
+-# 下記２行パンくず
+- breadcrumb :mypage
+= breadcrumbs separator: " &rsaquo; "
+.groundwork
+  .n-main-content
+    .left-content
+      = render 'shared/side_bar'
+    .right-content
+      %section.mypage-icon
+        .mypage-icon__img
+          = image_tag ("https://static.mercdn.net/images/member_photo_noimage_thumb.png")
+        %h2.mypage-icon__name
+          = @user.nickname
+        %ul.mypage-icon__data
+          %li.mypage-icon__data__column
+            評価
+            %span.mypage-icon__data__number
+              15
+          %li.mypage-icon__data__column
+            出品数
+            %span.mypage-icon__data__number
+              20
+
+      %section.upper-container
+        %ul.upper-container__tabs
+          %li.upper-container__tabs__tab
+            お知らせ
+          %li.upper-container__tabs__tab__right
+            やることリスト
+        %ul.upper-container__contents
+          %li.upper-container__contents__list
+            .upper-container__contents__list__icon
+              = image_tag ("https://static.mercdn.net/images/member_photo_noimage_thumb.png")
+            .upper-container__contents__list__body
+              .upper-container__contents__list__body__text
+                kurashiさんが 「メルカリ」にいいね！しました
+              .upper-container__contents__list__body__time
+                %time.upper-container__contents__list__body__time__icon
+                  = fa_icon "clock-o", class: ".upper-container__contents__list__body__time__icon__img"
+                %span.upper-container__contents__list__body__time__hour
+                  1時間前
+            .upper-container__contents__list__arrow__right
+              = fa_icon "chevron-right", class: ".upper-container__contents__list__arrow__right__icon"
+          %li.upper-container__contents__list
+            = link_to "", "#", class: ".upper-container__contents__list__link"
+            .upper-container__contents__list__icon
+              = image_tag ("https://static.mercdn.net/images/member_photo_noimage_thumb.png")
+            .upper-container__contents__list__body
+              .upper-container__contents__list__body__text
+                freemarket_sample_60dさんが 「TECH EXPERT」にいいね！しました
+              .upper-container__contents__list__body__time
+                %time.upper-container__contents__list__body__time__icon
+                  = fa_icon "clock-o", class: ".upper-container__contents__list__body__time__icon__img"
+                %span.upper-container__contents__list__body__time__hour
+                  3時間前
+            .upper-container__contents__list__arrow__right
+              = fa_icon "chevron-right", class: ".upper-container__contents__list__arrow__right__icon"
+          %li.upper-container__contents__list
+            = link_to "", "#", class: ".upper-container__contents__list__link"
+            .upper-container__contents__list__icon
+              = image_tag ("https://static.mercdn.net/images/member_photo_noimage_thumb.png")
+            .upper-container__contents__list__body
+              .upper-container__contents__list__body__text
+                60期さんが 「life coach」にいいね！しました
+              .upper-container__contents__list__body__time
+                %time.upper-container__contents__list__body__time__icon
+                  = fa_icon "clock-o", class: ".upper-container__contents__list__body__time__icon__img"
+                %span.upper-container__contents__list__body__time__hour
+                  7時間前
+            .upper-container__contents__list__arrow__right
+              = fa_icon "chevron-right", class: ".upper-container__contents__list__arrow__right__icon"
+          %li.upper-container__contents__list
+            = link_to "", "#", class: ".upper-container__contents__list__link"
+            .upper-container__contents__list__icon
+              = image_tag ("https://static.mercdn.net/images/member_photo_noimage_thumb.png")
+            .upper-container__contents__list__body
+              .upper-container__contents__list__body__text
+                javascriptさんが 「MacBook Pro」にいいね！しました
+              .upper-container__contents__list__body__time
+                %time.upper-container__contents__list__body__time__icon
+                  = fa_icon "clock-o", class: ".upper-container__contents__list__body__time__icon__img"
+                %span.upper-container__contents__list__body__time__hour
+                  1日前
+            .upper-container__contents__list__arrow__right
+              = fa_icon "chevron-right", class: ".upper-container__contents__list__arrow__right__icon"
+          %li.upper-container__contents__list
+            = link_to "", "#", class: ".upper-container__contents__list__link"
+            .upper-container__contents__list__icon
+              = image_tag ("https://static.mercdn.net/images/member_photo_noimage_thumb.png")
+            .upper-container__contents__list__body
+              .upper-container__contents__list__body__text
+                Ruby on Railsさんが 「まつもとひろゆき」にいいね！しました
+              .upper-container__contents__list__body__time
+                %time.upper-container__contents__list__body__time__icon
+                  = fa_icon "clock-o", class: ".upper-container__contents__list__body__time__icon__img"
+                %span.upper-container__contents__list__body__time__hour
+                  2日前
+            .upper-container__contents__list__arrow__right
+              = fa_icon "chevron-right", class: ".upper-container__contents__list__arrow__right__icon"
+          %li.upper-container__contents__bottom
+            %button.view-all
+              = link_to "一覧を見る", "#", class: "upper-container__contents__view_all__column"
+
+      .low-container
+        %h2.low-container__head
+          購入した商品
+        %ul.low-container__tabs
+          %li.low-container__tabs__tab
+            取引中
+          %li.low-container__tabs__tab__right
+            過去の取引
+        .low-container__contents
+          %ul.low-container__contents__tab
+            %li.low-container__contents__tab__now
+              取引中の商品がありません
+          %ul.low-container__contents__tab
+            %li.low-container__contents__tab__old
+              過去に取引した商品がありません

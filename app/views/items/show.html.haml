@@ -1,7 +1,9 @@
+
 .wrapper
   .kheader
     .kheader__menu
-      = image_tag "mercarilogo.svg", class: "img"
+      =link_to "/" do
+        = image_tag "mercarilogo.svg", class: "img"
       %input.form-contol.seach-input{name: "keyword", class: "search_icon",placeholder: "何かお探しですか？"}
       -# %i.fa.fa-search
     .navmenu
@@ -12,16 +14,20 @@
         =link_to  'ブランドから探す'
       %ul.navmenu__rightside-bar
         -# ----ログイン後のアイコン----
-        %li.fa.fa-heart
-        =link_to  'いいね！一覧'
-        %li.fa.fa-bell
-        =link_to 'お知らせ'
-        %li.fa.fa-check
-        =link_to 'やることリスト'
-        %li.fa.smile
-        =link_to 'マイページ'
-        -# %li.sign_up 新規会員登録
-        -# %li.log_in ログイン
+        - if user_signed_in?
+          %li.fa.fa-heart
+          =link_to  'いいね！一覧'
+          %li.fa.fa-bell
+          =link_to 'お知らせ'
+          %li.fa.fa-check
+          =link_to 'やることリスト'
+          %li.fa.smile
+          =link_to 'マイページ'
+        - else
+          =link_to signin_path, class: 'sign_up' do
+            新規会員登録
+          =link_to new_user_session_path, class: 'log_in' do
+            ログイン
 
   .item-deteal
     .item-deteal__box
@@ -31,27 +37,25 @@
         .item-deteal__box__item__left
           .left-top
             = image_tag @item.item_images[0].image.url
-          .left-bottom
-            .left-bottom__array
-              = image_tag @item.item_images[0].image.url
-              .left-bottom__array__box
-                = image_tag @item.item_images[0].image.url
+          - @item.item_images.each do |item_image|
+            .left-bottom
+              %li.left-bottom__array
+                = image_tag item_image.image.url
 
         %table.item-detail-table
           %tbody
             %tr
               %th 出品者
               %td.td-box
-                = link_to "#", class: "link-blue" do
-                  メルカリ太郎
-                  -# = @item.nickname
+                = link_to "/mypage", class: "link-blue" do
+                  = @item.user.nickname
                 .yyy.icon-top
                   .item-user-ratings
                     = fa_icon 'smile-o', {class: "good-icons--pink"}
-                    %span 20
+                    %span 11
                   .item-user-ratings.icon-margin
                     = fa_icon 'meh-o', {class: "good-icons--orange"}
-                    %span 0
+                    %span 3
                   .item-user-ratings.icon-margin
                     = fa_icon 'frown-o', {class: "good-icons--blue"}
                     %span 0
@@ -76,12 +80,12 @@
                 %td.td-box
                   %a{href: "#", class: "link-blue"}
                     %div
-                      = @item.brands.name
-            -# - if @item.sizes
+                      = @item.brand
+            - if @item.size
               %tr
                 %th 商品のサイズ
                 %td.td-box
-                  = @item.sizes.size
+                  = @item.size
             %tr
               %th 商品の状態
               %td.td-box
@@ -89,39 +93,34 @@
             %tr
               %th 配送料の負担
               %td.td-box
-                -# = @item.fee
+                = @item.delivery_fee
             %tr
               %th 配送の方法
               %td.td-box
-                -# = @item.way
+                = @item.delivery_way
             %tr
               %th 配送元地域
               %td.td-box
                 %a{href: "#", class: "link-blue"}
-                  -# = @item.prefecture.name
+                  = @item.prefecture
             %tr
               %th 発送日の目安
               %td.td-box
-                -# = @item.date
+                = @item.delivery_date
 
-      -# - if @item.user != current_user
+      - if @item.user_id != current_user
         .item-deteal__box__price
           %span.oooo
             ¥
             = @item.price.to_s(:delimited)
           %span.rrrr
             （税込）
-          %span.wwww
-            = @item.burden.parent.name.sub(/（出品者負担）/,"").sub(/（購入者負担）/,"")
-        - if @item.transact.buyer_id
-          = link_to "#", class:'sale', style: "background-color: grey;"do
-            売り切れました
-        - else
-          = link_to "/items/create/#{@item.id}", class:'sale'do
-            購入画面に進む
+          %button.sale
+            = link_to "/items/#{@item.id}/order/confirmation/" do
+              購入画面に進む
         .item-deteal__box__description
-          %p.item-deteal__box__description__idjs
-            = @items.description
+          %p.item-deteal__box__description__text
+            = @item.description
       - else
         .item-deteal__box__price
           %span.oooo
@@ -130,34 +129,32 @@
           %span.rrrr
             （税込）
           %span.wwww
-            = @item.burden.parent.name.sub(/（出品者負担）/,"").sub(/（購入者負担）/,"")
+            -# = @item.delivery_fee(/（出品者負担）/,"").delivery_fee(/（購入者負担）/,"")
         .item-deteal__box__description
-          %p.item-deteal__box__description__idjs
+          %p.item-deteal__box__description__text
             = @item.description
-        - if @item.transact.buyer_id
-          = link_to edit_item_path(@item.id), class:'sale--edit-grey'do
+        -# - if @item.user_id
+          = link_to root_path(@item.id), class:'sale--edit-grey'do
             商品が購入されました。発送してください。
         - else
-          = link_to edit_item_path(@item.id), class:'sale--edit' do
+          -# = link_to root_path(@item.id), class:'sale--edit' do
             商品の編集
-          = link_to "この商品を削除する", "/items/#{@item.id}", method: :delete, data: { confirm: "確認\n削除すると二度と復活できません\n本当に削除しますか？" }, class: 'sale--edit-grey'
+          -# = link_to "この商品を削除する", "/items/#{@item.id}", method: :delete, data: { confirm: "確認\n削除すると二度と復活できません\n本当に削除しますか？" }, class: 'sale--edit-grey'
 
-      .item-button-container.clearfix
-        .item-button-left
+      .item-deteal__box__description__button
+        .item-deteal__box__description__button__left
           %button.item-button.item-button-like
             %i.icon-like-border
             = fa_icon 'heart', {class: "icon-good"}
             %span いいね!
             %span.fade-in-bottom{"data-num" => "like"} 3
 
-          .item-button-report
+        .item-deteal__box__description__button__report
+          =link_to "http://www.kokusen.go.jp/t_box/t_box.html" do
             = fa_icon 'flag', {class: "icon-bad"}
             %span 不適切な商品の報告
-          %input{:name => "like_add_url", :type => "hidden", :value => "#"}/
-          %input{:name => "like_del_url", :type => "hidden", :value => "#"}/
-          %input{:name => "__csrf_value", :type => "hidden", :value => "#"}/
-        .item-button-right
-          = link_to '#', target: '_blank' do
+        .item-deteal__box__description__button__right
+          = link_to 'https://www.mercari.com/jp/safe/description/' do
             %i.icon-lock
             = fa_icon 'lock', {class: ".icon-lock"}
             %span あんしん・あんぜんへの取り組み
@@ -168,7 +165,7 @@
           %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
           %textarea.textarea-default
           %button.btn-default
-            %submit コメントする
+            コメントする
 
 
   .advertisement

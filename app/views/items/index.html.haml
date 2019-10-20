@@ -13,15 +13,15 @@
       %ul.navmenu__rightside-bar
         -# ----ログイン後のアイコン----
         - if user_signed_in?
-          -# %li.fa.fa-heart
-          -# =link_to  'いいね！一覧'
-          -# %li.fa.fa-bell
-          -# =link_to 'お知らせ'
-          -# %li.fa.fa-check
-          -# =link_to 'やることリスト'
-          -# %li.fa.smile
+          %li.fa.fa-heart
+          =link_to  'いいね！一覧'
+          %li.fa.fa-bell
+          =link_to 'お知らせ'
+          %li.fa.fa-check
+          =link_to 'やることリスト'
+          %li.fa.smile
           %li.fa.fa-user
-          =link_to mypage_path, class: 'mypage' do
+          =link_to mypage_path(current_user), class: 'mypage' do
             マイページ
         - else
           =link_to signin_path, class: 'sign_up' do
@@ -57,7 +57,8 @@
     .item-box__contents
       - @items.each do |item|
         .item-box__contents__image
-          = image_tag item.item_images[0].image.url
+          =link_to "/items/#{item.id}" do
+            = image_tag item.item_images[0].image.url, height: "146px" , width: "146px"
           .item-box__contents__image__price
             ¥
             = item.price

@@ -1,12 +1,19 @@
 #order-create
   .top-contents
-    .upper-text
+    .top-contents__upper-text
       発送をお待ちください
-    .lower-text
+    .top-contents__lower-text
       出品者からの発送通知をお待ちください
   .middle-contents
     .middle-upper
       購入が完了しました
     .middle-lower
+      .middle-lower__item-image
+        = image_tag @item.item_images[0].image.url, height: '200px'
+      .middle-lower__item-name
+        = @item.name
   .bottom-contents
+    %span
+      ¥
+      = @item.price.to_s(:delimited)
     送料込み

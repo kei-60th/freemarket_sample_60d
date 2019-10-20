@@ -389,7 +389,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  dotenv-rails (~> 2.7, >= 2.7.5)
+  dotenv-rails
   erb2haml
   factory_bot_rails
   faker
