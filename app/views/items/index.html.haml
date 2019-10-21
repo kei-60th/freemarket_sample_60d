@@ -1,7 +1,8 @@
 .wrapper
   .kheader
     .kheader__menu
-      = image_tag "mercarilogo.svg", class: "img"
+      = link_to "/" do
+        = image_tag "mercarilogo.svg", class: "img"
       %input.form-contol.seach-input{name: "keyword", class: "search_icon",placeholder: "何かお探しですか？"}
       -# %i.fa.fa-search
     .navmenu
