@@ -14,7 +14,7 @@
         %span.mail-adress__required
           必須
         = f.email_field :email, class: 'mail-adress__text', placeholder: 'PC・携帯どちらでも可'
-      - if session["devise.sns_uid"].blank?
+      - if session["devise.sns_id"].blank?
         .password
           = f.label :password, "パスワード", class: 'password__label'
           %span.password__required
