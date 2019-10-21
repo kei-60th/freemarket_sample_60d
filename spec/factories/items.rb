@@ -1,12 +1,24 @@
 FactoryBot.define do
+
   factory :item do
-    id {1}
-    name {"アイテム"}
-    price {"100000"}
-    description {"商品説明欄"}
-    order_status {1}
-    category {1}
-    size {1}
-    user_id {1}
+    
+    association :category
+    association :prefecture 
+    association :condition 
+    association :delivery_fee
+    association :delivery_way
+    association :delivery_date 
+    name                 { "wallet"} 
+    price                { 100000 }
+    description          { "オススメの商品です"}
+    category_id          {1}
+    prefecture_id        {1}
+    condition_id         {1}
+    delivery_fee_id      {1}
+    delivery_way_id      {1}
+    delivery_date_id     {1}
+    # user_id
+    # after(:build) do |item|
+    #   item.item_images << build(:item_image, item: item)
   end
 end

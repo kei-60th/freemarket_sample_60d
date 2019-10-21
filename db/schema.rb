@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_10_19_083809) do
 
   create_table "add_fields_to_user", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -48,10 +49,8 @@ ActiveRecord::Schema.define(version: 2019_10_19_083809) do
 
   create_table "conditions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "condition", null: false
-    t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_conditions_on_item_id"
   end
 
   create_table "creditcards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -66,27 +65,21 @@ ActiveRecord::Schema.define(version: 2019_10_19_083809) do
   end
 
   create_table "delivery_dates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "date"
-    t.bigint "item_id", null: false
+    t.string "date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_delivery_dates_on_item_id"
   end
 
   create_table "delivery_fees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "fee"
-    t.bigint "item_id", null: false
+    t.string "fee", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_delivery_fees_on_item_id"
   end
 
   create_table "delivery_ways", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "way"
-    t.bigint "item_id", null: false
+    t.string "way", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_delivery_ways_on_item_id"
   end
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -101,15 +94,16 @@ ActiveRecord::Schema.define(version: 2019_10_19_083809) do
     t.string "name", null: false
     t.integer "price", null: false
     t.text "description", null: false
-    t.integer "order_status", null: false
-    t.integer "category", null: false
-    t.integer "prefecture"
-    t.integer "size", null: false
+    t.integer "category_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "condition_id", null: false
+    t.integer "delivery_fee_id", null: false
+    t.integer "delivery_way_id", null: false
+    t.integer "delivery_date_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category"], name: "index_items_on_category"
-    t.index ["size"], name: "index_items_on_size"
+    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -128,10 +122,8 @@ ActiveRecord::Schema.define(version: 2019_10_19_083809) do
 
   create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "size", null: false
-    t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_sizes_on_item_id"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -165,14 +157,13 @@ ActiveRecord::Schema.define(version: 2019_10_19_083809) do
 
   add_foreign_key "add_fields_to_user", "users"
   add_foreign_key "addresses", "users"
-  add_foreign_key "conditions", "items"
   add_foreign_key "creditcards", "users"
-  add_foreign_key "delivery_dates", "items"
-  add_foreign_key "delivery_fees", "items"
-  add_foreign_key "delivery_ways", "items"
   add_foreign_key "item_images", "items"
   add_foreign_key "size_categories", "categories"
   add_foreign_key "size_categories", "sizes"
+
+  
   add_foreign_key "sizes", "items"
   add_foreign_key "sns_credentials", "users"
+
 end

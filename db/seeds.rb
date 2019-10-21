@@ -5,15 +5,50 @@ prefecture_array.each do |pref|
   )
 end
 
-Size.create([{size: "XXS以下"}, {size: "XS(SS)"}, {size: "S"}, {size: "M"}, {size: "L"}, {size: "XL(LL)"}, {size: "2XL(3L)"}, {size: "3XL(4L)"}, {size: "4XL(5L)以上"}, {size: "FREE SIZE"}])
+# [ "XXS以下", "XS(SS)","S","M","L","XL(LL)","2XL(3L)","3XL(4L)","4XL(5L)以上","FREE SIZE"]
+# .each do |name|
+#   Size.create!{
+#     size: name
+#   }
+# end
 
-Condition.create([{condition: "新品"}, {condition: "未使用品"}, {condition: "未使用に近い"}, {condition: "目立った傷や汚れなし"}, {condition: "やや傷や汚れあり"}, {condition: "傷や汚れあり"}, {condition: "全体的に状態が悪い"}])
+[ "新品", "未使用品","未使用に近い","目立った傷や汚れなし","やや傷や汚れあり","傷や汚れあり","全体的に状態が悪い"]
+.each do |name|
+  Condition.create!(
+    {condition: name}
+  )
+end
 
-DeliveryFee.create([{fee: "送料込み(出品者負担)"}, {fee: "着払い(購入者負担)"}])
+[ "送料込み(出品者負担)", "着払い(購入者負担)"]
+.each do |name|
+  DeliveryFee.create!(
+    {fee: name}
+  )
+end
 
-DeliveryDate.create([{day: "1~2日で発送"}, {day: "2~3日で発送"}, {day: "4~7日で発送"}])
+[ "未定", "らくらくメルカリ便","ゆうメール","レターパック","普通郵便(定型、定形外)","クロネコヤマト","ゆうパック","クリックポスト","ゆうパケット"]
+.each do |name|
+  DeliveryWay.create!(
+    {way: name}
+  )
+end
 
-DeliveryWay.create([{method: "未定", delivery_fee_id: "1"}, {method: "らくらくメルカリ便", delivery_fee_id: "1"}, {method: "ゆうメール", delivery_fee_id: "1"}, {method: "レターパック", delivery_fee_id: "1"}, {method: "普通郵便(定型、定形外)", delivery_fee_id: "1"}, {method: "クロネコヤマト", delivery_fee_id: "1"}, {method: "ゆうパック", delivery_fee_id: "1"}, {method: "クリックポスト", delivery_fee_id: "1"},{method: "ゆうパケット", delivery_fee_id: "1"},{method: "未定", delivery_fee_id: "2"}, {method: "クロネコヤマト", delivery_fee_id: "2"}, {method: "ゆうパック", delivery_fee_id: "2"}, {method: "ゆうメール", delivery_fee_id: "2"}])
+[ "1~2日で発送", "2~3日で発送","4~7日で発送"]
+.each do |name|
+  DeliveryDate.create!(
+    {date: name}
+  )
+end
+
+# # Size.create([{size: "XXS以下"}, {size: "XS(SS)"}, {size: "S"}, {size: "M"}, {size: "L"}, {size: "XL(LL)"}, {size: "2XL(3L)"}, {size: "3XL(4L)"}, {size: "4XL(5L)以上"}, {size: "FREE SIZE"}])
+
+# # Condition.create([{condition: "新品"}, {condition: "未使用品"}, {condition: "未使用に近い"}, {condition: "目立った傷や汚れなし"}, {condition: "やや傷や汚れあり"}, {condition: "傷や汚れあり"}, {condition: "全体的に状態が悪い"}])
+
+# DeliveryFee.create([{fee: "送料込み(出品者負担)"}, {fee: "着払い(購入者負担)"}])
+
+# DeliveryDate.create([{date: "1~2日で発送"}, {date: "2~3日で発送"}, {date: "4~7日で発送"}])
+
+# # DeliveryWay.create([{way: "未定", delivery_fee_id: "1"}, {way: "らくらくメルカリ便", delivery_fee_id: "1"}, {way: "ゆうメール", delivery_fee_id: "1"}, {way: "レターパック", delivery_fee_id: "1"}, {way: "普通郵便(定型、定形外)", delivery_fee_id: "1"}, {way: "クロネコヤマト", delivery_fee_id: "1"}, {way: "ゆうパック", delivery_fee_id: "1"}, {way: "クリックポスト", delivery_fee_id: "1"},{way: "ゆうパケット", delivery_fee_id: "1"},{way: "未定", delivery_fee_id: "2"}, {way: "クロネコヤマト", delivery_fee_id: "2"}, {way: "ゆうパック", delivery_fee_id: "2"}, {way: "ゆうメール", delivery_fee_id: "2"}])
 
 # レディース
 lady = Category.create(name: "レディース")
