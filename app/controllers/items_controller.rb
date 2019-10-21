@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.all.includes(:item_images).limit(5).order("created_at DESC")
@@ -14,7 +16,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @parents = Category.where(ancestry: nil)  
-    4.times{@item.item_images.build}
+    1.times{@item.item_images.build}
   end
 
   def create
@@ -40,9 +42,22 @@ class ItemsController < ApplicationController
   #   @item_images = @item.item_images(@item.id)
   # end
 
-  # def edit
-  # end
+  def edit
+    @parents = Category.where(ancestry: nil)  
+  end
 
+  def update
+    task.update!(item_params)
+    redirect_to root_path
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path
+    elsif
+      render :index
+    end
+  end
   # def update
   # end
 
@@ -66,6 +81,10 @@ class ItemsController < ApplicationController
 
   # def search
   # end
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
   private
 
   def item_params

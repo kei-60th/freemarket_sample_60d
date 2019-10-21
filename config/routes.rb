@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
 resources :addresses, only: [:create]
 resources :creditcards, only: [:new, :create]
-resources :items, only: [:new, :create, :index]
+resources :items, only: [:new, :create, :index, :edit, :destroy]
 
 root "items#index"
   

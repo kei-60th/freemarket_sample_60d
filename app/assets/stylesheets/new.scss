@@ -70,13 +70,14 @@ body{
         padding-top: 8px;
       }
       .item-price_field{
-        text-align: center;
+        text-align: right;
       }
       .file-field{
         margin-top: 20px;
-        background-color: lightgray;
+        background-color: #F5F5F5;
         width: 100%;
         height: 150px;
+        border: 1px dashed gray;
       }
     }
     p{
@@ -155,4 +156,9 @@ body{
     background-color: gray;
     color: white;
     }
+  }
+  #item_item_images_attributes_0_image{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
   }
