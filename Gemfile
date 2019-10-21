@@ -11,7 +11,7 @@ gem 'mysql2'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
-gem 'sass-rails'
+gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -77,6 +77,7 @@ gem 'capistrano-rbenv'
 gem 'capistrano-bundler'
 gem 'capistrano-rails'
 gem 'capistrano3-unicorn'
+gem 'ancestry'
 
 gem 'haml-rails'
 gem 'erb2haml'
@@ -85,6 +86,12 @@ gem "devise"
 gem "carrierwave"
 gem 'fog-aws'
 gem 'mini_magick'
-# gem 'compass-rails'
+gem 'compass-rails'
 gem 'sprockets', '3.7.2'
 gem 'jquery-rails'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
+gem 'payjp', '0.0.6'
+gem "gretel"
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook', '~> 5.0'

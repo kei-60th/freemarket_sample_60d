@@ -1,0 +1,19 @@
+.wrapper
+  .container
+    .main
+      .main__box
+        .main__box__title
+          %b 会員登録完了
+        .main__box__text
+          %h2 ありがとうございます。
+          %h2 会員登録が完了しました。
+          =link_to "/", class: "main__box__text__btn" do
+            メルカリをはじめる
+    .bottom-img
+      %h3.bottom-img__title
+        スマホでかんたんフリマアプリ
+      %h3.bottom-img__text
+        今すぐ無料ダウンロード！
+      = image_tag "app-storeicon.svg", class: "app-storeicon"
+      = image_tag "google-storeicon.svg", class: "google-storeicon"
+      = image_tag "smartphonepic.png",class: "smartphonepic"

@@ -11,16 +11,23 @@
         %li.fa.fa-tags
         =link_to  'ブランドから探す'
       %ul.navmenu__rightside-bar
-        -# %li.fa.fa-heart
-        -# =link_to  'いいね！一覧'
-        -# %li.fa.fa-bell
-        -# =link_to 'お知らせ'
-        -# %li.fa.fa-check
-        -# =link_to 'やることリスト'
-        -# %li.fa.smile
-        -# =link_to 'マイページ'
-        %li.sign_up 新規会員登録
-        %li.log_in ログイン
+        -# ----ログイン後のアイコン----
+        - if user_signed_in?
+          %li.fa.fa-heart
+          =link_to  'いいね！一覧'
+          %li.fa.fa-bell
+          =link_to 'お知らせ'
+          %li.fa.fa-check
+          =link_to 'やることリスト'
+          %li.fa.smile
+          %li.fa.fa-user
+          =link_to mypage_path(current_user), class: 'mypage' do
+            マイページ
+        - else
+          =link_to signin_path, class: 'sign_up' do
+            新規会員登録
+          =link_to new_user_session_path, class: 'log_in' do
+            ログイン
 
   .slideshow
     = image_tag "topmain.jpg", class: "slideshow"
@@ -39,20 +46,25 @@
         =link_to 'おもちゃ・ホビー・グッズ',class: "lists"
 
   .itemstitle
-    .itemstitle__box
-      .itemstitle__box__title
-        新着アイテム
-      .itemstitle__box__nextpage
-        もっと見る
-        -# =link_to 'もっと見る'
-        %i.fa.fa-angle-right
-  .itemslists
-    .firstline
-      -(1..10).each do |i|
-        = image_tag "sampleitem.jpg",class: "sampleitem"
-      -# .secondline
-      -#   -(1..5).each do |i|
-      -#     = image_tag "sampleitem.jpg",class: "sampleitem"
+    .itemstitle__title
+      新着アイテム
+    .itemstitle__nextpage
+      もっと見る
+      -# =link_to 'もっと見る'
+      %i.fa.fa-angle-right
+
+  .item-box
+    .item-box__contents
+      - @items.each do |item|
+        .item-box__contents__image
+          =link_to "/items/#{item.id}" do
+            = image_tag item.item_images[0].image.url, height: "146px" , width: "146px"
+          .item-box__contents__image__price
+            ¥
+            = item.price.to_s(:delimited)
+          .item-box__contents__image__name
+            = item.name
+
   .advertisement
     .advertisement__list
       .advertisement__list__left
@@ -65,47 +77,5 @@
       .advertisement__list__right
         = image_tag "smartphonepic.png",class: "smartphonepic"
 
-  .kfooter
-    .kfooter__grobalnavi
-      .kfooter__grobalnavi__1
-        %p メルカリについて
-        %ul
-          %li 会社概要
-          %li 採用情報
-          %li プレスリリース
-          %li 公式ブログ
-          %li ガイドライン
-      .kfooter__grobalnavi__2
-        %p メルカリについて
-        %ul
-          %li 会社概要
-          %li 採用情報
-          %li プレスリリース
-          %li 公式ブログ
-          %li ガイドライン
-      .kfooter__grobalnavi__3
-        %p メルカリについて
-        %ul
-          %li 会社概要
-          %li 採用情報
-          %li プレスリリース
-          %li 公式ブログ
-          %li ガイドライン
-      .kfooter__grobalnavi__4
-        %p メルカリについて
-        %ul
-          %li 会社概要
-          %li 採用情報
-          %li プレスリリース
-          %li 公式ブログ
-          %li ガイドライン
-      .kfooter__grobalnavi__5
-        %p メルカリについて
-        %ul
-          %li 会社概要
-          %li 採用情報
-          %li プレスリリース
-          %li 公式ブログ
-          %li ガイドライン
-
-
+  = render "shared/footer"
+  = render "shared/new_item_button"

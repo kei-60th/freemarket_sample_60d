@@ -5,6 +5,12 @@
   flex-direction: column;
   min-height: 100vh;
 }
+.header {
+background-color: white;
+box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+height: calc(100vh - 100px);
+}
+
 // ヘッダー部分
 .kheader {
   background-color: white;
@@ -44,40 +50,59 @@
       z-index: 1;
     }
   }
-  .navmenu {
-    display: flex;
-    font-weight: 600;
-    justify-content: space-between;
-    margin: 0px 210px;
-    &__leftside-bar {
-      float:left;
-      padding-top: 13px;
-      .fa {
-        color: red;
-      }
-    }
-    &__rightside-bar {
-      display: flex;
-      padding-top: 5px;
-        .sign_up {
-          color:white;
-          background-color:red;
-          border-radius: 4px;
-          padding: 6px 10px;
-          margin-right: 10px;
-        }
-        .log_in {
-          color: rgb(0, 149, 238);
-          display: block;
-          border-width: 1px;
-          border-style: solid;
-          border-image: initial;
-          border-radius: 4px;
-          padding: 6px 10px;
-        }
+}
+.navmenu {
+  display: flex;
+  font-weight: 600;
+  justify-content: space-between;
+  margin: 0px 210px;
+  &__leftside-bar {
+    float:left;
+    padding-top: 13px;
+    .fa {
+      color: red;
     }
   }
+  &__rightside-bar {
+    display: flex;
+    padding-top: 5px;
+      .sign_up {
+        color:white;
+        background-color:red;
+        border-radius: 4px;
+        padding: 6px 10px;
+        margin-right: 10px;
+      }
+      .log_in {
+        color: rgb(0, 149, 238);
+        display: block;
+        border-width: 1px;
+        border-style: solid;
+        border-image: initial;
+        border-radius: 4px;
+        padding: 6px 10px;
+      }
+      .mypage {
+        position: relative;
+        top: 6px;
+      }
+      li{
+        margin: 5px;
+      }
+      a{
+        position: relative;
+        top: 6px;
+      }
+      .fa {
+        color:black;
+        padding-top: 8px;
+        font-size: 20px;
+        position: relative;
+        bottom: 6px;
+      }
+  }
 }
+
 
 // トップページ上部、スライドイメージ
 .slideshow {
@@ -108,39 +133,67 @@
 
 .itemstitle {
   background-color: rgb(245, 245, 245);
-  margin: 0 auto;
-  width: 100%;
-  &__box {
-    padding: 0px 190px;
-    &__title {
-      font-size: 24px;
-      font-weight: 600;
-      padding: 42px 0px 0px 10px;
-      float: left;
+  padding: 10px 190px;
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    padding: 42px 0px 0px 10px;
+    float: left;
+  }
+  &__nextpage {
+    font-size: 14px;
+    font-weight: 600;
+    color:rgb(0, 149, 238);
+    padding: 54px 0px 0px 0px;
+    float: right;
+  }
+}
+
+// 商品リスト部分
+
+.item-box {
+  &__contents {
+    display: flex;
+    padding: 10px 190px;
+    img{
+      width: 186px;
+      position: relative;
+      border: 1px #dcdcdc solid;
+      margin: 5px 5px 1px 5px;
+      z-index: 1;
     }
-    &__nextpage {
-      font-size: 14px;
-      font-weight: 600;
-      color:rgb(0, 149, 238);
-      padding: 54px 0px 0px 0px;
-      float: right;
+    &__image {
+      &__price {
+        color:white;
+        background-color:black;
+        width: 100px;
+        opacity: 0.5;
+        position: relative; top: -50px;
+        padding: 5px 15px;
+        margin-left: 5px;
+        border-radius: 0 14px 14px 0;
+        z-index: 3;
+      }
+      &__name {
+        background-color:white;
+        padding-top: 34px;
+        height: 50px;
+        text-align: center;
+        overflow: hidden;
+        border: 1px #dcdcdc solid;
+        margin: 5px 5px 1px 5px;
+        position: relative; top: -40px;
+        z-index: 2;
+      }
     }
   }
 }
-// 商品リスト部分
-.itemslists {
-  background-color: rgb(245, 245, 245);
-  padding: 0px 175px;
-  display: flex;
-  flex-wrap: wrap;
-}
-.sampleitem {
-  padding:10px 10px;
-}
+
 a{
-  color: #333333;
-  text-decoration: none;
+color: #333333;
+text-decoration: none;
 }
+
 
 // 広告部分
 .advertisement {
@@ -193,7 +246,6 @@ a{
     }
     ul {
       font-size: 12px;
-    }
       &__1 {
         padding: 0px 40px;
       }
@@ -209,5 +261,6 @@ a{
       &__5 {
         padding: 0px 40px;
       }
+    }
   }
 }
