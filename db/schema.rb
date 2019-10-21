@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_10_19_083809) do
 
   create_table "add_fields_to_user", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -161,9 +160,5 @@ ActiveRecord::Schema.define(version: 2019_10_19_083809) do
   add_foreign_key "item_images", "items"
   add_foreign_key "size_categories", "categories"
   add_foreign_key "size_categories", "sizes"
-
-  
-  add_foreign_key "sizes", "items"
   add_foreign_key "sns_credentials", "users"
-
 end
