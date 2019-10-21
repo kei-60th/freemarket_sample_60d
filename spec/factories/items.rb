@@ -1,6 +1,7 @@
 FactoryBot.define do
 
   factory :item do
+    
     association :category
     association :prefecture 
     association :condition 

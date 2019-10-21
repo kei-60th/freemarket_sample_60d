@@ -47,6 +47,9 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'faker' 
+  # gem 'omniauth'
+  # gem 'omniauth-google-oauth2'
+  # gem 'omniauth-facebook', '~> 5.0'
 end
 
 group :development do
@@ -87,5 +90,8 @@ gem "carrierwave"
 gem 'fog-aws'
 gem 'mini_magick'
 # gem 'compass-rails'
-gem 'sprockets', '3.7.2'
-gem 'jquery-rails'
+# gem 'sprockets', '3.7.2'
+# gem 'jquery-rails'
+# gem 'dotenv-rails', require: 'dotenv/rails-now'
+# gem 'payjp', '0.0.6'
+# gem "gretel"

@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :only => [:new, :create]
 
   def index
     @items = Item.all.includes(:item_images).limit(5).order("created_at DESC")
@@ -11,6 +12,10 @@ class ItemsController < ApplicationController
     # @Electric_items = Item.get_Electric.limit(5).includes(:item_images)
     # @hobby_items = Item.get_hobby.limit(5).includes(:item_images)
     # binding.pry
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
 
   def new

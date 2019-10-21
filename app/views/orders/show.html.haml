@@ -1,0 +1,56 @@
+#main-contents-order
+  .title
+    商品購入の確認
+  .order-item
+    .order-item__top-content
+      .order-item__top-content__image
+        = image_tag @item.item_images[0].image.url, height: "94px" , width: "94px"
+      .order-item__top-content__name
+        = @item.name
+    .order-item__second-content
+      -# .order-item__second-content__price
+      -#   ¥
+      -#   = @item.price.to_s(:delimited)
+      -# .order-item__second-content__tax
+      -#   送料込み
+      .order-item__second-content__point-button
+        ポイントはありません
+    .order-item__price-details
+      %h1 支払金額/送料込み
+      .order-item__price-details__price
+        ¥
+        = @item.price.to_s(:delimited)
+    .order-item__purchase-button
+      = form_with action: "create" do
+        %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript", "data-text": "購入する", "data-key": ENV['PAYJP_TEST_PUBLIC_KEY']}
+
+  .order-item__adress
+    .order-item__adress__title
+      配送先
+    .order-item__adress__postcode
+      〒
+      = current_user.address.postcode
+      = current_user.address.city
+    %br/
+    .order-item__adress__details
+      //= current_user.address.prefecture.name
+      = current_user.address.address
+      = current_user.address.building_name
+    .order-item__adress__name
+      = current_user.last_name
+      = current_user.first_name
+      樣
+    .order-item__adress__link
+      =link_to '#' do
+        変更する
+        = fa_icon 'chevron-right', class: 'icon'
+
+  .order-item__payment-type
+    .order-item__payment-type__title
+      %p 支払い方法
+    .order-item__payment-type__details
+      クレジットカード
+    .order-item__payment-type__link
+      =link_to '#' do
+        変更する
+        = fa_icon 'chevron-right', class: 'icon'

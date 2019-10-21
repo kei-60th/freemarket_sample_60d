@@ -1,0 +1,28 @@
+.kheader
+  .kheader__menu
+    =link_to "/" do
+      = image_tag "mercarilogo.svg", class: "img"
+    %input.form-contol.seach-input{name: "keyword", class: "search_icon",placeholder: "何かお探しですか？"}
+    -# %i.fa.fa-search
+  .navmenu
+    %ul.navmenu__leftside-bar
+      %li.fa.fa-list
+      =link_to  'カテゴリーから探す'
+      %li.fa.fa-tags
+      =link_to  'ブランドから探す'
+    %ul.navmenu__rightside-bar
+      -# ----ログイン後のアイコン----
+      - if user_signed_in?
+        %li.fa.fa-heart
+        =link_to  'いいね！一覧'
+        %li.fa.fa-bell
+        =link_to 'お知らせ'
+        %li.fa.fa-check
+        =link_to 'やることリスト'
+        %li.fa.smile
+        =link_to 'マイページ'
+      - else
+        =link_to signin_path, class: 'sign_up' do
+          新規会員登録
+        =link_to new_user_session_path, class: 'log_in' do
+          ログイン

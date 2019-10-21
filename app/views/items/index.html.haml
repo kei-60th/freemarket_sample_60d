@@ -20,7 +20,9 @@
           %li.fa.fa-check
           =link_to 'やることリスト'
           %li.fa.smile
-          =link_to 'マイページ'
+          %li.fa.fa-user
+          =link_to mypage_path(current_user), class: 'mypage' do
+            マイページ
         - else
           =link_to signin_path, class: 'sign_up' do
             新規会員登録
@@ -55,7 +57,8 @@
     .item-box__contents
       - @items.each do |item|
         .item-box__contents__image
-          = image_tag item.item_images[0].image.url
+          =link_to "/items/#{item.id}" do
+            = image_tag item.item_images[0].image.url, height: "146px" , width: "146px"
           .item-box__contents__image__price
             ¥
             = item.price.to_s(:delimited)

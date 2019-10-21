@@ -10,7 +10,7 @@ class AddressesController < ApplicationController
     # @user.update(prefecture_id: params[:prefecture_id])
     # @user.save
     if @address.save
-      redirect_to controller: :creditcards, action: :new
+      redirect_to controller: :compleate, action: :edit
     else
       render :new
     end

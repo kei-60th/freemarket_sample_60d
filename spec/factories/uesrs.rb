@@ -2,8 +2,8 @@ FactoryBot.define do
 
   factory :user do
     nickname              {"abe"}
-    last_name             {"あ"}
-    first_name            {"あ"}
+    last_name             {"あ漢字"}
+    first_name            {"あ漢字カナ"}
     last_name_kana        {"ア"}
     first_name_kana       {"ア"}
     email                 {"kkk@gmail.com"}

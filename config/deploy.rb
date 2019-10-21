@@ -1,3 +1,5 @@
+#append :linked_files, 'config/database.yml', 'config/master.key'
+
 # config valid for current version and patch releases of Capistrano
 lock '3.11.2'
 
@@ -38,6 +40,14 @@ set :repo_url, 'git@github.com:kei-60th/freemarket_sample_60d.git'
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
+#capistranoが環境変数を参照できるようにする
+set :default_env, {
+  rbenv_root: "/usr/local/rbenv",
+  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
+  AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
+}
+
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
 set :rbenv_type, :user
@@ -46,6 +56,8 @@ set :rbenv_ruby, '2.5.1'
 # どの公開鍵を利用してデプロイするか
 set :ssh_options, auth_methods: ['publickey'],
                   keys: ['~/.ssh/freemarketSample60d.pem']
+
+set :linked_files, fetch(:linked_files, []).push("config/master.key")
 
 # プロセス番号を記載したファイルの場所
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
