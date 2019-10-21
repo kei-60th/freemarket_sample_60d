@@ -12,7 +12,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    @user = User.new(user_params)
+    if user_params[:password] == "" #sns登録なら
+      user_params.merge(password: Devise.friendly_token.first(6)) #deviseのパスワード自動生成機能を使用
+      user_params.merge(password_confirmation: Devise.friendly_token.first(6))
+      #super
+      @user = User.new(user_params)
+      sns = SnsCredential.update(user_id:  @user.id)
+    else #email登録なら
+      #super
+      @user = User.new(user_params)
+    end
+    password = Devise.friendly_token.first(8)
+    @user.password = password
+    @user.password_confirmation = password
     if @user.save
       redirect_to registration_address_path
     else
