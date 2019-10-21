@@ -1,0 +1,23 @@
+.setting_profile{
+  background-color:white;
+  width:700px;
+  height:568px;
+  &__head{
+    width: 100%;
+    height: 50px;
+    color: black;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  }
+  &__icon{
+    background: url("https://www.mercari.com/assets/img/mypage/user-bg.jpg");
+    height:156px;
+  }
+  &__content{
+    background-color:red;
+    height:362px;
+  }
+}
