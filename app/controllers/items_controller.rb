@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+  
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :only => [:new, :create]
 
   def index
     @items = Item.all.includes(:item_images).limit(5).order("created_at DESC")
@@ -8,6 +11,7 @@ class ItemsController < ApplicationController
     # @mens_items = Item.get_mens.limit(5).includes(:item_images)
     # @Electric_items = Item.get_Electric.limit(5).includes(:item_images)
     # @hobby_items = Item.get_hobby.limit(5).includes(:item_images)
+    # binding.pry
   end
 
   def show
@@ -17,15 +21,16 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @parents = Category.where(ancestry: nil)  
-    10.times{@item.item_images.build}
+    1.times{@item.item_images.build}
   end
 
   def create
+    # binding.pry
     @item = Item.new(item_params)
     if @item.save!
       redirect_to root_path
     else
-      # render :new, item_images: @item.item_images.build
+      render :new, item_images: @item.item_images.build
     end
   end
 
@@ -42,9 +47,22 @@ class ItemsController < ApplicationController
   #   @item_images = @item.item_images(@item.id)
   # end
 
-  # def edit
-  # end
+  def edit
+    @parents = Category.where(ancestry: nil)  
+  end
 
+  def update
+    task.update!(item_params)
+    redirect_to root_path
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path
+    elsif
+      render :index
+    end
+  end
   # def update
   # end
 
@@ -68,12 +86,16 @@ class ItemsController < ApplicationController
 
   # def search
   # end
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :price, :prefecture, item_images_attributes: [:id, :image]).merge(order_status:1,category:1,prefecture:1,size:1,user_id:1)
+    params.require(:item).permit(:name, :price, :description, :category_id, :prefecture_id, :condition_id, :delivery_fee_id, :delivery_way_id, :delivery_date_id, item_images_attributes:[:id,:image])
   end
-
+  
 end
 
 # :price, :description, :brand_id, :size_id, :condition_id, 

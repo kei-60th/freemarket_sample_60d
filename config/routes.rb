@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 
 resources :addresses, only: [:create]
 resources :creditcards, only: [:new, :create]
-resources :items, only: [:new, :create, :index, :show]
+
+resources :items
 resources :mypage, only: [:show]
 
 root "items#index"
