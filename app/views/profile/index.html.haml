@@ -1,6 +1,9 @@
 = render 'shared/header'
 = render 'shared/new_item_button'
-
+-# 下記２行パンくず
+.bread-crumbs
+  - breadcrumb :profile
+  = breadcrumbs separator: " &rsaquo; "
 
 .wrap
   .box
