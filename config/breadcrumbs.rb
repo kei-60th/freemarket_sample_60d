@@ -3,7 +3,18 @@ crumb :root do
 end
 
 crumb :mypage do |user|
-  link "マイページ",mypage_path
+  link "マイページ"
+  parent :root
+end
+
+crumb :logout do
+  link "ログアウト"
+  parent :mypage
+end
+
+crumb :profile do
+  link "プロフィール"
+  parent :mypage
 end
 
 # crumb :projects do
