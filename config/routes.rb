@@ -26,6 +26,7 @@ get "/registration/confirmation", to: "sms_confirmation#edit"
 get "/registration/address", to: "addresses#new"
 
 
+get '/profile', to: 'profile#index'
 get '/mypage/card', to: 'mypage#index'
 get '/mypage/card/create', to: 'mypage#create'
 get '/registration', to: 'registrations#index'
