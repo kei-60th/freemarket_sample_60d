@@ -16,6 +16,7 @@
 }
 
 .right-content{
+  position: relative;
   .mypage-icon{
     display: block;
     padding: 20;
@@ -75,13 +76,13 @@
     &__contents{
       width: 700px;
       &__list{
-        height: 60px;
+        height: 65px;
         display: block;
-        position: relative;
         font-size: 14px;
         border-bottom: 1px solid #eee;
-        padding-top: 25px;
         img{
+          margin-left: 9px;
+          margin-top: 7px;
           float: left;
           height: 48px;
           width: 48px;
@@ -92,26 +93,22 @@
             overflow: hidden;
             float: left;
             line-height: 2.0;
-          }
-          &__time{
-            display: inline;
-            color: #888;
-            position: absolute;
-            right: 565px;
+            margin-left: 7px;
+            margin-top: 6px;
           }
         }
-        &__arrow__right{
+        &__arrow-right{
+          display: inline;
           position: absolute;
-          top: 15%;
-          right: 20px;
+          left: 96%;
         }
       }
       &__bottom{
         display: block;
-        padding: 5px;
+        padding: 10px;
         .view-all{
           display: inline-block;
-          width: 100%;
+          width: 97%;
           height: 55px;
           margin: 0 auto;
           background: #eee;
@@ -125,6 +122,7 @@
 
 
   .low-container{
+    margin-top: 40px;
     display: inline-block;
     background: #fff;
     &__head{
@@ -158,4 +156,12 @@
       font-weight: 600;
     }
   }
+}
+
+.list-time{
+  display: inline;
+  color: #888;
+  position: absolute;
+  right: 78%;
+  padding: 10px;
 }
