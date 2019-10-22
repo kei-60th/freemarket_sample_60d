@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   
   has_many   :item_images
+  belongs_to :address, optional: true
   belongs_to :category, optional: true
   belongs_to :brand, optional: true
   belongs_to :prefecture, optional: true
