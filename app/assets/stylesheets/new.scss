@@ -17,6 +17,14 @@ body{
         font-weight: bold;
       }
     }
+    .left{
+      display: flex;
+      height: 18px;
+      span{
+      color: #0399E8;
+      margin-left: 4px;
+      }
+    }
     .inner-box{
       padding-top: 40px;
       width: 90%;
@@ -25,13 +33,25 @@ body{
         display: flex;
         height: 16px;
       }
-      .text-box{
-        height: 28px;
+
+      .item_select-box{
+        height: 48px;
         width: 100%;
         padding: 8px 0;
         margin-top: 8px;
-        text-align: center;
+        background-color: white;
       }
+      .item-box{
+        height: 48px;
+        line-height: 15px;
+        width: 100%;
+        padding: 16px;
+        margin-top: 8px;
+        text-align: left;
+        border-radius: 5px;
+        border: 0.5px solid #cccccc;
+      }
+      
       .select-box{
         height: 48px;
         width: 100%;
@@ -71,6 +91,13 @@ body{
       }
       .item-price_field{
         text-align: right;
+        padding: 10px 16px 8px 16px;
+        margin-left: 16px;
+        height: 48px;
+        width: 160px;
+        border-radius: 5px;
+        border-radius: 5px;
+        border: 0.5px solid #cccccc;
       }
       .file-field{
         margin-top: 20px;
@@ -112,7 +139,7 @@ body{
   }
   .inner-box.flex{
     .right-upper{
-      height: 48px;
+      height: 72px;
       padding-bottom: 24px;
       display: flex;
       justify-content: space-between;
@@ -129,13 +156,17 @@ body{
       }
     }
     .right-center{
-      height: 14px;
+      height: 62px;
       padding: 24px 0;
       border-bottom: 1px solid #CCCCCC;
+      line-height: 14px;
     }
     .right-lower{
       height: 34px;
       padding: 24px 0;
+      &__right{
+        text-align: right;
+      }
     }
   }
   .sell_button{

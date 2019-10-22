@@ -4,7 +4,7 @@
   .left-side-menu
     = render 'shared/side_bar'
   .user-info_container
-    = form_for "" do |f|
+    = form_for "address" do |f|
       .user-info_container__header
         %h1 本人情報の登録
       .user-info_container__main
@@ -14,13 +14,16 @@
           %h5 本人確認書類のアップロードについて>
         .user-info_container__main--second
           %label お名前
-          %h5 田中
+          %h5 
+            = @user.name
         .user-info_container__main--second
           %label お名前カナ
-          %h5 タナカ
+          %h5
+            = @user.name_kana
         .user-info_container__main--second
           %label 生年月日
-          %h5 2015/12/25
+          %h5 
+            = @user.birth_date
         .user-info_container__main--third
           %label 郵便番号
           %span 任意
@@ -32,15 +35,15 @@
         .user-info_container__main--third
           %label 市区町村 
           %span 任意
-          = f.text_field :postcode, class:"text-box", placeholder: "例）横浜市緑区"
+          = f.text_field :city, class:"text-box", placeholder: "例）横浜市緑区"
         .user-info_container__main--third
           %label 番地
           %span 任意
-          = f.text_field :postcode, class:"text-box", placeholder: "例）青山市1-1-1"
+          = f.text_field :address, class:"text-box", placeholder: "例）青山市1-1-1"
         .user-info_container__main--third
           %label 建物名
           %span 任意
-          = f.text_field :postcode, class:"text-box", placeholder: "例）柳ビル103"
+          = f.text_field :building_name, class:"text-box", placeholder: "例）柳ビル103"
         .user-info_container__main--button
           = f.submit "登録する", class: "registrate_button"
         .user-info_container__main--link

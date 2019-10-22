@@ -1,6 +1,6 @@
 class Address < ApplicationRecord
-  belongs_to :user
-  has_one :prefecture
+  belongs_to :item
+  belongs_to :prefecture
 
   validates :postcode,
     presence: {

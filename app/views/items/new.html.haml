@@ -18,11 +18,11 @@
         .title
           %h3 商品名
           %h4 必須
-        = f.text_field :name, class:"text-box", placeholder: "商品名（必須40文字まで)"
+        = f.text_field :name, class:"item-box", placeholder: "商品名（必須40文字まで)"
         .title-item_detail
           %h3 商品の説明
           %h4 必須
-        = f.text_area :description, class:"text-box", placeholder: "商品の説明（必須1,000字まで)"
+        = f.text_area :description, class:"item-box", placeholder: "商品の説明（必須1,000字まで)"
     .item_detail.border-bottom
       .inner-box.flex
         .left
@@ -31,36 +31,38 @@
           .right-top-title.flex-start
             %h3 カテゴリー
             %h4 必須
-          = f.select :category_id, @parents.all.map{|p|[p.name,p.id]}, {prompt: "---"}, class:"select-box"
+          = f.select :category_id, @parents.all.map{|p|[p.name,p.id]}, {prompt: "---"}, class:"item_select-box"
           .right-title.flex-start
             %h3 商品の状態
             %h4 必須
-          = f.select :condition_id, Condition.all.collect{|p|[p.condition,p.id]}, {prompt: "---"}, class:"select-box"
+          = f.select :condition_id, Condition.all.collect{|p|[p.condition,p.id]}, {prompt: "---"}, class:"item_select-box"
     .item_delivery.border-bottom
       .inner-box.flex
         .left
-          %h5 配送について ??
+          %h5 配送について 
+          %span.fa.fa-question-circle
         .right
           .right-top-title.flex-start
             %h3 配送料の負担
             %h4 必須
-          = f.select :delivery_fee_id, DeliveryFee.all.collect{|p|[p.fee,p.id]}, {prompt: "---"}, class:"select-box"
+          = f.select :delivery_fee_id, DeliveryFee.all.collect{|p|[p.fee,p.id]}, {prompt: "---"}, class:"item_select-box"
           .right-title.flex-start
             %h3 配送の方法
             %h4 必須
-          = f.select :delivery_way_id, DeliveryWay.all.collect{|p|[p.way,p.id]}, {prompt: "---"}, class:"select-box"
+          = f.select :delivery_way_id, DeliveryWay.all.collect{|p|[p.way,p.id]}, {prompt: "---"}, class:"item_select-box"
           .right-title.flex-start
             %h3 発送元の地域
             %h4 必須
-          = f.select :prefecture_id, Prefecture.all.collect{|p|[p.name,p.id]}, {prompt: "---"}, class:"select-box"
+          = f.select :prefecture_id, Prefecture.all.collect{|p|[p.name,p.id]}, {prompt: "---"}, class:"item_select-box"
           .right-title.flex-start
             %h3 発送までの日数
             %h4 必須
-          = f.select :delivery_date_id, DeliveryDate.all.collect{|p|[p.date,p.id]}, {prompt: "---"}, class:"select-box"
+          = f.select :delivery_date_id, DeliveryDate.all.collect{|p|[p.date,p.id]}, {prompt: "---"}, class:"item_select-box"
     .item_price.border-bottom
       .inner-box.flex
         .left
           %h5 販売価格(300〜9,999,999)
+          %span.fa.fa-question-circle
         .right
           .right-upper
             .right-upper__left.flex-start
@@ -68,7 +70,7 @@
               %h4.center-null-false 必須
             .right-upper__right.flex
               %p ￥
-              = f.text_field :price ,class: 'item-price_field',placeholder: "例)300"
+              %input#price_calc.item-price_field{placeholder: "例) 300"}/
           .right-center.flex
             .right-center__left
               %h5 販売手数料 (10%)
@@ -78,7 +80,7 @@
             .right-lower__left
               %h3 販売利益 
             .right-lower__right
-              %h1 -
+              = f.number_field :price, style: "display: none", id: "price", placeholder: "--"
     .sell-button
       .inner-box
         .inner-box__upper
