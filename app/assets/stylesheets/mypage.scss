@@ -67,8 +67,10 @@
       font-weight: 600;
       display: flex;
       &__tab{
+        border-top: 2px solid rgb(234, 53, 45);
         width: 350px;
         &__right{
+        background: #eee;
         width: 350px;
         }
       }
@@ -123,8 +125,9 @@
 
   .low-container{
     margin-top: 40px;
-    display: inline-block;
+    display: block;
     background: #fff;
+    line-height: 72px;
     &__head{
       font-size: 16px;
       font-weight: 600;
@@ -132,20 +135,21 @@
       line-height: 70px;
     }
     &__tabs{
-      display: inline-block;
       display: flex;
       text-align: center;
       font-size: 16px;
       font-weight: 600;
       &__tab{
+        border-top: 2px solid rgb(234, 53, 45);
         width: 350px;
         &__right{
+          background: #eee;
           width: 350px;
         }
       }
     }
     &__contents{
-      padding: 160px 0 60px;
+      padding: 160px 0 0;
       background: url("https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?61716930");
       background-repeat: no-repeat;
       background-position: center 40px;
