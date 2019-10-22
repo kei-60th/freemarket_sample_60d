@@ -18,13 +18,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
       #super
       @user = User.new(user_params)
       sns = SnsCredential.update(user_id:  @user.id)
+      password = Devise.friendly_token.first(8)
+      @user.password = password
+      @user.password_confirmation = password
     else #email登録なら
       #super
       @user = User.new(user_params)
     end
-    password = Devise.friendly_token.first(8)
-    @user.password = password
-    @user.password_confirmation = password
     if @user.save
       redirect_to registration_address_path
     else
