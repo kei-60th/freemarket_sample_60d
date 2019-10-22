@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, :only => [:new, :create]
 
   def index
     @items = Item.all.includes(:item_images).limit(5).order("created_at DESC")
@@ -21,7 +20,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @parents = Category.where(ancestry: nil)  
-    1.times{@item.item_images.build}
+    2.times{@item.item_images.build}
   end
 
   def create
@@ -93,7 +92,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :description, :category_id, :prefecture_id, :condition_id, :delivery_fee_id, :delivery_way_id, :delivery_date_id, item_images_attributes:[:id,:image])
+    params.require(:item).permit(:name, :price, :description, :category_id, :prefecture_id, :condition_id, :delivery_fee_id, :delivery_way_id, :delivery_date_id, item_images_attributes:[:id,:image]).merge(user_id: current_user.id)
   end
   
 end

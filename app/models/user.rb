@@ -14,10 +14,23 @@ class User < ApplicationRecord
   # has_many :likes
   has_one :address
   has_one :creditcard
+  # belongs_to :prefecture
   # has_one :payment
   # has_one :creditcard
   # has_one :evaluation
-  # belongs_to :prefecture
+
+  def name
+    last_name + ' ' + first_name
+  end
+
+  def name_kana
+    last_name_kana + ' ' + first_name_kana
+  end
+
+  def birth_date
+    birth_year.to_s + '/' + birth_month.to_s + '/' + birth_day.to_s
+  end
+      
 
   # <-----------SNSログイン関係----------->
   def self.find_oauth(auth)
