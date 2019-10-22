@@ -6,7 +6,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.text         :description,        null: false
       # t.integer   :brand,              null: false
       # t.integer   :order_status_id,     null: false
-      t.integer  :address_id,         null: false
+      # t.integer  :address_id,         null: false
       t.integer  :category_id,         null: false, index: true  
       t.integer   :prefecture_id,       null: false  
       # t.integer   :size_id,             null: false, index: true  
