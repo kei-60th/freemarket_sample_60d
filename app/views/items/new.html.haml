@@ -70,7 +70,7 @@
               %h4.center-null-false 必須
             .right-upper__right.flex
               %p ￥
-              %input#price_calc.item-price_field{placeholder: "例) 300"}/
+              = f.text_field :price ,class: 'item-price_field',placeholder: "例)300"
           .right-center.flex
             .right-center__left
               %h5 販売手数料 (10%)
@@ -80,7 +80,7 @@
             .right-lower__left
               %h3 販売利益 
             .right-lower__right
-              = f.number_field :price, style: "display: none", id: "price", placeholder: "--"
+              %h1 -
     .sell-button
       .inner-box
         .inner-box__upper
