@@ -14,7 +14,7 @@ resources :addresses, only: [:create]
 resources :creditcards, only: [:new, :create]
 
 resources :items
-resources :mypage, only: [:show]
+resources :mypage, only: [:show, :edit]
 
 root "items#index"
 
