@@ -17,10 +17,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
       user_params.merge(password_confirmation: Devise.friendly_token.first(6))
       #super
       @user = User.new(user_params)
-      sns = SnsCredential.update(user_id:  @user.id)
       password = Devise.friendly_token.first(8)
       @user.password = password
       @user.password_confirmation = password
+      @user.save
+      @updatesns = SnsCredential.last
+      sns = @updatesns.update(user_id:  @user.id)
     else #email登録なら
       #super
       @user = User.new(user_params)
