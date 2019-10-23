@@ -9,22 +9,22 @@
         %span.nickname__required
           必須
         = f.text_field :nickname, class: 'nickname__text', placeholder: '例)メルカリ太郎'
-      .mail-adress
-        = f.label :email, "メールアドレス", class:'mail-adress__label'
-        %span.mail-adress__required
+      .form-box
+        = f.label :email, "メールアドレス", class:'form-box__label'
+        %span.form-box__required
           必須
-        = f.email_field :email, class: 'mail-adress__text', placeholder: 'PC・携帯どちらでも可'
+        = f.email_field :email, class: 'form-box__text', placeholder: 'PC・携帯どちらでも可'
       - if session["devise.sns_id"].blank?
-        .password
-          = f.label :password, "パスワード", class: 'password__label'
-          %span.password__required
+        .form-box
+          = f.label :password, "パスワード", class: 'form-box__label'
+          %span.form-box__required
             必須
-          = f.password_field :password, class: 'password__text', placeholder: '7文字以上'
-        .password-confirmation
-          = f.label :password_confirmation, "パスワード(確認)", class: 'password-confirmation__label'
-          %span.password-confirmation__required
+          = f.password_field :password, class: 'form-box__text', placeholder: '7文字以上'
+        .form-box
+          = f.label :password_confirmation, "パスワード(確認)", class: 'form-box__label'
+          %span.form-box__required
             必須
-          = f.password_field :password_confirmation, class: 'password-confirmation__text', placeholder: '7文字以上'
+          = f.password_field :password_confirmation, class: 'form-box__text', placeholder: '7文字以上'
       - else
         = f.hidden_field :password
         = f.hidden_field :password_confirmation
