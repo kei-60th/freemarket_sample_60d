@@ -1,4 +1,4 @@
-$(function(){
+document.addEventListener("turbolinks:load", function(){
   var url = location.pathname
   if(url == "/users/sign_up") {
   }
