@@ -1,8 +1,8 @@
 $(function(){
-  var url = location.href
-  if(url == "http://localhost:3000/users/sign_up") {
+  var url = location.pathname
+  if(url == "/users/sign_up") {
   }
-  else if(url == "http://localhost:3000/registration/address") {
+  else if(url == "/registration/address") {
     for (i=1; i<=2; i++) {
       list = $('.list')[i];
       leftBar = $('.left-bar')[i];
@@ -15,7 +15,7 @@ $(function(){
       $(point).addClass("point--active");
     }
   }
-  else if (url == "http://localhost:3000/registration/compleate"){
+  else if (url == "/registration/compleate"){
     for (i=1; i<=4; i++) {
       list = $('.list')[i];
       leftBar = $('.left-bar')[i];
