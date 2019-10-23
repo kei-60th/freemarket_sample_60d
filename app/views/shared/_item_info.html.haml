@@ -1,0 +1,78 @@
+.item-deteal
+  .item-deteal__box
+    %h1.item-deteal__box__title
+      = @item.name
+    .item-deteal__box__item
+      .item-deteal__box__item__left
+        .left-top
+          = image_tag @item.item_images[0].image.url
+        - @item.item_images.each do |item_image|
+          .left-bottom
+            %li.left-bottom__array
+              = image_tag item_image.image.url
+
+      %table.item-detail-table
+        %tbody
+          %tr
+            %th 出品者
+            %td.td-box
+              =link_to mypage_path(current_user), class: "link-blue" do
+                = @item.user.nickname
+              .yyy.icon-top
+                .item-user-ratings
+                  = fa_icon 'smile-o', {class: "good-icons--pink"}
+                  %span 11
+                .item-user-ratings.icon-margin
+                  = fa_icon 'meh-o', {class: "good-icons--orange"}
+                  %span 3
+                .item-user-ratings.icon-margin
+                  = fa_icon 'frown-o', {class: "good-icons--blue"}
+                  %span 0
+          %tr
+            %th カテゴリー
+            %td.td-box
+              -# - if @item.category.parent_id.name
+                = link_to "#", class: "link-blue" do
+                  %div
+                    = @item.categories.parent_id.name #親
+              = link_to "#" do
+                .item-detail-table-sub-category{class: "link-blue"}
+                  %i.icon-arrow-right
+                  -# = "＞" + @item.categories.parent_id.name        #子
+              = link_to "#" do
+                .item-detail-table-sub-sub-category{class: "link-blue"}
+                  %i.icon-arrow-right
+                  -# = "＞" + @item.categories.name               #孫
+          -# - if @item.brand
+            %tr
+              %th ブランド
+              %td.td-box
+                %a{href: "#", class: "link-blue"}
+                  %div
+                    = @item.brand
+          - if @item.size
+            %tr
+              %th 商品のサイズ
+              %td.td-box
+                = @item.size
+          %tr
+            %th 商品の状態
+            %td.td-box
+              = @item.condition
+          %tr
+            %th 配送料の負担
+            %td.td-box
+              = @item.delivery_fee
+          %tr
+            %th 配送の方法
+            %td.td-box
+              = @item.delivery_way
+          %tr
+            %th 配送元地域
+            %td.td-box
+              %a{href: "#", class: "link-blue"}
+                = @item.prefecture
+          %tr
+            %th 発送日の目安
+            %td.td-box
+              = @item.delivery_date

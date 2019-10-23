@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
+
   def index
     @items = Item.all.includes(:item_images).limit(5).order("created_at DESC")
     # @item_images =ItemImage.all
@@ -51,7 +52,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    task.update!(item_params)
+    @item.update!(item_params)
     redirect_to root_path
   end
 
@@ -61,6 +62,11 @@ class ItemsController < ApplicationController
     elsif
       render :index
     end
+  end
+
+  def item_status
+    @item = Item.find(params[:id])
+    @user = User.find(@item.user_id)
   end
   # def update
   # end

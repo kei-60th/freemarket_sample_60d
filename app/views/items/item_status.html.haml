@@ -1,0 +1,104 @@
+= render "shared/header"
+.item_status-content
+  .item_status-content__inner
+    .item-name
+      = @item.name
+    .item-main
+      .item-main__left
+        .item_photo
+          = image_tag @item.item_images[0].image.url
+            - @item.item_images.each do |item_image|
+      .item-main__right
+        .item-main__right__container
+          .item-main__right__container--left
+            .list-box
+              %h3 出品者
+            .list-box__category
+              %h3 カテゴリー
+            .list-box
+              %h3 ブランド
+            .list-box
+              %h3 商品の状態
+            .list-box
+              %h3 配送料の負担
+            .list-box
+              %h3 配送の方法
+            .list-box
+              %h3 配送元地域
+            .list-box
+              %h3 発送日の目安
+          .item-main__right__container--right
+            .list-box
+              %h4
+                = @item.user.nickname
+            .list-box__category
+              %h4
+                = "> #{@item.category.name}"
+            .list-box
+              %h3 nike
+            .list-box
+              %h3 
+                = @item.condition.condition
+            .list-box
+              %h3 
+                = @item.delivery_fee.fee
+            .list-box
+              %h3 
+                = @item.delivery_way.way
+            .list-box
+              %h4  
+                = @item.prefecture.name
+            .list-box
+              %h3 
+                = @item.delivery_date.date
+    .item-price-box
+      %p 
+        = @item.price.to_s(:delimited)
+      %h2（税込）
+    .item-desctiption-inner
+      %h3 
+        = @item.description
+  .item_status-content__inner--second
+    .item_status-content__button-red
+      = link_to "商品の編集", edit_item_path(@item.id)
+    .texr-center
+      %h3 or
+    .item_status-content__button-gray
+      %h3 出品を一時停止する
+    .item_status-content__button-gray
+      = link_to "商品の削除", item_path(@item.id), method: :delete 
+  .item_status-content__inner--third
+    .item_status-content__attention
+      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    .item_status-content__comment
+      %textarea.comment_field     
+    .item_status-content__submit
+      %h3 コメントする
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+            
+
+            
+
+
+
+
+
+        
+
+
+
+
+
