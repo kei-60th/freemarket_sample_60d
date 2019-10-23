@@ -26,10 +26,11 @@
           @include required;
         }
         .box{
+          width: 100%;
           &__text{
             @include user-input();
             @include textbox;
-            width: 39%;
+            width: 49%;
             color: black;
           }
         }
@@ -72,7 +73,7 @@
         &__text{
           @include user-input();
           @include textbox;
-          width: 90%;
+          width: 100%;
           color: black;
           &--password{
             margin-top: 20px;

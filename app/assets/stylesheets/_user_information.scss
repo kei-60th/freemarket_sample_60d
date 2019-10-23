@@ -11,20 +11,14 @@
     font-size: 22px;
   }
   .main-bottom{
-    width: 65%;
-    margin: 0 auto;
     .form{
+      width: 65%;
+      margin: 0 auto;
       .nickname{
         @include info-box();
         margin-top: 0;
       }
-      .mail-adress{
-        @include info-box();
-      }
-      .password{
-        @include info-box();
-      }
-      .password-confirmation{
+      .form-box{
         @include info-box();
       }
       @include form-box();
@@ -51,10 +45,11 @@
           @include required;
         }
         .box{
+          width: 100%;
           &__text{
             @include user-input();
             @include textbox;
-            width: 37%;
+            width: 49%;
             color: black;
           }
         }
