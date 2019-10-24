@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index,:show]
 
 
   def index
@@ -21,7 +22,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @parents = Category.where(ancestry: nil)  
-    2.times{@item.item_images.build}
+    4.times{@item.item_images.build}
   end
 
   def create

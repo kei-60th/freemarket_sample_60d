@@ -7,7 +7,11 @@
       .item-main__left
         .item_photo
           = image_tag @item.item_images[0].image.url
-            - @item.item_images.each do |item_image|
+          .item_photo__bottom
+            .item_photo__bottom__array
+              - @item.item_images.each do |item_image|
+                = image_tag item_image.image.url
+          
       .item-main__right
         .item-main__right__container
           .item-main__right__container--left
@@ -66,7 +70,8 @@
     .item_status-content__button-gray
       %h3 出品を一時停止する
     .item_status-content__button-gray
-      = link_to "商品の削除", item_path(@item.id), method: :delete 
+      = link_to "商品の削除", item_path(@item.id), method: :delete, data:{ confirm: "削除すると2度と復活できません。削除する代わりに停止することもできます。本当に削除しますか？"}
+
   .item_status-content__inner--third
     .item_status-content__attention
       相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
@@ -74,31 +79,5 @@
       %textarea.comment_field     
     .item_status-content__submit
       %h3 コメントする
-
-
-    
-
-
-
-
-
-
-  
-
-
-
-
-            
-
-            
-
-
-
-
-
-        
-
-
-
-
-
+      
+= render "shared/footer"

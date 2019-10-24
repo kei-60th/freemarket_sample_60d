@@ -42,4 +42,3 @@ end
 
 
 
-# has_oneの使い方が間違っていた時はReadMeファイルと共にbelongs_toに修正。r

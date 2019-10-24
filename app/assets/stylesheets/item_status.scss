@@ -48,7 +48,7 @@
         }
       }
       &__left{
-        height: 375px;
+        height: 350px;
         width: 50%;
         margin-right: 16px;
         background-color: #F5F5F5;
@@ -56,6 +56,16 @@
           img{
             height: 100%;
             width: 100%;
+          }
+          &__bottom{
+            &__array{
+              display: flex;
+              justify-content: flex-start;
+              img{
+                height: 80px;
+                width: 80px;
+              }
+            }
           }
         }
       }
