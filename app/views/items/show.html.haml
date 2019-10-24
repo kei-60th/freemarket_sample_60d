@@ -20,12 +20,12 @@
             %tr
               %th 出品者
               %td.td-box
-                -# - if current_user && @item.user_id == current_user.id
-                -#   = link_to mypage_path(current_user), class: “link-blue” do
-                -#     = @item.user.nickname
-                -# - else
-                -#   .link-blue
-                -#     = @item.user.nickname
+                - if current_user && @item.user_id == current_user.id
+                  = link_to mypage_path(current_user), class: "link-blue" do
+                    = @item.user.nickname
+                - else
+                  .link-blue
+                    = @item.user.nickname
                 .yyy.icon-top
                   .item-user-ratings
                     = fa_icon 'smile-o', {class: "good-icons--pink"}
