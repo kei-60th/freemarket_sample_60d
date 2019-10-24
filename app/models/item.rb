@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   
-  has_many   :item_images
+  has_many   :item_images, dependent: :delete_all
   #belongs_to :address, optional: true
   belongs_to :category, optional: true
   belongs_to :brand, optional: true
@@ -43,4 +43,3 @@ end
 
 
 
-# has_oneの使い方が間違っていた時はReadMeファイルと共にbelongs_toに修正。r

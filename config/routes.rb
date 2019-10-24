@@ -18,6 +18,12 @@ resources :mypage, only: [:index, :show, :edit]
 
 root "items#index"
 
+resources :items do
+  member do 
+    get "item_status"
+  end
+end
+
 get '/toppage', to: 'test#index'
 get '/signin', to: 'users#new'
 get '/logout', to: 'mypage#logout'
@@ -34,6 +40,7 @@ get '/registration/new', to: 'sessions#new'
 get "/registration/compleate", to: "compleate#edit"
 
 get "/item", to: "item_details#index"
+get "/item/item_status", to: "items#item_status"
 
 get "/privacypolicy", to: 'privacypolicy#index'
 

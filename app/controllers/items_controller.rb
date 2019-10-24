@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index,:show]
+
 
   def index
     @items = Item.all.includes(:item_images).limit(5).order("created_at DESC")
@@ -20,7 +22,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @parents = Category.where(ancestry: nil)  
-    2.times{@item.item_images.build}
+    4.times{@item.item_images.build}
   end
 
   def create
@@ -61,6 +63,11 @@ class ItemsController < ApplicationController
     elsif
       render :index
     end
+  end
+
+  def item_status
+    @item = Item.find(params[:id])
+    @user = User.find(@item.user_id)
   end
   # def update
   # end
