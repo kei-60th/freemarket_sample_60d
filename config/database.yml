@@ -25,6 +25,7 @@ test:
 
 production:
   <<: *default
+  encoding: utf8
   database: freemarket_sample_60d_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>

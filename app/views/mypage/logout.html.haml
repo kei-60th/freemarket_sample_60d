@@ -1,8 +1,10 @@
 = render 'shared/header'
 = render 'shared/new_item_button'
 -# 下記２行パンくず
--# - breadcrumb :mypage
--# = breadcrumbs separator: " &rsaquo; "
+.bread-crumbs
+  - breadcrumb :logout
+  = breadcrumbs separator: " &rsaquo; "
+
 .groundwork
   .n-main-content
     .left-content

@@ -33,7 +33,7 @@
   &__text{
     @include user-input();
     @include textbox;
-    width: 90%;
+    width: 100%;
     color: black;
     &--password{
       margin-top: 20px;
