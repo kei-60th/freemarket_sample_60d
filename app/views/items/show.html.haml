@@ -94,22 +94,7 @@
           %span.rrrr
             （税込）
           %span.wwww
-        .item-deteal__s-box__description
-        %p.item-deteal__s-box__description__text
-          = @item.description
-        %br
-        %br
-        %br
-        %br
-        %br
-        %br
-        %br
-        %br
-        %br
-        %br
-        %br
-        %br
-        .all-btn
+            = @item.delivery_fee.fee
           %button.edit
             = link_to "商品の編集", edit_item_path(@item.id)
           .center
@@ -118,6 +103,9 @@
             出品を一時停止する
           %button.destroy
             = link_to "商品の削除", item_path(@item.id), method: :delete, data:{ confirm: "削除すると2度と復活できません。削除する代わりに停止することもできます。本当に削除しますか？"}
+        .item-deteal__s-box__description
+          %p.item-deteal__s-box__description__text
+            = @item.description
       - else
         .item-deteal__s-box__price
           %span.oooo
@@ -133,7 +121,7 @@
         .item-deteal__s-box__description
           %p.item-deteal__s-box__description__text
             = @item.description
-   
+
       .item-deteal__s-box__description__button
         .item-deteal__s-box__description__button__left
           %button.item-button.item-button-like
