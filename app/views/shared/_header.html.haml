@@ -20,7 +20,8 @@
         %li.fa.fa-check
         =link_to 'やることリスト'
         %li.fa.smile
-        =link_to 'マイページ'
+        =link_to mypage_path(current_user), class: 'mypage' do
+          マイページ
       - else
         =link_to signin_path, class: 'sign_up' do
           新規会員登録
