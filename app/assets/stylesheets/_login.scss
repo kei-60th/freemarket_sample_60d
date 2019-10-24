@@ -38,7 +38,7 @@
         @include user-input();
         @include textbox;
         color: #333;
-        width: 90%;
+        width: 100%;
         &--password{
           margin-top: 20px;
         }
