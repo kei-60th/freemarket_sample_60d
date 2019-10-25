@@ -36,9 +36,30 @@
           display: inline-block;
           min-width: 300px;
           max-width: 300px;
+          max-height: 300px;
+          overflow:hidden;
           img{
             height:300px;
             width:300px;
+            z-index: 1;
+          }
+          .soldout{
+            z-index: 2;
+            background-color: #EA3732;
+            height:200px;
+            width:200px;
+            position: relative;
+            top: -403px;
+            left: -100px;
+            transform:rotate(-45deg);
+            .text{
+              font-size: 28px;
+              font-weight: bold;
+              color: white;
+              line-height: 70px;
+              position: relative;
+              top: 130px;
+            }
           }
         }
         .left-bottom{

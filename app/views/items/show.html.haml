@@ -37,6 +37,9 @@
         .item-deteal__box__item__left
           .left-top
             = image_tag @item.item_images[0].image.url
+            - if @item.order_status == 0
+              .soldout
+                .text  sold
           - @item.item_images.each do |item_image|
             .left-bottom
               %li.left-bottom__array
@@ -115,9 +118,10 @@
             = @item.price.to_s(:delimited)
           %span.rrrr
             （税込）
-          %button.sale
-            = link_to "/items/#{@item.id}/order/confirmation/" do
-              購入画面に進む
+            - unless @item.order_status == 0
+              %button.sale
+                = link_to "/items/#{@item.id}/order/confirmation/" do
+                  購入画面に進む
         .item-deteal__box__description
           %p.item-deteal__box__description__text
             = @item.description
