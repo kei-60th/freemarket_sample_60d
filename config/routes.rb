@@ -14,7 +14,7 @@ resources :addresses, only: [:create]
 resources :creditcards, only: [:new, :create]
 
 resources :items
-resources :mypage, only: [:show, :edit]
+resources :mypage, only: [:index, :show, :edit]
 
 root "items#index"
 
@@ -32,6 +32,7 @@ get "/registration/confirmation", to: "sms_confirmation#edit"
 get "/registration/address", to: "addresses#new"
 
 
+get '/profile', to: 'profile#index'
 get '/mypage/card', to: 'mypage#index'
 get '/mypage/card/create', to: 'mypage#create'
 get '/registration', to: 'registrations#index'

@@ -18,6 +18,6 @@ class AddressesController < ApplicationController
 
   private
   def create_params
-    params.require(:address).permit(:postcode, :city, :address, :building_name).merge(user_id: User.last.id)
+    params.require(:address).permit(:postcode, :city, :address, :building_name).merge(user_id: User.last.id, prefecture_id: params[:prefecture_id])
   end
 end

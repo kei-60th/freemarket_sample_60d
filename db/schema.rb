@@ -103,8 +103,11 @@ ActiveRecord::Schema.define(version: 2019_10_25_102948) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    
     t.integer "grand_parent_id"
     t.integer "parent_id"
+    t.integer "order_status"
+    
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end

@@ -16,6 +16,7 @@
 }
 
 .right-content{
+  position: relative;
   .mypage-icon{
     display: block;
     padding: 20;
@@ -66,8 +67,10 @@
       font-weight: 600;
       display: flex;
       &__tab{
+        border-top: 2px solid rgb(234, 53, 45);
         width: 350px;
         &__right{
+        background: #eee;
         width: 350px;
         }
       }
@@ -75,13 +78,13 @@
     &__contents{
       width: 700px;
       &__list{
-        height: 60px;
+        height: 65px;
         display: block;
-        position: relative;
         font-size: 14px;
         border-bottom: 1px solid #eee;
-        padding-top: 25px;
         img{
+          margin-left: 9px;
+          margin-top: 7px;
           float: left;
           height: 48px;
           width: 48px;
@@ -92,26 +95,22 @@
             overflow: hidden;
             float: left;
             line-height: 2.0;
-          }
-          &__time{
-            display: inline;
-            color: #888;
-            position: absolute;
-            right: 565px;
+            margin-left: 7px;
+            margin-top: 6px;
           }
         }
-        &__arrow__right{
+        &__arrow-right{
+          display: inline;
           position: absolute;
-          top: 15%;
-          right: 20px;
+          left: 96%;
         }
       }
       &__bottom{
         display: block;
-        padding: 5px;
+        padding: 10px;
         .view-all{
           display: inline-block;
-          width: 100%;
+          width: 97%;
           height: 55px;
           margin: 0 auto;
           background: #eee;
@@ -125,8 +124,10 @@
 
 
   .low-container{
-    display: inline-block;
+    margin-top: 40px;
+    display: block;
     background: #fff;
+    line-height: 72px;
     &__head{
       font-size: 16px;
       font-weight: 600;
@@ -134,20 +135,21 @@
       line-height: 70px;
     }
     &__tabs{
-      display: inline-block;
       display: flex;
       text-align: center;
       font-size: 16px;
       font-weight: 600;
       &__tab{
+        border-top: 2px solid rgb(234, 53, 45);
         width: 350px;
         &__right{
+          background: #eee;
           width: 350px;
         }
       }
     }
     &__contents{
-      padding: 160px 0 60px;
+      padding: 160px 0 0;
       background: url("https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?61716930");
       background-repeat: no-repeat;
       background-position: center 40px;
@@ -158,4 +160,12 @@
       font-weight: 600;
     }
   }
+}
+
+.list-time{
+  display: inline;
+  color: #888;
+  position: absolute;
+  right: 78%;
+  padding: 10px;
 }

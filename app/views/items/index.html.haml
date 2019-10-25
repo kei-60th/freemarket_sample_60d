@@ -7,8 +7,10 @@
       -# %i.fa.fa-search
     .navmenu
       %ul.navmenu__leftside-bar
-        %li.fa.fa-list
-        =link_to  'カテゴリーから探す'
+        .k__category
+          %li.fa.fa-list
+          =link_to  'カテゴリーから探す'
+          = render "shared/category_bar" 
         %li.fa.fa-tags
         =link_to  'ブランドから探す'
       %ul.navmenu__rightside-bar
@@ -31,7 +33,9 @@
             ログイン
 
   .slideshow
-    = image_tag "topmain.jpg", class: "slideshow"
+    = image_tag "topmain.jpg", class: "slideshow2", alt: ""
+    = image_tag "https://www.mercari.com/jp/assets/img/featured/camp/ogp.jpg", class: "slideshow2", alt: ""
+    = image_tag "https://activeblog.jp/wp-content/uploads/2018/12/695EA9E6-21CA-4ED7-B86F-AF70266FEFB0.png", class: "slideshow2", alt: ""
 
   .populerlists
     .populerlists__title
@@ -51,20 +55,24 @@
       新着アイテム
     .itemstitle__nextpage
       もっと見る
-      -# =link_to 'もっと見る'
       %i.fa.fa-angle-right
 
   .item-box
     .item-box__contents
       - @items.each do |item|
-        .item-box__contents__image
-          =link_to "/items/#{item.id}" do
-            = image_tag item.item_images[0].image.url, height: "146px" , width: "146px"
-          .item-box__contents__image__price
-            ¥
-            = item.price.to_s(:delimited)
-          .item-box__contents__image__name
-            = item.name
+        .item-box__contents__box
+          .item-box__contents__box__image
+            =link_to "/items/#{item.id}" do
+              = image_tag item.item_images[0].image.url, height: "188px" , width: "188px"
+            .item-box__contents__box__image__price
+              ¥
+              = item.price.to_s(:delimited)
+            .item-box__contents__box__image__name
+              = item.name
+            - if item.order_status == 0
+              .item-box__contents__box__image__soldout
+                .item-box__contents__box__image__text
+                  sold
 
   .advertisement
     .advertisement__list

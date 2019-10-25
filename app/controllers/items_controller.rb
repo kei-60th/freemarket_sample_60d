@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
 
 
   def index
+    @category_list = Category.all
     @items = Item.all.includes(:item_images).limit(5).order("created_at DESC")
     # @item_images =ItemImage.all
     # @item_images =ItemImage.all
@@ -26,10 +27,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save!
+    if @item.save
       redirect_to root_path
     else
-      render :new, item_images: @item.item_images.build
+      redirect_to '/items/new'
+      #render :new, item_images: @item.item_images.build
     end
   end
 

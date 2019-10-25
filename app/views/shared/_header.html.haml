@@ -6,10 +6,12 @@
     -# %i.fa.fa-search
   .navmenu
     %ul.navmenu__leftside-bar
-      %li.fa.fa-list
-      =link_to  'カテゴリーから探す'
-      %li.fa.fa-tags
-      =link_to  'ブランドから探す'
+      .k__category
+        %li.fa.fa-list
+        =link_to  'カテゴリーから探す'
+        = render "shared/category_bar" 
+        %li.fa.fa-tags
+        =link_to  'ブランドから探す'
     %ul.navmenu__rightside-bar
       -# ----ログイン後のアイコン----
       - if user_signed_in?
@@ -20,7 +22,8 @@
         %li.fa.fa-check
         =link_to 'やることリスト'
         %li.fa.smile
-        =link_to 'マイページ'
+        =link_to mypage_path(current_user), class: 'mypage' do
+          マイページ
       - else
         =link_to signin_path, class: 'sign_up' do
           新規会員登録

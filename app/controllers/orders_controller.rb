@@ -11,7 +11,8 @@ class OrdersController < ApplicationController
 
   def create
     @item = Item.find(params[:item_id])
-    Payjp.api_key = ENV['PAYJP_TEST_SECRET_KEY']
+    Payjp.api_key = Rails.application.credentials.PAYJP_TEST_SECRET_KEY
+    binding.pry
     Payjp::Charge.create(
       amount: @item.price,
       card: params['payjp-token'],

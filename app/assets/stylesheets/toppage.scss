@@ -101,6 +101,9 @@
 // トップページ上部、スライドイメージ
 .slideshow {
   width:100%;
+  img{
+    height: 390px;
+  }
 }
 // 商品リストのタイトル部分
 .populerlists {
@@ -131,58 +134,88 @@
   &__title {
     font-size: 24px;
     font-weight: 600;
-    width: 768px;
+    width: 530px;
     padding: 42px 0px 0px 10px;
     float: left;
   }
   &__nextpage {
     font-size: 14px;
     font-weight: 600;
-    width: 768px;
+    width: 644px;
     color:rgb(0, 149, 238);
     padding: 54px 0px 0px 0px;
     float: right;
+    text-align: right;
   }
 }
 
 // 商品リスト部分
-
 .item-box {
   &__contents {
     display: flex;
     padding: 10px 190px;
-    img{
-      width: 186px;
-      position: relative;
-      border: 1px #dcdcdc solid;
+    overflow:hidden;
+    &__box {
       margin: 5px 5px 1px 5px;
-      z-index: 1;
-    }
-    &__image {
+      display: flex;
+      img {
+        position: relative;
+        border: 1px #dcdcdc solid;
+        z-index: 1;
+      }
+      &__image {
+      overflow:hidden;
+      &__soldout {
+        background-color: #EA3732;
+        height:117px;
+        width:187px;
+        position: relative;
+        top: -328px;
+        left: -98px;
+        transform:rotate(-45deg);
+        z-index: 4;
+      }
+        &__text {
+          font-size: 18px;
+          font-weight: bold;
+          line-height: 70px;
+          position: relative;
+          top: 60px;
+          z-index: 5;
+          color:white;
+        }
       &__price {
         color:white;
         background-color:black;
-        width: 100px;
+        width: 130px;
         opacity: 0.5;
-        position: relative; top: -50px;
+        position: relative; top: -40px;
         padding: 5px 15px;
-        margin-left: 5px;
         border-radius: 0 14px 14px 0;
         z-index: 3;
       }
       &__name {
         background-color:white;
-        padding-top: 34px;
-        height: 50px;
+        line-height: 50px;
         text-align: center;
         overflow: hidden;
         border: 1px #dcdcdc solid;
-        margin: 5px 5px 1px 5px;
-        position: relative; top: -40px;
+        position: relative; top: -33px;
         z-index: 2;
+        &__soldout {
+          background-color: #EA3732;
+          height:117px;
+          width:187px;
+          position: relative;
+          top: -249px;
+          left: -98px;
+          transform:rotate(-45deg);
+          z-index: 4;
+        }
       }
     }
   }
+}
 }
 
 a{
@@ -259,4 +292,8 @@ text-decoration: none;
       }
     }
   }
+}
+
+.bx-pager{
+  background-color: white;
 }
