@@ -5,3 +5,12 @@ $(function(){
   $('.left-top img').attr('src', $(this).attr('src'));
   });
 });
+
+
+//トップページ画像の切り替え
+$(document).ready(function(){
+  $('.slideshow').bxSlider({
+      auto: true,
+      pause: 3000,
+  });
+});

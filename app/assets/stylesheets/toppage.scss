@@ -101,6 +101,9 @@
 // トップページ上部、スライドイメージ
 .slideshow {
   width:100%;
+  img{
+    height: 390px;
+  }
 }
 // 商品リストのタイトル部分
 .populerlists {
@@ -258,4 +261,8 @@ text-decoration: none;
       }
     }
   }
+}
+
+.bx-pager{
+  background-color: white;
 }
