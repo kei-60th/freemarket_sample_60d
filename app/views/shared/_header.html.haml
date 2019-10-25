@@ -6,10 +6,12 @@
     -# %i.fa.fa-search
   .navmenu
     %ul.navmenu__leftside-bar
-      %li.fa.fa-list
-      =link_to  'カテゴリーから探す'
-      %li.fa.fa-tags
-      =link_to  'ブランドから探す'
+      .k__category
+        %li.fa.fa-list
+        =link_to  'カテゴリーから探す'
+        = render "shared/category_bar" 
+        %li.fa.fa-tags
+        =link_to  'ブランドから探す'
     %ul.navmenu__rightside-bar
       -# ----ログイン後のアイコン----
       - if user_signed_in?
