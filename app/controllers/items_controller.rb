@@ -29,10 +29,11 @@ class ItemsController < ApplicationController
   def create
     # binding.pry
     @item = Item.new(item_params)
-    if @item.save!
+    if @item.save
       redirect_to root_path
     else
-      render :new, item_images: @item.item_images.build
+      redirect_to '/items/new'
+      #render :new, item_images: @item.item_images.build
     end
   end
 
