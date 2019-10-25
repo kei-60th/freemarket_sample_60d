@@ -96,11 +96,6 @@
             = @item.price.to_s(:delimited)
           %span.rrrr
             （税込）
-
-            - unless @item.order_status == 0
-              %button.sale
-                = link_to "/items/#{@item.id}/order/confirmation/" do
-                  購入画面に進む
         .item-deteal__box__description
           %p.item-deteal__box__description__text
           %span.wwww
@@ -126,6 +121,7 @@
             （税込）
           %span.wwww
             = @item.delivery_fee.fee
+        - unless @item.order_status == 0
           %button.sale
             = link_to "/items/#{@item.id}/order/confirmation/" do
               購入画面に進む
