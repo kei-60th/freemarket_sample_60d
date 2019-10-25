@@ -10,6 +10,9 @@
         .item-deteal__s-box__item__left
           .left-top
             = image_tag @item.item_images[0].image.url
+            - if @item.order_status == 0
+              .soldout
+                .text  sold
           - @item.item_images.each do |item_image|
             .left-bottom
               %li.left-bottom__array
@@ -93,6 +96,13 @@
             = @item.price.to_s(:delimited)
           %span.rrrr
             （税込）
+
+            - unless @item.order_status == 0
+              %button.sale
+                = link_to "/items/#{@item.id}/order/confirmation/" do
+                  購入画面に進む
+        .item-deteal__box__description
+          %p.item-deteal__box__description__text
           %span.wwww
             = @item.delivery_fee.fee
           %button.edit
@@ -105,6 +115,7 @@
             = link_to "商品の削除", item_path(@item.id), method: :delete, data:{ confirm: "削除すると2度と復活できません。削除する代わりに停止することもできます。本当に削除しますか？"}
         .item-deteal__s-box__description
           %p.item-deteal__s-box__description__text
+
             = @item.description
       - else
         .item-deteal__s-box__price
