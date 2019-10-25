@@ -16,17 +16,15 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def new
     @item = Item.new
     @parents = Category.where(ancestry: nil)  
-    4.times{@item.item_images.build}
+    2.times{@item.item_images.build}
   end
 
   def create
-    # binding.pry
     @item = Item.new(item_params)
     if @item.save!
       redirect_to root_path
@@ -69,6 +67,15 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @user = User.find(@item.user_id)
   end
+
+  def category_children
+    category_id = params[:categoryId]
+    @categories = Category.where(ancestry: category_id.to_s)
+    respond_to do |format|
+      format.html {redirect_to new_item_path }
+      format.json
+    end
+  end
   # def update
   # end
 
@@ -99,7 +106,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :description, :category_id, :prefecture_id, :condition_id, :delivery_fee_id, :delivery_way_id, :delivery_date_id, item_images_attributes:[:id,:image]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :price, :description, :category_id, :prefecture_id, :condition_id, :delivery_fee_id, :delivery_way_id, :delivery_date_id, :parent_id, :grand_parent_id, item_images_attributes:[:id,:image]).merge(user_id: current_user.id)
   end
   
 end

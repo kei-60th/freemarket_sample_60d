@@ -40,6 +40,7 @@ get "/registration/compleate", to: "compleate#edit"
 
 get "/item", to: "item_details#index"
 get "/item/item_status", to: "items#item_status"
+get "/item/category_children", to: "items#category_children"
 
 get "/privacypolicy", to: 'privacypolicy#index'
 

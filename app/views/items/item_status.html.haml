@@ -33,13 +33,19 @@
               %h3 発送日の目安
           .item-main__right__container--right
             .list-box
-              %h4
+              %h4.user-name
                 = @item.user.nickname
             .list-box__category
               %h4
-                = "> #{@item.category.name}"
+                = @item.category.parent.parent.name
+                %br
+                = fa_icon 'angle-right'
+                = @item.category.parent.name
+                %br
+                = fa_icon 'angle-right'
+                = @item.category.name
             .list-box
-              %h3 nike
+              %h3 
             .list-box
               %h3 
                 = @item.condition.condition
@@ -57,6 +63,7 @@
                 = @item.delivery_date.date
     .item-price-box
       %p 
+        ¥
         = @item.price.to_s(:delimited)
       %h2（税込）
     .item-desctiption-inner
