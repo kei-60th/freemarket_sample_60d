@@ -96,8 +96,6 @@
             = @item.price.to_s(:delimited)
           %span.rrrr
             （税込）
-        .item-deteal__box__description
-          %p.item-deteal__box__description__text
           %span.wwww
             = @item.delivery_fee.fee
           %button.edit
@@ -110,7 +108,6 @@
             = link_to "商品の削除", item_path(@item.id), method: :delete, data:{ confirm: "削除すると2度と復活できません。削除する代わりに停止することもできます。本当に削除しますか？"}
         .item-deteal__s-box__description
           %p.item-deteal__s-box__description__text
-
             = @item.description
       - else
         .item-deteal__s-box__price
@@ -121,13 +118,13 @@
             （税込）
           %span.wwww
             = @item.delivery_fee.fee
-        - unless @item.order_status == 0
-          %button.sale
-            = link_to "/items/#{@item.id}/order/confirmation/" do
-              購入画面に進む
-        .item-deteal__s-box__description
-          %p.item-deteal__s-box__description__text
-            = @item.description
+          - unless @item.order_status == 0
+            %button.sale
+              = link_to "/items/#{@item.id}/order/confirmation/" do
+                購入画面に進む
+          .item-deteal__s-box__description
+            %p.item-deteal__s-box__description__text
+              = @item.description
 
       .item-deteal__s-box__description__button
         .item-deteal__s-box__description__button__left
@@ -146,10 +143,6 @@
             %i.icon-lock
             = fa_icon 'lock', {class: ".icon-lock"}
             %span あんしん・あんぜんへの取り組み
-        -# - if @item.user_id
-        -#   = link_to root_path(@item.id), class:'sale--edit-grey'do
-        -#     商品が購入されました。発送してください。
-        -# - else
 
     .message-container
       .message-contents
