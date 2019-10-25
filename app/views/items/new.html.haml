@@ -10,9 +10,12 @@
           %h4 必須
         .sub-title
           %h6 最大10枚までアップロードできます
-        .file-field
-          = f.fields_for :item_images do |fi|
-            = fi.file_field :image     
+        .file-field-box
+          = f.fields_for :item_images do |fi,i|
+            .file-content
+              .setimage
+                %button{class:"setimage__onclick", type:"button"}
+              = fi.file_field :image, class: "file-upload"
     .item_name.border-bottom
       .inner-box
         .title
