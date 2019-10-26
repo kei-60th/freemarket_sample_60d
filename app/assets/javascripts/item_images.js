@@ -6,6 +6,12 @@ $(function(){
         $(target).click();
   });
 
+  $('.preview').on('click', function(){
+    var parent = $(this).parent(),
+        target = $(parent).next()
+        $(target).click();
+  });
+
 
 
 
