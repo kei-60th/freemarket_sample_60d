@@ -1,54 +1,40 @@
-$(function(){
-  $('.item-price_field').on("keyup", function(){
-    priceForm = $('.item-price_field')[0];
-    price = $(priceForm).val();
-    if (price>=300 && price<=9999999) {
-      $("#item-new-fee").empty();
-      $("#item-new-profit").empty();
-      fee = Math.round(price * 0.1);
-      profit = price - fee;
-      $("#item-new-fee").append("¥" + fee.toLocaleString());
-      $("#item-new-profit").append("¥" + profit.toLocaleString());
-    }
-    else {
-      $("#item-new-fee").empty();
-      $("#item-new-profit").empty();
-      $("#item-new-fee").append("-");
-      $("#item-new-profit").append("-");
-    }
-  });
+function appendProfit(priceForm, feeForm, profitForm){
+  var price = $(priceForm).val();
+  var fee = Math.round(price * 0.1);
+  var profit = price - fee;
+  $(feeForm).empty();
+  $(profitForm).empty();
+  $(feeForm).append("¥" + fee.toLocaleString());
+  $(profitForm).append("¥" + profit.toLocaleString());
+};
+
+function appendHyphen(feeForm, profitForm){
+  $(feeForm).empty();
+  $(profitForm).empty();
+  $(feeForm).append("-");
+  $(profitForm).append("-");
+};
+
+
+$(document).on("keyup", '.item-price_field', function(){
+  var priceForm = $('.item-price_field')[0];
+  var feeForm = $("#item-new-fee")[0];
+  var profitForm = $("#item-new-profit")[0];
+  var price = $(priceForm).val();
+  if (price>=300 && price<=9999999) {
+    appendProfit(priceForm, feeForm, profitForm)
+  }
+  else {
+    appendHyphen(feeForm, profitForm)
+  }
 });
 
-$(document).on("change", '#item_select-box1', function(){
-  categoryId = $('#item_select-box1').val();
-  $.ajax({
-    type: 'GET',
-    url: '/item/category_children',
-    data: {categoryId: categoryId},
-    dataType: 'json'
-  })
-  .done(function(categories){
-    let options = '';
-    $.each(categories.childrens, function(i){
-      category = categories.childrens[i];
-      //options += `<option value="${categoryId}/${category.id}">${category.name}</option>`;
-      options += `<option value="${category.id}">${category.name}</option>`;
-    });
-    $("#item_select-box2").remove();
-    $("#item_select-box3").remove();
-    $("#item_select-box1").after(
-      `<select class="item_select-box" id="item_select-box2" name="item[parent_id]">
-        <option value="">---</option>
-        ${options}
-      </select>`
-    );
-  })
-});
 
 $(document).on("change", '#item_select-box2', function(){
-  GrandParentCategoryId = $('#item_select-box1').val();
-  categoryId = $('#item_select-box2').val();
-      //console.log(categoryId);
+  var GrandParentCategoryId = $('#item_select-box1').val();
+  var selectBox = $('#item_select-box2');
+  var categoryId = $(selectBox).val();
+
   $.ajax({
     type: 'GET',
     url: '/item/category_children',
@@ -56,13 +42,13 @@ $(document).on("change", '#item_select-box2', function(){
     dataType: 'json'
   })
   .done(function(categories){
-    let options = '';
+    var options = '';
     $.each(categories.childrens, function(i){
       category = categories.childrens[i];
       options += `<option value=${category.id}>${category.name}</option>`;
     });
     $("#item_select-box3").remove();
-    $("#item_select-box2").after(
+    $(selectBox).after(
       `<select class="item_select-box" id="item_select-box3" name="item[category_id]">
         <option value="">---</option>
         ${options}
@@ -71,3 +57,29 @@ $(document).on("change", '#item_select-box2', function(){
   })
 });
 
+$(document).on("change", '#item_select-box1', function(){
+  var selectBox = $('#item_select-box1');
+  var categoryId = $(selectBox).val();
+
+  $.ajax({
+    type: 'GET',
+    url: '/item/category_children',
+    data: {categoryId: categoryId},
+    dataType: 'json'
+  })
+  .done(function(categories){
+    var options = '';
+    $.each(categories.childrens, function(i){
+      category = categories.childrens[i];
+      options += `<option value="${category.id}">${category.name}</option>`;
+    });
+    $("#item_select-box3").remove();
+    $("#item_select-box2").remove();
+    $(selectBox).after(
+      `<select class="item_select-box" id="item_select-box2" name="item[parent_id]">
+        <option value="">---</option>
+        ${options}
+      </select>`
+    );
+  })
+});
