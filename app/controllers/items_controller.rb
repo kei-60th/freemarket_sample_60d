@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @parents = Category.where(ancestry: nil)  
-    2.times{@item.item_images.build}
+    10.times{@item.item_images.build}
   end
 
   def create
