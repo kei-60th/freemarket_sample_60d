@@ -14,7 +14,10 @@
           = f.fields_for :item_images do |fi|
             .file-content
               .setimage
-                = image_tag fi.object.image.url, class: "preview"
+                - if fi.object.image?
+                  = image_tag fi.object.image.url, class: "preview"
+                - else
+                  %button{class:"setimage__onclick", type:"button"}
               = fi.file_field :image, class: "file-upload"   
     .item_name.border-bottom
       .inner-box
