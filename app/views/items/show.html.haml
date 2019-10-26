@@ -112,8 +112,12 @@
             = @item.delivery_fee.fee
           - unless @item.order_status == 0
             %button.sale
-              = link_to "/items/#{@item.id}/order/confirmation/" do
-                購入画面に進む
+              - if current_user
+                = link_to "/items/#{@item.id}/order/confirmation/" do
+                  購入画面に進む
+              - else 
+                = link_to "/users/sign_in" do
+                  購入画面に進む
           .item-deteal__s-box__description
             %p.item-deteal__s-box__description__text
               = @item.description
