@@ -28,4 +28,61 @@ $(function(){
       $(profitForm).append("-");
     }
   });
+<<<<<<< Updated upstream
+=======
+});
+
+$(document).on("change", '#item-edit-select-box2', function(){
+  var GrandParentCategoryId = $('#item_category_id').val();
+  var selectBox = $('#item-edit-select-box2');
+  var categoryId = $(selectBox).val();
+
+  $.ajax({
+    type: 'GET',
+    url: '/item/category_children',
+    data: {categoryId: `${GrandParentCategoryId}/${categoryId}`},
+    dataType: 'json'
+  })
+  .done(function(categories){
+    var options = '';
+    $.each(categories.childrens, function(i){
+      category = categories.childrens[i];
+      options += `<option value=${category.id}>${category.name}</option>`;
+    });
+    $("#item-edit-select-box3").remove();
+    $(selectBox).after(
+      `<select class="item_select-box" id="item-edit-select-box3" name="item[category_id]">
+        <option value="">---</option>
+        ${options}
+      </select>`
+    );
+  })
+});
+
+$(document).on("change", '#item_category_id', function(){
+  var selectBox = $('#item_category_id');
+  var categoryId = $(selectBox).val();
+
+  $.ajax({
+    type: 'GET',
+    url: '/item/category_children',
+    data: {categoryId: categoryId},
+    dataType: 'json'
+  })
+  .done(function(categories){
+    var options = '';
+    $.each(categories.childrens, function(i){
+      category = categories.childrens[i];
+      options += `<option value="${category.id}">${category.name}</option>`;
+    });
+    $("#item-edit-select-box3").remove();
+    $("#item-edit-select-box2").remove();
+    $(selectBox).after(
+      `<select class="item_select-box" id="item-edit-select-box2" name="item[parent_id]">
+        <option value="">---</option>
+        ${options}
+      </select>`
+    );
+  })
+>>>>>>> Stashed changes
 });
