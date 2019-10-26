@@ -164,6 +164,12 @@ body{
     .right-lower{
       height: 34px;
       padding: 24px 0;
+      &__right{
+        h1{
+          font-size: 25px;
+          font-weight: bold;
+        }
+      }
     }
   }
   .sell_button{
@@ -237,3 +243,23 @@ body{
     cursor: pointer;
   }
 }
+  .g_footer{
+    height: 250px;
+    padding: 40px;
+    .links{
+      line-height: 24px;
+      li{
+        display: inline-block;
+        margin-right: 10px;
+      }
+      &__link-bottom{
+        text-decoration: none;
+        font-size: 12px;
+        color: #333333;
+      }
+    }
+    img{
+      width: 80px;
+      margin-top: 50px;
+    }
+  }

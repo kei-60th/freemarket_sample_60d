@@ -6,7 +6,6 @@
   height: 1280px;
   margin: 0 auto;
   h4{
-    color: #0399E8;
     font-size: 13px;
   }
   h3{
@@ -42,18 +41,20 @@
         padding: 9px 7px 8px;
         border-bottom: 1px solid #cccccc;
         h4{
-          color: #0399E8;
+          color: #333333;
           height: 100%;
           font-size: 12px;
+          line-height: 24px;
         }
       }
       &__left{
-        height: 350px;
+        //height: 350px;
         width: 50%;
         margin-right: 16px;
-        background-color: #F5F5F5;
         .item_photo{
+          background-color: #F5F5F5;
           img{
+            display: block;
             height: 100%;
             width: 100%;
           }
@@ -86,6 +87,11 @@
             width: 60%;
             background-color: white;
             border: 0.5px solid #cccccc;
+            .list-box{
+              .user-name{
+                color: #0399E8!important;
+              }
+            }
           }
         }
       }
@@ -108,6 +114,9 @@
     .item-desctiption-inner{
       width: 100%;
       padding-top: 32px;
+      h3{
+        font-size: 18px;
+      }
     }
   }
   &__inner--second{

@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, :only => [:show, :create]
+  # before_action :authenticate_user!, :only => [:show, :create]
   layout 'registration'
   require 'payjp'
   def index
@@ -11,13 +11,13 @@ class OrdersController < ApplicationController
 
   def create
     @item = Item.find(params[:item_id])
-    @item.update(order_status: 0)
     Payjp.api_key = Rails.application.credentials.PAYJP_TEST_SECRET_KEY
+    binding.pry
     Payjp::Charge.create(
       amount: @item.price,
       card: params['payjp-token'],
       currency: 'jpy'
     )
   end
-
+  
 end

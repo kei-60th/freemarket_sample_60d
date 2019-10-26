@@ -73,17 +73,17 @@
               %h4.center-null-false 必須
             .right-upper__right.flex
               %p ￥
-              = f.text_field :price ,class: 'item-price_field',placeholder: "例)300"
+              = f.text_field :price ,class: 'item-price_field',placeholder: "例)300", id: 'item-edit-price'
           .right-center.flex
             .right-center__left
               %h5 販売手数料 (10%)
             .right-center__right
-              %h5 -
+              %h5#item-edit-fee -
           .right-lower.flex
             .right-lower__left
               %h3 販売利益 
             .right-lower__right
-              %h1 -
+              %h1#item-edit-profit -
     .sell-button
       .inner-box
         .inner-box__upper

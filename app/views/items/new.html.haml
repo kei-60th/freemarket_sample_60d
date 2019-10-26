@@ -22,6 +22,7 @@
           %h3 商品名
           %h4 必須
         = f.text_field :name, class:"item-box", placeholder: "商品名（必須40文字まで)"
+        %p 入力してください
         .title-item_detail
           %h3 商品の説明
           %h4 必須
@@ -34,7 +35,7 @@
           .right-top-title.flex-start
             %h3 カテゴリー
             %h4 必須
-          = f.select :category_id, @parents.all.map{|p|[p.name,p.id]}, {prompt: "---"}, class:"item_select-box"
+          = f.select :grand_parent_id, @parents.all.map{|p|[p.name,p.id]}, {prompt: "---"}, class:"item_select-box", id:"item_select-box1"
           .right-title.flex-start
             %h3 商品の状態
             %h4 必須
@@ -78,12 +79,12 @@
             .right-center__left
               %h5 販売手数料 (10%)
             .right-center__right
-              %h5 -
+              %h5#item-new-fee -
           .right-lower.flex
             .right-lower__left
               %h3 販売利益 
             .right-lower__right
-              %h1 -
+              %h1#item-new-profit -
     .sell-button
       .inner-box
         .inner-box__upper
@@ -94,6 +95,20 @@
           = f.submit "出品する", class: "sell_button"
         .inner-box__lower
           = link_to "もどる", root_path, class: "sell-return"
+          
+  .g_footer
+    %ul.links
+      %li
+        =link_to "/", class: 'links__link-bottom' do
+          プライバシーポリシー
+      %li
+        =link_to "/", class: 'links__link-bottom' do
+          メルカリ利用規約
+      %li
+        =link_to "/", class: 'links__link-bottom' do
+          特定商取引に関する表記
+    =link_to "/" do
+      = image_tag 'mercarilogo-gray.svg'
           
 
 

@@ -41,21 +41,13 @@
                     %span 0
             %tr
               %th カテゴリー
-              %td.td-box{class: "link-blue"}
-                = "> #{@item.category.name}"
-                -# - if @item.category.parent_id.name
-                  = link_to "#", class: "link-blue" do
-                    %div
-                      = @item.categories.parent_id.name #親
-                = link_to "#" do
-                  .item-detail-table-sub-category{class: "link-blue"}
-                    %i.icon-arrow-right
-                    -# = "＞" + @item.categories.parent_id.name        #子
-                = link_to "#" do
-                  .item-detail-table-sub-sub-category{class: "link-blue"}
-                    %i.icon-arrow-right
-                    -# = "＞" + @item.categories.name               #孫
-            - if @item.brand
+              %td.td-box
+                %h4
+                  = @item.category.parent.parent.name
+                  %br
+                  = "> #{@item.category.parent.name}"
+                  %br
+                  = "> #{@item.category.name}"
               %tr
                 %th ブランド
                 %td.td-box
