@@ -49,6 +49,7 @@ class ItemsController < ApplicationController
   # end
 
   def edit
+    (10-@item.item_images.count).times{@item.item_images.build}
     @parents = Category.where(ancestry: nil)  
   end
 
