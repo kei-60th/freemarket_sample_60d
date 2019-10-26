@@ -50,7 +50,9 @@ class ItemsController < ApplicationController
 
   def edit
     (10-@item.item_images.count).times{@item.item_images.build}
-    @parents = Category.where(ancestry: nil)  
+    @grand_parents = Category.where(ancestry: nil)
+    @parents = Category.where(ancestry: @item.grand_parent_id)
+    @categories = Category.where(ancestry: "#{@item.grand_parent_id}/#{@item.parent_id}")
   end
 
   def update

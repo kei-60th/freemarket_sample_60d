@@ -1,4 +1,3 @@
-
 .sell-page-container
   = form_for @item do |f|
     .sell-page-container__header
@@ -37,7 +36,9 @@
           .right-top-title.flex-start
             %h3 カテゴリー
             %h4 必須
-          = f.select :category_id, @parents.all.map{|p|[p.name,p.id]}, {prompt: "---"}, class:"item_select-box"
+          = f.select :grand_parent_id, @grand_parents.all.map{|p|[p.name,p.id]}, {prompt: "---"}, class:"item_select-box", id: "item_category_id"
+          = f.select :parent_id, @parents.all.map{|p|[p.name,p.id]}, {prompt: "---"}, class:"item_select-box", id: "item-edit-select-box2"
+          = f.select :category_id, @categories.all.map{|p|[p.name,p.id]}, {prompt: "---"}, class:"item_select-box", id: "item-edit-select-box3"
           .right-title.flex-start
             %h3 商品の状態
             %h4 必須
