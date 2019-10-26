@@ -11,7 +11,7 @@
         .sub-title
           %h6 最大10枚までアップロードできます
         .file-field-box
-          = f.fields_for :item_images do |fi,i|
+          = f.fields_for :item_images do |fi|
             .file-content
               .setimage
                 %button{class:"setimage__onclick", type:"button"}
