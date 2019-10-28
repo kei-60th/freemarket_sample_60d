@@ -5,7 +5,6 @@ body{
     width: 600px;
     height: 100%;
     margin: auto;
-    padding-bottom: 40px;
     background-color: white;
     &__header{
       font-size: 22px;
@@ -244,8 +243,12 @@ body{
   }
 }
   .g_footer{
+    text-align: center;
+    background-color: #F5F5F5;
+    margin:40px 40px 0 0;
     height: 250px;
     padding: 40px;
+    width: 100%;
     .links{
       line-height: 24px;
       li{
