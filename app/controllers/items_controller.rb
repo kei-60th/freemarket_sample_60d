@@ -13,7 +13,6 @@ class ItemsController < ApplicationController
     # @mens_items = Item.get_mens.limit(5).includes(:item_images)
     # @Electric_items = Item.get_Electric.limit(5).includes(:item_images)
     # @hobby_items = Item.get_hobby.limit(5).includes(:item_images)
-    # binding.pry
   end
 
   def show

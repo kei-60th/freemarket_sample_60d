@@ -48,7 +48,6 @@ class User < ApplicationRecord
         )
       end
       sns = snscredential
-      #binding.pry
 
     else #sns登録 未
       user = User.where(email: auth.info.email).first
@@ -63,15 +62,12 @@ class User < ApplicationRecord
           nickname: auth.info.name,
           email: auth.info.email
         )
-        # binding.pry
         sns = SnsCredential.create(
           uid: uid,
           provider: provider
         )
-        # binding.pry
       end
     end
-    # binding.pry
     # hashでsnsのidを返り値として保持しておく
     return { user: user , sns_id: sns.id }
   end
