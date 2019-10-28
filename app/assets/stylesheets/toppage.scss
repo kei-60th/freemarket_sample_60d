@@ -152,12 +152,14 @@
 // 商品リスト部分
 .item-box {
   &__contents {
+    flex-wrap: wrap;
     display: flex;
     padding: 10px 190px;
     overflow:hidden;
     &__box {
       margin: 5px 5px 1px 5px;
       display: flex;
+      height: 280px;
       img {
         position: relative;
         border: 1px #dcdcdc solid;

@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
 
   def index
     @category_list = Category.all
-    @items = Item.all.includes(:item_images).limit(5).order("created_at DESC")
+    @items = Item.all.includes(:item_images).limit(10).order("created_at DESC")
     # @item_images =ItemImage.all
     # @item_images =ItemImage.all
     # @ladies_items = Item.get_ladies.limit(5).includes(:item_images)
