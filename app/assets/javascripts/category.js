@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function() {
   $('.k__category').hover(function() {
     var category_obj = $(this).children('.category_list');
     category_obj.show();
