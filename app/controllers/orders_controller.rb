@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
 
   def create
     @item = Item.find(params[:item_id])
+    @item.update(order_status: 0)
     Payjp.api_key = Rails.application.credentials.PAYJP_TEST_SECRET_KEY
     Payjp::Charge.create(
       amount: @item.price,
