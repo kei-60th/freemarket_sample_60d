@@ -1,4 +1,4 @@
-$(function(){
+document.addEventListener("turbolinks:load", function() {
 
   $('.setimage__onclick').on('click', function(){
     var parent = $(this).parent(),
