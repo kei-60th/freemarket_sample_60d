@@ -3,12 +3,17 @@ crumb :root do
 end
 
 crumb :mypage do |user|
-  link "マイページ"
+  link "マイページ", mypage_path(current_user)
   parent :root
 end
 
 crumb :logout do
   link "ログアウト"
+  parent :mypage
+end
+
+crumb :edit do
+  link "本人情報の登録"
   parent :mypage
 end
 
