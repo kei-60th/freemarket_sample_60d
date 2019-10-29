@@ -1,5 +1,8 @@
 = render 'shared/header'
 = render 'shared/new_item_button'
+.bread-crumbs
+  - breadcrumb :edit
+  = breadcrumbs separator: " &rsaquo; "
 .main-content
   .left-side-menu
     = render 'shared/side_bar'
@@ -45,9 +48,11 @@
           %span 任意
           = f.text_field :building_name, class:"text-box", placeholder: "例）柳ビル103"
         .user-info_container__main--button
-          = f.submit "登録する", class: "registrate_button"
+          = f.button "登録する", class: "registrate_button",type: "button"
         .user-info_container__main--link
           %h5 本人情報の登録について>
+
+= render "shared/footer"
 
 
 

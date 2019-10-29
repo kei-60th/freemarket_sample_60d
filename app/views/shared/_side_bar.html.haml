@@ -87,7 +87,7 @@
           = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
       %li.mypage_nav__parent__list
         .mypage_nav__parent__list__content
-          = link_to "本人情報", "#", class:"mypage_nav__parent__list__content__side_link"
+          = link_to "本人情報","/mypage/#{current_user.id}/edit", class:"mypage_nav__parent__list__content__side_link"
           = fa_icon "chevron-right", class: "mypage_nav__parent__list__content__icon"
       %li.mypage_nav__parent__list
         .mypage_nav__parent__list__content

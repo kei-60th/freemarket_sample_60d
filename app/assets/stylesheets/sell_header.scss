@@ -1,0 +1,20 @@
+sell_header {
+  height: 128px;
+  text-align: center;
+  width: 100%;
+  h1.sell_header-link {
+    margin: 40px auto;
+    display: inline-block;
+    width: 100%;
+    a {
+      width: 15%;
+      height: 49px;
+      line-height: 49px;
+      display: inline-block;
+      margin: 0 8px 0 0;
+      img {
+        vertical-align: middle;
+      }
+    }
+  }
+}
