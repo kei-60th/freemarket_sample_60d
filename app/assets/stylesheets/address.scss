@@ -40,9 +40,7 @@
         &__notation{
           @include notation;
         }
-        .field_with_errors{
-          display: inline;
-        }
+        @include field_with_errors;
       }
       .prefecture{
         color: #333333;
@@ -64,9 +62,7 @@
           width: 100%;
           cursor: pointer;
         }
-        .field_with_errors{
-          display: inline;
-        }
+        @include field_with_errors;
       }
       .arbitral-form{
         text-align: left;

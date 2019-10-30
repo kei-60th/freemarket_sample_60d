@@ -16,7 +16,11 @@
     width: 20px;
   }
 }
-
+@mixin field_with_errors{
+  .field_with_errors{
+    display: inline;
+  }
+}
 @mixin form-box(){
   padding: 32px 60px;
 }
@@ -47,7 +51,7 @@
 @mixin notation{
   display: inline;
   float: right;
-  margin-right: 20px;
+  margin-right: 10px;
   color: #ea352d;
   font-size: 13px;
 }
