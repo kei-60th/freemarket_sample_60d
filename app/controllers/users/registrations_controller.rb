@@ -28,8 +28,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @user = User.new(user_params)
     end
     if @user.save
+      @validate_error = false
       redirect_to registration_address_path
     else
+      @validate_error = true
       render :new
     end
   end

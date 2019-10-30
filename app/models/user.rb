@@ -82,35 +82,35 @@ class User < ApplicationRecord
     }
   validates :last_name, 
     presence: {
-      message: "名前を入力してください"
+      message: "全角文字で名前を入力してください"
     },
     format: {
       with: /\A[^a-zA-Z0-9]+\z/,
-      message: "全角文字で入力してください"
+      message: "全角文字で名前を入力してください"
     }
   validates :first_name,
     presence: {
-      message: "名前を入力してください"
+      message: "全角文字で名前を入力してください"
     },
     format: {
       with: /\A[^a-zA-Z0-9]+\z/,
-      message: "全角文字で入力してください"
+      message: "全角文字で名前を入力してください"
     }
   validates :last_name_kana,
     presence: {
-      message: "名前を入力してください"
+      message: "全角カタカナで名前を入力してください"
     },
     format: {
       with: /\A[ァ-ヴ]+\z/,
-      message: "全角カタカナで入力してください"
+      message: "全角カタカナで名前を入力してください"
     }
   validates :first_name_kana,
     presence: {
-      message: "名前を入力してください"
+      message: "全角カタカナで名前を入力してください"
     },
     format: {
       with: /\A[ァ-ヴ]+\z/,
-      message: "全角カタカナで入力してください"
+      message: "全角カタカナで名前を入力してください"
     }
   validates :email,
     presence: {
