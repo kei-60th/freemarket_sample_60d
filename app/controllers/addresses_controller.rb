@@ -10,8 +10,10 @@ class AddressesController < ApplicationController
     # @user.update(prefecture_id: params[:prefecture_id])
     # @user.save
     if @address.save
+      @validate_error = false
       redirect_to controller: :compleate, action: :edit
     else
+      @validate_error = true
       render :new
     end
   end
