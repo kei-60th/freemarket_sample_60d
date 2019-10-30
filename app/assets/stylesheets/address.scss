@@ -37,6 +37,12 @@
       }
       .address-form{
         @include info-box;
+        &__notation{
+          @include notation;
+        }
+        .field_with_errors{
+          display: inline;
+        }
       }
       .prefecture{
         color: #333333;
@@ -48,12 +54,18 @@
         &__required{
           @include required;
         }
+        &__notation{
+          @include notation;
+        }
         select{
           @include textbox;
           line-height: 50px;
           background-color: white;
           width: 100%;
           cursor: pointer;
+        }
+        .field_with_errors{
+          display: inline;
         }
       }
       .arbitral-form{
