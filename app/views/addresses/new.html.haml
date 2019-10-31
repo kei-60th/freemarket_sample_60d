@@ -22,11 +22,19 @@
         = f.label :postcode, "郵便番号", class: "address-form__label"
         %span.address-form__required
           必須
+        .address-form__notation
+          - if @validate_error
+            - @address.errors[:postcode].each do |notation|
+              = notation
         = f.text_field :postcode, class: 'address-form__text', placeholder: '例) 123-4567'
       .prefecture
         = f.label "都道府県", class: 'prefecture__label'
         %span.prefecture__required
           必須
+        .prefecture__notation
+          - if @validate_error
+            - @address.errors[:prefecture_id].each do |notation|
+              = notation
         %select{name: "prefecture_id"}
           %option{value: ""}
             = "--"
@@ -37,11 +45,19 @@
         = f.label :city, "市区町村", class: "address-form__label"
         %span.address-form__required
           必須
+        .address-form__notation
+          - if @validate_error
+            - @address.errors[:city].each do |notation|
+              = notation
         = f.text_field :city, class: 'address-form__text', placeholder: '例) 市区町村'
       .address-form
         = f.label :address, "番地", class: "address-form__label"
         %span.address-form__required
           必須
+        .address-form__notation
+          - if @validate_error
+            - @address.errors[:address].each do |notation|
+              = notation
         = f.text_field :address, class: 'address-form__text', placeholder: '例) 番地'
       .arbitral-form
         = f.label :building_name, "建物名", class: "arbitral-form__label"

@@ -8,22 +8,35 @@
         = f.label :nickname, "ニックネーム", class: "nickname__label"
         %span.nickname__required
           必須
+        .nickname__notation
+          - if @validate_error
+            - @user.errors[:nickname].each do |notation|
+              = notation
         = f.text_field :nickname, class: 'nickname__text', placeholder: '例)メルカリ太郎'
       .form-box
         = f.label :email, "メールアドレス", class:'form-box__label'
         %span.form-box__required
           必須
+        .form-box__notation
+          - if @validate_error
+            = @user.errors[:email][1]
         = f.email_field :email, class: 'form-box__text', placeholder: 'PC・携帯どちらでも可'
       - if session["devise.sns_id"].blank?
         .form-box
           = f.label :password, "パスワード", class: 'form-box__label'
           %span.form-box__required
             必須
+          .form-box__notation
+          - if @validate_error
+            - @user.errors[:password][1]
           = f.password_field :password, class: 'form-box__text', placeholder: '7文字以上'
-        .form-box
+          .form-box
           = f.label :password_confirmation, "パスワード(確認)", class: 'form-box__label'
           %span.form-box__required
             必須
+          .form-box__notation
+            - if @validate_error
+              - @user.errors[:password][1]
           = f.password_field :password_confirmation, class: 'form-box__text', placeholder: '7文字以上'
       - else
         = f.hidden_field :password
@@ -37,6 +50,12 @@
         = f.label "お名前(全角)", class: "user-name__label"
         %span.user-name__required
           必須
+        .user-name__notation
+          - if @validate_error
+            - if @user.errors[:first_name][0]
+              = @user.errors[:first_name][0]
+            - else
+              = @user.errors[:last_name][0]
         .box
           = f.text_field :last_name, class: 'box__text', placeholder: '例) 山田'
           = f.text_field :first_name , class: 'box__text', placeholder: '例) 彩'
@@ -44,6 +63,12 @@
         = f.label "お名前カナ(全角)", class: 'user-name__label'
         %span.user-name__required
           必須
+        .user-name__notation
+          - if @validate_error
+            - if @user.errors[:first_name_kana]
+              = @user.errors[:first_name_kana][0]
+            - else
+              = @user.errors[:last_name_kana][0]
         .box
           = f.text_field :last_name_kana , class: 'box__text', placeholder: '例) ヤマダ'
           = f.text_field :first_name_kana , class: 'box__text', placeholder: '例) アヤ'
@@ -51,6 +76,14 @@
         = f.label "生年月日", class: 'birthday__label'
         %span.birthday__required
           必須
+        .birthday__notation
+          - if @validate_error
+            - if @user.errors[:birth_year][0]
+              = @user.errors[:birth_year][0]
+            - elsif @user.errors[:birth_month][0]
+              = @user.errors[:birth_month][0]
+            - else
+              = @user.errors[:birth_day][0]
         .box
           %select{name: "birth_year"}
             %option{value: ""}
