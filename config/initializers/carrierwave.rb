@@ -26,8 +26,8 @@ CarrierWave.configure do |config|
       aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key],
       region: 'ap-northeast-1'
     }
-    config.fog_directory  = 'mercari60d'
-    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/mercari60d'
+    config.fog_directory  = 'freemarketsample60d2'
+    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freemarketsample60d2'
   else
     config.storage :file
     config.enable_processing = false if Rails.env.test?
