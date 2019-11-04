@@ -55,7 +55,7 @@ set :rbenv_ruby, '2.5.1'
 
 # どの公開鍵を利用してデプロイするか
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/freemarketSample60d.pem']
+                  keys: ['~/.ssh/mercaricopy60d.pem']
 
 set :linked_files, fetch(:linked_files, []).push("config/master.key")
 
